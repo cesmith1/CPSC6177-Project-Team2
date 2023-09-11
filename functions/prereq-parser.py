@@ -18,14 +18,8 @@ with open('../PrerequisiteGraph-Software_Systems2019-2020.pdf', 'rb') as file:
     # extracting text from page
     text = page.extractText()
 
-
 print("RAW OUTPUT:")
 print(text)
-
-#PART 2 -----
-#Use regular expressions to identify and extract course details.
-#Organize the extracted details into a structured format.
-#Save the structured data to a JSON file.
 
 # Sample data from the PDF
 data = text
@@ -39,10 +33,10 @@ courses = []
 
 for match in matches:
     course_code = match[0]
-    course_name = match[1].strip()
-    semesters_offered = re.findall(r"Fa|Sp|Su", match[1] + match[2])  # Search in both course_name and the matched semester string
+    course_name = match[1].replace('\n', ' ').strip()  # Replace \n with space
+    semesters_offered = re.findall(r"Fa|Sp|Su|--", match[1] + match[2])  # Search in both course_name and the matched semester string
 
-    # Remove the semesters from the course name
+    # Remove the semesters and '--' from the course name
     for semester in semesters_offered:
         course_name = course_name.replace(semester, "").strip()
 
