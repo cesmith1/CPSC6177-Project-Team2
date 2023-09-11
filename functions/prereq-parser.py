@@ -1,27 +1,23 @@
-#TO DO:
-#Import PDF -> extract text -> parse courses, then store courses in local JSON
-
-#PART 2:
-#Use regular expressions to identify and extract course details.
-#Organize the extracted details into a structured format.
-#Save the structured data to a JSON file.
-
-
 # importing required modules
 import os
-from PyPDF2 import PdfReader
-  
+import re
+import json
+from PyPDF4 import PdfFileReader
+
 # creating a pdf reader object
-reader = PdfReader('../PrerequisiteGraph-Software_Systems2019-2020.pdf')
-  
-# printing number of pages in pdf file
-print("Number of pages detected:",len(reader.pages))
-  
-# getting a specific page from the pdf file
-page = reader.pages[0]
-  
-# extracting text from page
-text = page.extract_text()
+os.chdir(os.path.dirname(os.path.abspath(__file__)))
+with open('../PrerequisiteGraph-Software_Systems2019-2020.pdf', 'rb') as file:
+    reader = PdfFileReader(file)
+
+    # printing number of pages in pdf file
+    print("Number of pages detected:", reader.numPages)
+
+    # getting a specific page from the pdf file
+    page = reader.getPage(0)
+
+    # extracting text from page
+    text = page.extractText()
+
 
 print("RAW OUTPUT:")
 print(text)
@@ -30,9 +26,6 @@ print(text)
 #Use regular expressions to identify and extract course details.
 #Organize the extracted details into a structured format.
 #Save the structured data to a JSON file.
-
-import re
-import json
 
 # Sample data from the PDF
 data = text
@@ -47,7 +40,11 @@ courses = []
 for match in matches:
     course_code = match[0]
     course_name = match[1].strip()
-    semesters_offered = re.findall(r"Fa|Sp|Su", match[2])
+    semesters_offered = re.findall(r"Fa|Sp|Su", match[1] + match[2])  # Search in both course_name and the matched semester string
+
+    # Remove the semesters from the course name
+    for semester in semesters_offered:
+        course_name = course_name.replace(semester, "").strip()
 
     course = {
         "Rubric Number": course_code,
@@ -57,9 +54,8 @@ for match in matches:
     courses.append(course)
 
 # Save to JSON file
-with open('data/prereqs.json', 'w') as json_file:
+with open('../data/prereqs.json', 'w') as json_file:
     json.dump(courses, json_file, indent=4)
-
 
 print()
 print("Prerequisites parsed & saved to prereqs.json file in the data folder")
