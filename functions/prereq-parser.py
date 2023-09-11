@@ -34,9 +34,9 @@ courses = []
 for match in matches:
     course_code = match[0]
     course_name = match[1].replace('\n', ' ').strip()  # Replace \n with space
-    semesters_offered = re.findall(r"Fa|Sp|Su|--", match[1] + match[2])  # Search in both course_name and the matched semester string
+    semesters_offered = re.findall(r"Fa|Sp|Su|--|\?\?", match[1] + match[2])  # Search in both course_name and the matched semester string
 
-    # Remove the semesters and '--' from the course name
+    # Remove the semesters, '--', and '??' from the course name
     for semester in semesters_offered:
         course_name = course_name.replace(semester, "").strip()
 
