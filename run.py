@@ -17,7 +17,7 @@ def main():
     elif choice == 'b':
         print("b selected")
     elif choice == 'c':
-        print("c selected")        
+        os.system(f"python3 functions/get_class_schedule.py")        
     else:
         print("Invalid choice. Exiting...")
 
