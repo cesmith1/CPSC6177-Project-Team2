@@ -12,7 +12,7 @@ def main():
     choice = input("Enter your choice: ").strip().lower()
 
     if choice == 'a':
-        username = input("Press enter to run parser for prereq. courses : ").strip()
+        #username = input("Press enter to run parser for prereq. courses : ").strip()
         os.system(f"python3 functions/prereq-parser.py")
     elif choice == 'b':
         print("b selected")
