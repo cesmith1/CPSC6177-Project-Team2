@@ -1,0 +1,168 @@
+[
+    {
+        "Rubric Number": "MATH 1113",
+        "Course Name": "Pre-Calculus",
+        "Semesters Offered": [
+            "Fa",
+            "Sp",
+            "Su"
+        ]
+    },
+    {
+        "Rubric Number": "MATH 2125",
+        "Course Name": "Intro to Discrete Math",
+        "Semesters Offered": [
+            "Fa",
+            "Sp",
+            "Su"
+        ]
+    },
+    {
+        "Rubric Number": "CPSC 2105",
+        "Course Name": "Computer Organization",
+        "Semesters Offered": [
+            "Fa",
+            "Sp",
+            "Su"
+        ]
+    },
+    {
+        "Rubric Number": "CYBR 2106",
+        "Course Name": "Intro to Information Security",
+        "Semesters Offered": [
+            "Fa",
+            "Sp",
+            "Su"
+        ]
+    },
+    {
+        "Rubric Number": "CYBR 2159",
+        "Course Name": "Fundamentals of Computer Networking",
+        "Semesters Offered": [
+            "Fa",
+            "Sp",
+            "--"
+        ]
+    },
+    {
+        "Rubric Number": "CPSC 2108",
+        "Course Name": "Data Structures",
+        "Semesters Offered": [
+            "Fa",
+            "Sp",
+            "Su"
+        ]
+    },
+    {
+        "Rubric Number": "CPSC 3131",
+        "Course Name": "Database Systems I",
+        "Semesters Offered": [
+            "Fa",
+            "Sp",
+            "--"
+        ]
+    },
+    {
+        "Rubric Number": "CPSC 3125",
+        "Course Name": "Operating Systems",
+        "Semesters Offered": [
+            "Fa",
+            "Sp",
+            "--"
+        ]
+    },
+    {
+        "Rubric Number": "CPSC 3121",
+        "Course Name": "Assembly I",
+        "Semesters Offered": [
+            "--",
+            "Sp",
+            "--"
+        ]
+    },
+    {
+        "Rubric Number": "CPSC 5157",
+        "Course Name": "Computer Networks",
+        "Semesters Offered": [
+            "Fa",
+            "--",
+            "Su"
+        ]
+    },
+    {
+        "Rubric Number": "MATH 5125",
+        "Course Name": "Discrete Math",
+        "Semesters Offered": [
+            "Fa",
+            "Sp",
+            "Su"
+        ]
+    },
+    {
+        "Rubric Number": "CPSC 3175",
+        "Course Name": "Object-Oriented Design",
+        "Semesters Offered": [
+            "Fa",
+            "Sp",
+            "--"
+        ]
+    },
+    {
+        "Rubric Number": "CPSC 3165",
+        "Course Name": "Professionalism in Computing",
+        "Semesters Offered": [
+            "Fa",
+            "Sp",
+            "Su"
+        ]
+    },
+    {
+        "Rubric Number": "CPSC 4175",
+        "Course Name": "Software Engineering",
+        "Semesters Offered": [
+            "Fa",
+            "--",
+            "--"
+        ]
+    },
+    {
+        "Rubric Number": "CPSC 5135",
+        "Course Name": "Programming Languages",
+        "Semesters Offered": [
+            "--",
+            "Sp",
+            "--"
+        ]
+    },
+    {
+        "Rubric Number": "CPSC 4000",
+        "Course Name": "Baccalaureate rvey",
+        "Semesters Offered": [
+            "Su",
+            "Fa",
+            "Sp",
+            "Su"
+        ]
+    },
+    {
+        "Rubric Number": "CPSC 5155",
+        "Course Name": "Computer Architecture",
+        "Semesters Offered": [
+            "Fa",
+            "--",
+            "--"
+        ]
+    },
+    {
+        "Rubric Number": "CPSC 5128",
+        "Course Name": "Theory of Computation     Rubric Number Course name ll ring",
+        "Semesters Offered": [
+            "--",
+            "Sp",
+            "--",
+            "Fa",
+            "Sp",
+            "Su"
+        ]
+    }
+]
