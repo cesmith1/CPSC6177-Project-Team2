@@ -11,11 +11,36 @@ class PrereqDAG:
     def __init__(self, jsonArray):
         self.dagDict = {}
         for node in jsonArray:
-            self.dagDict[node["Rubric Number"]] = DAGClass(node["Course Name"], node["Semesters Offered"], node["Children"], node["Other Reqs"])
+            # Adding an additional number at the end of duplicate rubric nums (starting with 1)
+            key = node["Rubric Number"]
+            n = 0
+            while key in self.dagDict:
+                n += 1
+                key += " " + str(n)
+            self.dagDict[key] = DAGClass(node["Course Name"], node["Semesters Offered"], node["Children"], node["Other Reqs"])
         
-    # Function to return the list of "Rubric Number" in topologically sorted order
+    # Recursive sort method    
+    def _recurTopoSort(self, v, visited, sorted, completed):
+        visited[v] = True
+        for u in self.dagDict[v].children:
+            if visited[u] == False:
+                self._recurTopoSort(u, visited, sorted, completed)
+        # Don't add courses that are already completed
+        if v not in completed:
+            sorted.insert(0,v)
+
+    # Function to return the list of "Rubric Number" in topologically sorted order.
+    # Courses that are already completed will not be added to the result
+    # Args: completedRubricNumbers - A list of already completed rubric nums
     def topoSort(self, completedRubricNumbers):
+        visited = {}
+        for k in self.dagDict:
+            visited[k] = False
         sorted = []
+
+        for v in self.dagDict:
+            if visited[v] == False:
+                self._recurTopoSort(v, visited, sorted, completedRubricNumbers)
         #TODO implement TopoSort
         return sorted
 
