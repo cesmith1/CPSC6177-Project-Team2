@@ -19,7 +19,7 @@ class PrereqDAG:
                 key += " " + str(n)
             self.dagDict[key] = DAGClass(node["Course Name"], node["Semesters Offered"], node["Children"], node["Other Reqs"])
         
-    # Recursive sort method    
+    # Private helper function - recursive topological sort of stored prereqs DAG.   
     def _recurTopoSort(self, v, visited, sorted, completed):
         visited[v] = True
         for u in self.dagDict[v].children:
@@ -29,7 +29,7 @@ class PrereqDAG:
         if v not in completed:
             sorted.insert(0,v)
 
-    # Function to return the list of "Rubric Number" in topologically sorted order.
+    # Returns the list of "Rubric Number" in topologically sorted order.
     # Courses that are already completed will not be added to the result
     # Args: completedRubricNumbers - A list of already completed rubric nums
     def topoSort(self, completedRubricNumbers):
@@ -41,8 +41,24 @@ class PrereqDAG:
         for v in self.dagDict:
             if visited[v] == False:
                 self._recurTopoSort(v, visited, sorted, completedRubricNumbers)
-        #TODO implement TopoSort
         return sorted
+    
+    # Private helper function - recursive search for prereqs of a given class.
+    # Results are stored in prereqs variable as a list of rubric numbers.   
+    def _recurGetPrereqs(self, rubricNum, prereqs):
+        for parentNum, parentData in self.dagDict.items():
+            if rubricNum in parentData.children:
+                self._recurGetPrereqs(parentNum, prereqs)
+                if parentNum not in prereqs:
+                    prereqs.append(parentNum)
+    
+    # Get a list of all prereqs for a given class
+    # Args: rubricNum - The rubric number (eg. CPSC 2108) to get the prereqs for
+    def getPrereqs(self, rubricNum):
+        prereqs = []
+        self._recurGetPrereqs(rubricNum, prereqs)
+        return prereqs
+
 
     # Rewriten string writer for pretty printing of the dictionary (not topologically sorted)
     def __str__(self):
