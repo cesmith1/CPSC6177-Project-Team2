@@ -1,4 +1,4 @@
-# Module containing the data structures for the prereq DAG. May rename and add other data structures (schedule and degreeworks) later.
+# Module containing the data structures for the prereq DAG.
 
 # Class for each node in the dictionary "Rubric Number":{class object}
 class DAGClass:
