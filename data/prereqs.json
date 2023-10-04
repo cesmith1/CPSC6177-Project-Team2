@@ -6,7 +6,27 @@
             "Fa",
             "Sp",
             "Su"
-        ]
+        ],
+        "Children": [
+            "MATH 2125"
+        ],
+        "Other Reqs": []
+    },
+    {
+        "Rubric Number": "CPSC 1301K",
+        "Course Name": "Computer Science 1",
+        "Semesters Offered": [
+            "Fa",
+            "Sp",
+            "Su"
+        ],
+        "Children": [
+            "CPSC 1302",
+            "CYBR 2159",
+            "CYBR 2106",
+            "CPSC 2105"
+        ],
+        "Other Reqs": []
     },
     {
         "Rubric Number": "MATH 2125",
@@ -15,7 +35,26 @@
             "Fa",
             "Sp",
             "Su"
-        ]
+        ],
+        "Children": [
+            "MATH 5125",
+            "CPSC 2108"
+        ],
+        "Other Reqs": []
+    },
+    {
+        "Rubric Number": "CPSC 1302",
+        "Course Name": "Computer Science 2",
+        "Semesters Offered": [
+            "Fa",
+            "Sp",
+            "Su"
+        ],
+        "Children": [
+            "CPSC 2108",
+            "CPSC 3131"
+        ],
+        "Other Reqs": []
     },
     {
         "Rubric Number": "CPSC 2105",
@@ -24,25 +63,26 @@
             "Fa",
             "Sp",
             "Su"
-        ]
+        ],
+        "Children": [
+            "CPSC 3125",
+            "CPSC 3121"
+        ],
+        "Other Reqs": []
     },
     {
-        "Rubric Number": "CYBR 2106",
-        "Course Name": "Intro to Information Security",
+        "Rubric Number": "MATH 5125",
+        "Course Name": "Discrete Math",
         "Semesters Offered": [
             "Fa",
             "Sp",
             "Su"
-        ]
-    },
-    {
-        "Rubric Number": "CYBR 2159",
-        "Course Name": "Fundamentals of Computer Networking",
-        "Semesters Offered": [
-            "Fa",
-            "Sp",
-            "--"
-        ]
+        ],
+        "Children": [
+            "CPSC 5115",
+            "CPSC 2108"
+        ],
+        "Other Reqs": []
     },
     {
         "Rubric Number": "CPSC 2108",
@@ -51,16 +91,53 @@
             "Fa",
             "Sp",
             "Su"
-        ]
+        ],
+        "Children": [
+            "CPSC 5115",
+            "CPSC 5157",
+            "CPSC 3175",
+            "CPSC 3125"
+        ],
+        "Other Reqs": []
     },
     {
-        "Rubric Number": "CPSC 3131",
-        "Course Name": "Database Systems I",
+        "Rubric Number": "CYBR 2159",
+        "Course Name": "Fundamentals of Computer Networking",
         "Semesters Offered": [
             "Fa",
             "Sp",
             "--"
-        ]
+        ],
+        "Children": [
+            "CPSC 5157",
+            "CYBR 2106"
+        ],
+        "Other Reqs": []
+    },
+    {
+        "Rubric Number": "CPSC 3175",
+        "Course Name": "Object-Oriented Design",
+        "Semesters Offered": [
+            "Fa",
+            "Sp",
+            "--"
+        ],
+        "Children": [
+            "CPSC 5135",
+            "CPSC 4175"
+        ],
+        "Other Reqs": []
+    },
+    {
+        "Rubric Number": "CYBR 2106",
+        "Course Name": "Intro to Information Security",
+        "Semesters Offered": [
+            "Fa",
+            "Sp",
+            "Su"
+        ],
+        "Children": [],
+        "Other Reqs": []
     },
     {
         "Rubric Number": "CPSC 3125",
@@ -69,6 +146,54 @@
             "Fa",
             "Sp",
             "--"
+        ],
+        "Children": [],
+        "Other Reqs": []
+    },
+    {
+        "Rubric Number": "CPSC 3131",
+        "Course Name": "Database Systems I",
+        "Semesters Offered": [
+            "Fa",
+            "Sp",
+            "--"
+        ],
+        "Children": [],
+        "Other Reqs": []
+    },
+    {
+        "Rubric Number": "CPSC 3000+",
+        "Course Name": "Technical Elective",
+        "Semesters Offered": [
+            "Fa",
+            "Sp",
+            "??"
+        ],
+        "Children": [],
+        "Other Reqs": []
+    },
+    {
+        "Rubric Number": "CPSC 5135",
+        "Course Name": "Programming Languages",
+        "Semesters Offered": [
+            "--",
+            "Sp",
+            "--"
+        ],
+        "Children": [],
+        "Other Reqs": []
+    },
+    {
+        "Rubric Number": "CPSC 3165",
+        "Course Name": "Professionalism in Computing",
+        "Semesters Offered": [
+            "Fa",
+            "Sp",
+            "Su"
+        ],
+        "Children": [],
+        "Other Reqs": [
+            "jr/sr"
         ]
     },
     {
@@ -78,43 +203,24 @@
             "--",
             "Sp",
             "--"
-        ]
+        ],
+        "Children": [
+            "CPSC 5155"
+        ],
+        "Other Reqs": []
     },
     {
-        "Rubric Number": "CPSC 5157",
-        "Course Name": "Computer Networks",
+        "Rubric Number": "CPSC 5115",
+        "Course Name": "Algorithm Analysis & Design",
         "Semesters Offered": [
             "Fa",
             "--",
-            "Su"
-        ]
-    },
-    {
-        "Rubric Number": "MATH 5125",
-        "Course Name": "Discrete Math",
-        "Semesters Offered": [
-            "Fa",
-            "Sp",
-            "Su"
-        ]
-    },
-    {
-        "Rubric Number": "CPSC 3175",
-        "Course Name": "Object-Oriented Design",
-        "Semesters Offered": [
-            "Fa",
-            "Sp",
             "--"
-        ]
-    },
-    {
-        "Rubric Number": "CPSC 3165",
-        "Course Name": "Professionalism in Computing",
-        "Semesters Offered": [
-            "Fa",
-            "Sp",
-            "Su"
-        ]
+        ],
+        "Children": [
+            "CPSC 5128"
+        ],
+        "Other Reqs": []
     },
     {
         "Rubric Number": "CPSC 4175",
@@ -123,26 +229,22 @@
             "Fa",
             "--",
             "--"
-        ]
+        ],
+        "Children": [
+            "CPSC 4176"
+        ],
+        "Other Reqs": []
     },
     {
-        "Rubric Number": "CPSC 5135",
-        "Course Name": "Programming Languages",
+        "Rubric Number": "CPSC 5157",
+        "Course Name": "Computer Networks",
         "Semesters Offered": [
-            "--",
-            "Sp",
-            "--"
-        ]
-    },
-    {
-        "Rubric Number": "CPSC 4000",
-        "Course Name": "Baccalaureate rvey",
-        "Semesters Offered": [
-            "Su",
             "Fa",
-            "Sp",
+            "--",
             "Su"
-        ]
+        ],
+        "Children": [],
+        "Other Reqs": []
     },
     {
         "Rubric Number": "CPSC 5155",
@@ -151,18 +253,54 @@
             "Fa",
             "--",
             "--"
-        ]
+        ],
+        "Children": [],
+        "Other Reqs": []
     },
     {
         "Rubric Number": "CPSC 5128",
-        "Course Name": "Theory of Computation     Rubric Number Course name ll ring",
+        "Course Name": "Theory of Computation",
         "Semesters Offered": [
             "--",
             "Sp",
+            "--"
+        ],
+        "Children": [],
+        "Other Reqs": []
+    },
+    {
+        "Rubric Number": "CPSC 4176",
+        "Course Name": "Senior Software Eng. Project",
+        "Semesters Offered": [
             "--",
+            "Sp",
+            "--"
+        ],
+        "Children": [],
+        "Other Reqs": []
+    },
+    {
+        "Rubric Number": "CPSC 4000",
+        "Course Name": "Baccalaureate Survey",
+        "Semesters Offered": [
             "Fa",
             "Sp",
             "Su"
+        ],
+        "Children": [],
+        "Other Reqs": [
+            "last semester"
         ]
+    },
+    {
+        "Rubric Number": "CPSC 3000+",
+        "Course Name": "Technical Elective",
+        "Semesters Offered": [
+            "Fa",
+            "Sp",
+            "??"
+        ],
+        "Children": [],
+        "Other Reqs": []
     }
 ]
