@@ -7,3 +7,5 @@ Welcome to the repo that contains the Python code for the CPSC6177 semester proj
 # Resources
 - [Python 3.11.5](https://www.python.org/downloads/release/python-3115/)
 - [Git CLI](https://git-scm.com/downloads) (feel free to install a GUI as well if you need/want it)
+
+this is test
