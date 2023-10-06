@@ -1,7 +1,12 @@
 beautifulsoup4==4.12.2
 certifi==2023.7.22
+cffi==1.16.0
 charset-normalizer==3.2.0
+cryptography==41.0.4
 idna==3.4
+pdfminer.six==20221105
+pycparser==2.21
+PyPDF4==1.27.0
 requests==2.31.0
 soupsieve==2.5
 urllib3==2.0.4
