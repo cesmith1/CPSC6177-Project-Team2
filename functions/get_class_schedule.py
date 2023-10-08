@@ -146,9 +146,43 @@ for year, semesters in schedule.items():
                             course['courseName'] = [i["courseName"] for i in courses]
 
 
-print(schedule)
+# print(schedule)
 
-json_object = json.dumps(schedule, indent=4)
+formatted_schedule = {
+    "First Year": {"Fall": [], "Spring": []},
+    "Second Year": {"Fall": [], "Spring": []},
+    "Third Year": {"Fall": [], "Spring": []},
+    "Fourth Year": {"Fall": [], "Spring": []},
+}
+
+for year, semesters in formatted_schedule.items():
+
+    for s, l in semesters.items():
+
+        for course in schedule[year][s]:
+            if type(course['courseCode']) is not list:
+                l.append(
+                    {
+                        "courses": [
+                            {
+                                "code": course['courseCode'],
+                                "name": course['courseName']
+                            }
+                        ],
+                        "courseCredit": course['courseCredit']
+                    }
+                )
+            else:
+                l.append(
+                        {
+                            "courses": [ {"code": c, "name": course['courseName'][i]} for i, c in enumerate(course['courseCode']) ],
+                            "courseCredit": course['courseCredit']
+                        }
+                    )  
+
+# print(formatted_schedule)
+
+json_object = json.dumps(formatted_schedule, indent=4)
 os.chdir(os.path.dirname(os.path.abspath(__file__)))
 with open("../data/class_schedule.json", 'w') as scheduleFile:
     scheduleFile.write(json_object)
