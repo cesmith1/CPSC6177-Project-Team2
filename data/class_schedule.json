@@ -22,11 +22,11 @@
             {
                 "courses": [
                     {
-                        "code": "COMM 1110 Public Speaking ",
-                        "name": "COMM 1110 Public Speaking "
+                        "code": "COMM 1110",
+                        "name": "COMM 1110 Public Speaking"
                     },
                     {
-                        "code": "foreign language 1001, 1002, 2001, 2002",
+                        "code": "foreign language",
                         "name": "foreign language 1001, 1002, 2001, 2002"
                     }
                 ],
@@ -44,8 +44,12 @@
             {
                 "courses": [
                     {
-                        "code": "KINS 1106OR PHED 1205",
-                        "name": "Lifetime Wellnessor Concepts of Fitness"
+                        "code": "KINS 1106",
+                        "name": "Lifetime Wellness"
+                    },
+                    {
+                        "code": "PHED 1205",
+                        "name": "Concepts of Fitness"
                     }
                 ],
                 "courseCredit": "2"
@@ -201,15 +205,15 @@
             {
                 "courses": [
                     {
-                        "code": "ASTR 1105& ASTR 1305",
+                        "code": "ASTR 1105 & ASTR 1305",
                         "name": "Descriptive Astronomy: The Solar Systemand Descriptive Astronomy Lab (lab optional)"
                     },
                     {
-                        "code": "ASTR 1106& ASTR 1305",
+                        "code": "ASTR 1106 & ASTR 1305",
                         "name": "Descriptive Astronomy: Stars and Galaxiesand Descriptive Astronomy Lab"
                     },
                     {
-                        "code": "ATSC 1112& 1112L",
+                        "code": "ATSC 1112 & 1112L",
                         "name": "Understanding the Weatherand Understanding the Weather Lab"
                     },
                     {
@@ -221,23 +225,23 @@
                         "name": "Contemporary Issues in Biology with Lab (lab included)"
                     },
                     {
-                        "code": "CHEM 1151& 1151L",
+                        "code": "CHEM 1151 & 1151L",
                         "name": "Survey of Chemistry Iand Survey of Chemistry I Lab"
                     },
                     {
-                        "code": "CHEM 1152& 1152L",
+                        "code": "CHEM 1152 & 1152L",
                         "name": "Survey of Chemistry IIand Survey of Chemistry II Lab"
                     },
                     {
-                        "code": "CHEM 1211& 1211L",
+                        "code": "CHEM 1211 & 1211L",
                         "name": "Principles of Chemistry Iand Principles of Chemistry I Lab"
                     },
                     {
-                        "code": "CHEM 1212& 1212L",
+                        "code": "CHEM 1212 & 1212L",
                         "name": "Principles of Chemistry IIand Principles of Chemistry II Lab"
                     },
                     {
-                        "code": "ENVS 1105& 1105L",
+                        "code": "ENVS 1105 & 1105L",
                         "name": "Environmental Studiesand Environmental Studies Laboratory (lab optional)"
                     },
                     {
@@ -245,11 +249,11 @@
                         "name": "Sustainability and the Environment"
                     },
                     {
-                        "code": "GEOL 1121& 1121L",
+                        "code": "GEOL 1121 & 1121L",
                         "name": "Introductory Geoscience I: Physical Geologyand Introductory Geoscience I: Physical Geology Lab"
                     },
                     {
-                        "code": "GEOL 1122& GEOL 1322",
+                        "code": "GEOL 1122 & GEOL 1322",
                         "name": "Introductory Geo-sciences II: Historical Geologyand Introductory Geo-sciences II: Historical Geology Lab"
                     },
                     {
@@ -257,23 +261,23 @@
                         "name": "The Fossil Record (lab included)"
                     },
                     {
-                        "code": "PHYS 1111& PHYS 1311",
+                        "code": "PHYS 1111 & PHYS 1311",
                         "name": "Introductory Physics Iand Introductory Physics I Lab"
                     },
                     {
-                        "code": "PHYS 1112& PHYS 1312",
+                        "code": "PHYS 1112 & PHYS 1312",
                         "name": "Introductory Physics IIand Introductory Physics II Lab"
                     },
                     {
-                        "code": "PHYS 1125& PHYS 1325",
+                        "code": "PHYS 1125 & PHYS 1325",
                         "name": "Physics of Color and Soundand Physics of Color and Sound Lab (lab optional)"
                     },
                     {
-                        "code": "PHYS 2211& PHYS 2311",
+                        "code": "PHYS 2211 & PHYS 2311",
                         "name": "Principles of Physics Iand Principles of Physics I Lab"
                     },
                     {
-                        "code": "PHYS 2212& PHYS 2312",
+                        "code": "PHYS 2212 & PHYS 2312",
                         "name": "Principles of Physics IIand Principles of Physics II Lab"
                     }
                 ],
@@ -311,8 +315,12 @@
             {
                 "courses": [
                     {
-                        "code": "HIST 2111OR HIST 2112",
-                        "name": "U. S. History to 1865or U. S. History since 1865"
+                        "code": "HIST 2111",
+                        "name": "U. S. History to 1865"
+                    },
+                    {
+                        "code": "HIST 2112",
+                        "name": "U. S. History since 1865"
                     }
                 ],
                 "courseCredit": "3"
@@ -320,15 +328,15 @@
             {
                 "courses": [
                     {
-                        "code": "ASTR 1105& ASTR 1305",
+                        "code": "ASTR 1105 & ASTR 1305",
                         "name": "Descriptive Astronomy: The Solar Systemand Descriptive Astronomy Lab (lab optional)"
                     },
                     {
-                        "code": "ASTR 1106& ASTR 1305",
+                        "code": "ASTR 1106 & ASTR 1305",
                         "name": "Descriptive Astronomy: Stars and Galaxiesand Descriptive Astronomy Lab"
                     },
                     {
-                        "code": "ATSC 1112& 1112L",
+                        "code": "ATSC 1112 & 1112L",
                         "name": "Understanding the Weatherand Understanding the Weather Lab"
                     },
                     {
@@ -340,23 +348,23 @@
                         "name": "Contemporary Issues in Biology with Lab (lab included)"
                     },
                     {
-                        "code": "CHEM 1151& 1151L",
+                        "code": "CHEM 1151 & 1151L",
                         "name": "Survey of Chemistry Iand Survey of Chemistry I Lab"
                     },
                     {
-                        "code": "CHEM 1152& 1152L",
+                        "code": "CHEM 1152 & 1152L",
                         "name": "Survey of Chemistry IIand Survey of Chemistry II Lab"
                     },
                     {
-                        "code": "CHEM 1211& 1211L",
+                        "code": "CHEM 1211 & 1211L",
                         "name": "Principles of Chemistry Iand Principles of Chemistry I Lab"
                     },
                     {
-                        "code": "CHEM 1212& 1212L",
+                        "code": "CHEM 1212 & 1212L",
                         "name": "Principles of Chemistry IIand Principles of Chemistry II Lab"
                     },
                     {
-                        "code": "ENVS 1105& 1105L",
+                        "code": "ENVS 1105 & 1105L",
                         "name": "Environmental Studiesand Environmental Studies Laboratory (lab optional)"
                     },
                     {
@@ -364,11 +372,11 @@
                         "name": "Sustainability and the Environment"
                     },
                     {
-                        "code": "GEOL 1121& 1121L",
+                        "code": "GEOL 1121 & 1121L",
                         "name": "Introductory Geoscience I: Physical Geologyand Introductory Geoscience I: Physical Geology Lab"
                     },
                     {
-                        "code": "GEOL 1122& GEOL 1322",
+                        "code": "GEOL 1122 & GEOL 1322",
                         "name": "Introductory Geo-sciences II: Historical Geologyand Introductory Geo-sciences II: Historical Geology Lab"
                     },
                     {
@@ -376,23 +384,23 @@
                         "name": "The Fossil Record (lab included)"
                     },
                     {
-                        "code": "PHYS 1111& PHYS 1311",
+                        "code": "PHYS 1111 & PHYS 1311",
                         "name": "Introductory Physics Iand Introductory Physics I Lab"
                     },
                     {
-                        "code": "PHYS 1112& PHYS 1312",
+                        "code": "PHYS 1112 & PHYS 1312",
                         "name": "Introductory Physics IIand Introductory Physics II Lab"
                     },
                     {
-                        "code": "PHYS 1125& PHYS 1325",
+                        "code": "PHYS 1125 & PHYS 1325",
                         "name": "Physics of Color and Soundand Physics of Color and Sound Lab (lab optional)"
                     },
                     {
-                        "code": "PHYS 2211& PHYS 2311",
+                        "code": "PHYS 2211 & PHYS 2311",
                         "name": "Principles of Physics Iand Principles of Physics I Lab"
                     },
                     {
-                        "code": "PHYS 2212& PHYS 2312",
+                        "code": "PHYS 2212 & PHYS 2312",
                         "name": "Principles of Physics IIand Principles of Physics II Lab"
                     }
                 ],

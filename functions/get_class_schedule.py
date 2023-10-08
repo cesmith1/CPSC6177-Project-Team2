@@ -96,7 +96,7 @@ area_courses = {}
 
 # clean up / rearrange area-courses web results 
 for area, contents in results.items():
-    area_text = area[0:6].upper()    # AREA A
+    area_text = area[0:6].upper()    # e.g., AREA A
     content_keys = list(contents.keys())
 
     if len(content_keys) == 1:
@@ -118,9 +118,17 @@ for year, semesters in schedule.items():
             code = course['courseCode']
             name = course['courseName']
 
-            if code == "AREA B1":
-                course['courseCode'] = [i for i in course['courseName'].split("or ")]
+            if "OR " in code:
+                course['courseCode'] = [i for i in course['courseCode'].split("OR ")]
                 course['courseName'] = [i for i in course['courseName'].split("or ")]
+                continue
+
+            if code == "AREA B1":
+
+                course['courseCode'] = [i for i in course['courseName'].split(" or ")]
+                course['courseName'] = [i for i in course['courseName'].split(" or ")]
+                
+                course['courseCode'] =[ i[0 : i.find(' ', i.find(' ')+1)] for i in course['courseCode'] ]
                 continue
 
             if code == "AREA B2":
@@ -131,6 +139,8 @@ for year, semesters in schedule.items():
             if code == "AREA D":
                 course['courseCode'] = [i["courseCode"] for i in area_courses['AREA D D1:'] if "no lab" not in i["courseName"]]
                 course['courseName'] = [i["courseName"] for i in area_courses['AREA D D1:'] if "no lab" not in i["courseName"]]
+                
+                course['courseCode'] = [ i[0:i.index('&')] + " " + i[i.index('&'):] if '&' in i else i for i in course['courseCode']]
                 continue
 
             if isinstance(code, str) and code.startswith("AREA") and "I" not in code:
@@ -161,6 +171,7 @@ for year, semesters in formatted_schedule.items():
 
         for course in schedule[year][s]:
             if type(course['courseCode']) is not list:
+                
                 l.append(
                     {
                         "courses": [
