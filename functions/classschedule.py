@@ -41,6 +41,20 @@ class ClassSchedule:
             return self.yearList[year].semesters["Fall"]
         elif semester.lower() == "spring":
             return self.yearList[year].semesters["Spring"]
+
+    # Function to get the year and semester a course is in given its course code
+    # args: course code (eg. "CPSC 2108")
+    def getAvailability(self, courseCode):
+        available = {}
+        yearIndex = 1
+        for year in self.yearList:
+            for semester, reqs in  year.semesters.items():
+                for req in reqs:
+                    for course in req.courses:
+                        if courseCode.casefold() in course.code.casefold():
+                            available[f"Year {yearIndex}"] = semester
+        return available
+            
     
     def __str__(self):
         i = 0

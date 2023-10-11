@@ -57,7 +57,7 @@ class PrereqDAG:
     def getPrereqs(self, rubricNum):
         prereqs = []
         self._recurGetPrereqs(rubricNum, prereqs)
-        return prereqs
+        return self.topoSort(prereqs)
 
 
     # Rewriten string writer for pretty printing of the dictionary (not topologically sorted)
