@@ -12,6 +12,6 @@ file.close()
 
 file = open("../data/class_schedule.json", "r")
 schedule = ClassSchedule(json.load(file))
-print(schedule.getClasses(1,"Fall"))
+print(schedule.getRequirements(1,"Fall"))
 print(schedule)
 file.close()

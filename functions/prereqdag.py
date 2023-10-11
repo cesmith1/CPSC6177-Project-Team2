@@ -20,19 +20,19 @@ class PrereqDAG:
             self.dagDict[key] = DAGClass(node["Course Name"], node["Semesters Offered"], node["Children"], node["Other Reqs"])
         
     # Private helper function - recursive topological sort of stored prereqs DAG.   
-    def _recurTopoSort(self, v, visited, sorted, completed):
+    def _recurTopoSort(self, v, visited, sorted, incomplete):
         visited[v] = True
         for u in self.dagDict[v].children:
             if visited[u] == False:
-                self._recurTopoSort(u, visited, sorted, completed)
+                self._recurTopoSort(u, visited, sorted, incomplete)
         # Don't add courses that are already completed
-        if v not in completed:
+        if v in incomplete:
             sorted.insert(0,v)
 
     # Returns the list of "Rubric Number" in topologically sorted order.
     # Courses that are already completed will not be added to the result
-    # Args: completedRubricNumbers - A list of already completed rubric nums
-    def topoSort(self, completedRubricNumbers):
+    # Args: incompleteRubricNumbers - A list of course rubric nums not yet completed.
+    def topoSort(self, incompleteRubricNumbers):
         visited = {}
         for k in self.dagDict:
             visited[k] = False
@@ -40,7 +40,7 @@ class PrereqDAG:
 
         for v in self.dagDict:
             if visited[v] == False:
-                self._recurTopoSort(v, visited, sorted, completedRubricNumbers)
+                self._recurTopoSort(v, visited, sorted, incompleteRubricNumbers)
         return sorted
     
     # Private helper function - recursive search for prereqs of a given class.
