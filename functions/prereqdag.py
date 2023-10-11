@@ -25,7 +25,7 @@ class PrereqDAG:
         for u in self.dagDict[v].children:
             if visited[u] == False:
                 self._recurTopoSort(u, visited, sorted, incomplete)
-        # Don't add courses that are already completed
+        # Only add courses that are explicitely incomplete
         if v in incomplete:
             sorted.insert(0,v)
 
