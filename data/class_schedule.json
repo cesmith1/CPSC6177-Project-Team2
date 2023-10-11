@@ -2,192 +2,738 @@
     "First Year": {
         "Fall": [
             {
-                "courseCode": "ENGL 1101",
-                "courseName": "English Composition I (minimum grade of C)"
+                "courses": [
+                    {
+                        "code": "ENGL 1101",
+                        "name": "English Composition I (minimum grade of C)"
+                    }
+                ],
+                "courseCredit": "3"
             },
             {
-                "courseCode": "MATH 1113",
-                "courseName": "Pre-Calculus (minimum grade of C)"
+                "courses": [
+                    {
+                        "code": "MATH 1113",
+                        "name": "Pre-Calculus (minimum grade of C)"
+                    }
+                ],
+                "courseCredit": "4"
             },
             {
-                "courseCode": "Area B1",
-                "courseName": "COMM 1110 Public Speaking or foreign language 1001, 1002, 2001, 2002"
+                "courses": [
+                    {
+                        "code": "COMM 1110",
+                        "name": "COMM 1110 Public Speaking"
+                    },
+                    {
+                        "code": "foreign language",
+                        "name": "foreign language 1001, 1002, 2001, 2002"
+                    }
+                ],
+                "courseCredit": "3"
             },
             {
-                "courseCode": "CPSC 1301K",
-                "courseName": "Computer Science I (minimum grade of C)"
+                "courses": [
+                    {
+                        "code": "CPSC 1301K",
+                        "name": "Computer Science I (minimum grade of C)"
+                    }
+                ],
+                "courseCredit": "4"
             },
             {
-                "courseCode": "KINS 1106 or PHED 1205",
-                "courseName": "Lifetime Wellnessor Concepts of Fitness"
+                "courses": [
+                    {
+                        "code": "KINS 1106",
+                        "name": "Lifetime Wellness"
+                    },
+                    {
+                        "code": "PHED 1205",
+                        "name": "Concepts of Fitness"
+                    }
+                ],
+                "courseCredit": "2"
             }
         ],
         "Spring": [
             {
-                "courseCode": "ENGL 1102",
-                "courseName": "English Composition II (minimum grade of C)"
+                "courses": [
+                    {
+                        "code": "ENGL 1102",
+                        "name": "English Composition II (minimum grade of C)"
+                    }
+                ],
+                "courseCredit": "3"
             },
             {
-                "courseCode": "MATH 2125",
-                "courseName": "Introduction to Discrete Mathematics (minimum grade of C)"
+                "courses": [
+                    {
+                        "code": "MATH 2125",
+                        "name": "Introduction to Discrete Mathematics (minimum grade of C)"
+                    }
+                ],
+                "courseCredit": "3"
             },
             {
-                "courseCode": "CPSC 1302K",
-                "courseName": "Computer Science II (minimum grade of C)"
+                "courses": [
+                    {
+                        "code": "CPSC 1302K",
+                        "name": "Computer Science II (minimum grade of C)"
+                    }
+                ],
+                "courseCredit": "4"
             },
             {
-                "courseCode": "CPSC 2105",
-                "courseName": "Computer Organization (minimum grade of C)"
+                "courses": [
+                    {
+                        "code": "CPSC 2105",
+                        "name": "Computer Organization (minimum grade of C)"
+                    }
+                ],
+                "courseCredit": "3"
             },
             {
-                "courseCode": "AREA C",
-                "courseName": "Fine Arts"
+                "courses": [
+                    {
+                        "code": "ARTH 1100",
+                        "name": "Art Appreciation"
+                    },
+                    {
+                        "code": "ITDS 1145",
+                        "name": "Comparative Arts 2"
+                    },
+                    {
+                        "code": "MUSC 1100",
+                        "name": "Music Appreciation"
+                    },
+                    {
+                        "code": "THEA 1100",
+                        "name": "Theatre Appreciation"
+                    },
+                    {
+                        "code": "ARTH 2125",
+                        "name": "Introduction to the History of Art I\u2013 Prehistoric through Gothic"
+                    },
+                    {
+                        "code": "ARTH 2126",
+                        "name": "Introduction to the History of Art II\u2013 Renaissance through Modern"
+                    }
+                ],
+                "courseCredit": "3"
             },
             {
-                "courseCode": "Area B2",
-                "courseName": " ITDS 1779 (2), LEAD 1705 (2), PERS 1506 (1; may be repeated with different topic), PERS 1507 (2)"
+                "courses": [
+                    {
+                        "code": "ITDS 1779",
+                        "name": "Scholarship Across the Disciplines"
+                    },
+                    {
+                        "code": "LEAD 1705",
+                        "name": "Introduction to Servant Leadership"
+                    },
+                    {
+                        "code": "PERS 1506",
+                        "name": "Perspectives 1-hour"
+                    },
+                    {
+                        "code": "PERS 1507",
+                        "name": "Perspectives 2-hour"
+                    }
+                ],
+                "courseCredit": "1"
             }
         ]
     },
     "Second Year": {
         "Fall": [
             {
-                "courseCode": "MATH 5125U",
-                "courseName": "Discrete Mathematics"
+                "courses": [
+                    {
+                        "code": "MATH 5125U",
+                        "name": "Discrete Mathematics"
+                    }
+                ],
+                "courseCredit": "3"
             },
             {
-                "courseCode": "CPSC 2108",
-                "courseName": "Data Structures (minimum grade of C)"
+                "courses": [
+                    {
+                        "code": "CPSC 2108",
+                        "name": "Data Structures (minimum grade of C)"
+                    }
+                ],
+                "courseCredit": "3"
             },
             {
-                "courseCode": "CYBR 2159",
-                "courseName": "Fundamentals of Computer Networks (minimum grade of C)"
+                "courses": [
+                    {
+                        "code": "CYBR 2159",
+                        "name": "Fundamentals of Computer Networks (minimum grade of C)"
+                    }
+                ],
+                "courseCredit": "3"
             },
             {
-                "courseCode": "AREA C",
-                "courseName": "Humanities Elective"
+                "courses": [
+                    {
+                        "code": "ENGL 2111",
+                        "name": "World Literature I"
+                    },
+                    {
+                        "code": "ENGL 2112",
+                        "name": "World Literature II"
+                    },
+                    {
+                        "code": "ITDS 1145",
+                        "name": "Comparative Arts 2"
+                    },
+                    {
+                        "code": "ITDS 1155",
+                        "name": "The Western Intellectual Tradition"
+                    },
+                    {
+                        "code": "ITDS 2125",
+                        "name": "Historical Perspectives on the Philosophy of Science and Mathematics"
+                    },
+                    {
+                        "code": "PHIL 2010",
+                        "name": "Introduction to Philosophy"
+                    }
+                ],
+                "courseCredit": "3"
             },
             {
-                "courseCode": "AREA D",
-                "courseName": "Science Elective with Lab"
+                "courses": [
+                    {
+                        "code": "ASTR 1105 & ASTR 1305",
+                        "name": "Descriptive Astronomy: The Solar Systemand Descriptive Astronomy Lab (lab optional)"
+                    },
+                    {
+                        "code": "ASTR 1106 & ASTR 1305",
+                        "name": "Descriptive Astronomy: Stars and Galaxiesand Descriptive Astronomy Lab"
+                    },
+                    {
+                        "code": "ATSC 1112 & 1112L",
+                        "name": "Understanding the Weatherand Understanding the Weather Lab"
+                    },
+                    {
+                        "code": "BIOL 1215K",
+                        "name": "Principles of Biology (lab included)"
+                    },
+                    {
+                        "code": "BIOL 1225K",
+                        "name": "Contemporary Issues in Biology with Lab (lab included)"
+                    },
+                    {
+                        "code": "CHEM 1151 & 1151L",
+                        "name": "Survey of Chemistry Iand Survey of Chemistry I Lab"
+                    },
+                    {
+                        "code": "CHEM 1152 & 1152L",
+                        "name": "Survey of Chemistry IIand Survey of Chemistry II Lab"
+                    },
+                    {
+                        "code": "CHEM 1211 & 1211L",
+                        "name": "Principles of Chemistry Iand Principles of Chemistry I Lab"
+                    },
+                    {
+                        "code": "CHEM 1212 & 1212L",
+                        "name": "Principles of Chemistry IIand Principles of Chemistry II Lab"
+                    },
+                    {
+                        "code": "ENVS 1105 & 1105L",
+                        "name": "Environmental Studiesand Environmental Studies Laboratory (lab optional)"
+                    },
+                    {
+                        "code": "ENVS 1205K",
+                        "name": "Sustainability and the Environment"
+                    },
+                    {
+                        "code": "GEOL 1121 & 1121L",
+                        "name": "Introductory Geoscience I: Physical Geologyand Introductory Geoscience I: Physical Geology Lab"
+                    },
+                    {
+                        "code": "GEOL 1122 & GEOL 1322",
+                        "name": "Introductory Geo-sciences II: Historical Geologyand Introductory Geo-sciences II: Historical Geology Lab"
+                    },
+                    {
+                        "code": "GEOL 2225",
+                        "name": "The Fossil Record (lab included)"
+                    },
+                    {
+                        "code": "PHYS 1111 & PHYS 1311",
+                        "name": "Introductory Physics Iand Introductory Physics I Lab"
+                    },
+                    {
+                        "code": "PHYS 1112 & PHYS 1312",
+                        "name": "Introductory Physics IIand Introductory Physics II Lab"
+                    },
+                    {
+                        "code": "PHYS 1125 & PHYS 1325",
+                        "name": "Physics of Color and Soundand Physics of Color and Sound Lab (lab optional)"
+                    },
+                    {
+                        "code": "PHYS 2211 & PHYS 2311",
+                        "name": "Principles of Physics Iand Principles of Physics I Lab"
+                    },
+                    {
+                        "code": "PHYS 2212 & PHYS 2312",
+                        "name": "Principles of Physics IIand Principles of Physics II Lab"
+                    }
+                ],
+                "courseCredit": "4"
             }
         ],
         "Spring": [
             {
-                "courseCode": "CPSC 3175",
-                "courseName": "Object-Oriented Design (minimum grade of C)"
+                "courses": [
+                    {
+                        "code": "CPSC 3175",
+                        "name": "Object-Oriented Design (minimum grade of C)"
+                    }
+                ],
+                "courseCredit": "3"
             },
             {
-                "courseCode": "CYBR 2160",
-                "courseName": "Intro to Information Security (minimum grade of C)"
+                "courses": [
+                    {
+                        "code": "CYBR 2160",
+                        "name": "Intro to Information Security (minimum grade of C)"
+                    }
+                ],
+                "courseCredit": "3"
             },
             {
-                "courseCode": "STAT 1401",
-                "courseName": "Elementary Statistics"
+                "courses": [
+                    {
+                        "code": "STAT 1401",
+                        "name": "Elementary Statistics"
+                    }
+                ],
+                "courseCredit": "3"
             },
             {
-                "courseCode": "HIST 2111 or HIST 2112",
-                "courseName": "U. S. History to 1865or U. S. History since 1865"
+                "courses": [
+                    {
+                        "code": "HIST 2111",
+                        "name": "U. S. History to 1865"
+                    },
+                    {
+                        "code": "HIST 2112",
+                        "name": "U. S. History since 1865"
+                    }
+                ],
+                "courseCredit": "3"
             },
             {
-                "courseCode": "AREA D",
-                "courseName": "Science Elective with Lab"
+                "courses": [
+                    {
+                        "code": "ASTR 1105 & ASTR 1305",
+                        "name": "Descriptive Astronomy: The Solar Systemand Descriptive Astronomy Lab (lab optional)"
+                    },
+                    {
+                        "code": "ASTR 1106 & ASTR 1305",
+                        "name": "Descriptive Astronomy: Stars and Galaxiesand Descriptive Astronomy Lab"
+                    },
+                    {
+                        "code": "ATSC 1112 & 1112L",
+                        "name": "Understanding the Weatherand Understanding the Weather Lab"
+                    },
+                    {
+                        "code": "BIOL 1215K",
+                        "name": "Principles of Biology (lab included)"
+                    },
+                    {
+                        "code": "BIOL 1225K",
+                        "name": "Contemporary Issues in Biology with Lab (lab included)"
+                    },
+                    {
+                        "code": "CHEM 1151 & 1151L",
+                        "name": "Survey of Chemistry Iand Survey of Chemistry I Lab"
+                    },
+                    {
+                        "code": "CHEM 1152 & 1152L",
+                        "name": "Survey of Chemistry IIand Survey of Chemistry II Lab"
+                    },
+                    {
+                        "code": "CHEM 1211 & 1211L",
+                        "name": "Principles of Chemistry Iand Principles of Chemistry I Lab"
+                    },
+                    {
+                        "code": "CHEM 1212 & 1212L",
+                        "name": "Principles of Chemistry IIand Principles of Chemistry II Lab"
+                    },
+                    {
+                        "code": "ENVS 1105 & 1105L",
+                        "name": "Environmental Studiesand Environmental Studies Laboratory (lab optional)"
+                    },
+                    {
+                        "code": "ENVS 1205K",
+                        "name": "Sustainability and the Environment"
+                    },
+                    {
+                        "code": "GEOL 1121 & 1121L",
+                        "name": "Introductory Geoscience I: Physical Geologyand Introductory Geoscience I: Physical Geology Lab"
+                    },
+                    {
+                        "code": "GEOL 1122 & GEOL 1322",
+                        "name": "Introductory Geo-sciences II: Historical Geologyand Introductory Geo-sciences II: Historical Geology Lab"
+                    },
+                    {
+                        "code": "GEOL 2225",
+                        "name": "The Fossil Record (lab included)"
+                    },
+                    {
+                        "code": "PHYS 1111 & PHYS 1311",
+                        "name": "Introductory Physics Iand Introductory Physics I Lab"
+                    },
+                    {
+                        "code": "PHYS 1112 & PHYS 1312",
+                        "name": "Introductory Physics IIand Introductory Physics II Lab"
+                    },
+                    {
+                        "code": "PHYS 1125 & PHYS 1325",
+                        "name": "Physics of Color and Soundand Physics of Color and Sound Lab (lab optional)"
+                    },
+                    {
+                        "code": "PHYS 2211 & PHYS 2311",
+                        "name": "Principles of Physics Iand Principles of Physics I Lab"
+                    },
+                    {
+                        "code": "PHYS 2212 & PHYS 2312",
+                        "name": "Principles of Physics IIand Principles of Physics II Lab"
+                    }
+                ],
+                "courseCredit": "4"
             }
         ]
     },
     "Third Year": {
         "Fall": [
             {
-                "courseCode": "CPSC 3125",
-                "courseName": "Operating Systems (minimum grade of C)"
+                "courses": [
+                    {
+                        "code": "CPSC 3125",
+                        "name": "Operating Systems (minimum grade of C)"
+                    }
+                ],
+                "courseCredit": "3"
             },
             {
-                "courseCode": "CPSC 3131",
-                "courseName": " Database Systems I (minimum grade of C)"
+                "courses": [
+                    {
+                        "code": "CPSC 3131",
+                        "name": " Database Systems I (minimum grade of C)"
+                    }
+                ],
+                "courseCredit": "3"
             },
             {
-                "courseCode": "POLS 1101",
-                "courseName": "American Government"
+                "courses": [
+                    {
+                        "code": "POLS 1101",
+                        "name": "American Government"
+                    }
+                ],
+                "courseCredit": "3"
             },
             {
-                "courseCode": "AREA E",
-                "courseName": "Social Sciences Elective (Behavioral Science)"
+                "courses": [
+                    {
+                        "code": "ECON 2105",
+                        "name": "Principles of Macroeconomics"
+                    },
+                    {
+                        "code": "ECON 2106",
+                        "name": "Principles of Microeconomics"
+                    },
+                    {
+                        "code": "PHIL 2030",
+                        "name": "Moral Philosophy"
+                    },
+                    {
+                        "code": "PSYC 1101",
+                        "name": "Introduction to General Psychology"
+                    },
+                    {
+                        "code": "SOCI 1101",
+                        "name": "Introduction to Sociology"
+                    }
+                ],
+                "courseCredit": "3"
             },
             {
-                "courseCode": "AREA H",
-                "courseName": "CPSC Upper-Division Elective (minimum grade of C)"
+                "courses": [
+                    {
+                        "code": "CPSC 4115",
+                        "name": "Algorithms"
+                    },
+                    {
+                        "code": "CPSC 4148",
+                        "name": "Theory of Computation"
+                    },
+                    {
+                        "code": "CPSC 4155",
+                        "name": "Computer Architecture"
+                    },
+                    {
+                        "code": "CPSC 4157",
+                        "name": "Computer Networks"
+                    },
+                    {
+                        "code": "CPSC 4175",
+                        "name": "Software Engineering"
+                    },
+                    {
+                        "code": "CPSC 4176",
+                        "name": "Senior Software Engineering Project"
+                    }
+                ],
+                "courseCredit": "3"
             },
             {
-                "courseCode": "Area W",
-                "courseName": "PEDS Elective"
+                "courses": [
+                    {
+                        "code": "AREA W",
+                        "name": "PEDS Elective"
+                    }
+                ],
+                "courseCredit": "1"
             }
         ],
         "Spring": [
             {
-                "courseCode": "CPSC 4175",
-                "courseName": "Software Engineering (minimum grade of C)"
+                "courses": [
+                    {
+                        "code": "CPSC 4175",
+                        "name": "Software Engineering (minimum grade of C)"
+                    }
+                ],
+                "courseCredit": "3"
             },
             {
-                "courseCode": "CPSC 3165",
-                "courseName": "Professionalism in Computing (minimum grade of C)"
+                "courses": [
+                    {
+                        "code": "CPSC 3165",
+                        "name": "Professionalism in Computing (minimum grade of C)"
+                    }
+                ],
+                "courseCredit": "2"
             },
             {
-                "courseCode": "AREA H",
-                "courseName": "CPSC Upper-Division Elective (minimum grade of C)"
+                "courses": [
+                    {
+                        "code": "CPSC 4115",
+                        "name": "Algorithms"
+                    },
+                    {
+                        "code": "CPSC 4148",
+                        "name": "Theory of Computation"
+                    },
+                    {
+                        "code": "CPSC 4155",
+                        "name": "Computer Architecture"
+                    },
+                    {
+                        "code": "CPSC 4157",
+                        "name": "Computer Networks"
+                    },
+                    {
+                        "code": "CPSC 4175",
+                        "name": "Software Engineering"
+                    },
+                    {
+                        "code": "CPSC 4176",
+                        "name": "Senior Software Engineering Project"
+                    }
+                ],
+                "courseCredit": "3"
             },
             {
-                "courseCode": "AREA E",
-                "courseName": "Social Science Elective (World Culture)"
+                "courses": [
+                    {
+                        "code": "ANTH 1105",
+                        "name": "Cultural Anthropology"
+                    },
+                    {
+                        "code": "ANTH 1107",
+                        "name": "Discovering Archaeology"
+                    },
+                    {
+                        "code": "ANTH 2105",
+                        "name": "Ancient World Civilizations"
+                    },
+                    {
+                        "code": "ANTH/ENGL 2136",
+                        "name": "Language and Culture"
+                    },
+                    {
+                        "code": "GEOG 1101",
+                        "name": "World Regional Geography"
+                    },
+                    {
+                        "code": "HIST 1111",
+                        "name": "World History to 1500"
+                    },
+                    {
+                        "code": "HIST 1112",
+                        "name": "World History since 1500"
+                    },
+                    {
+                        "code": "INTS 2105",
+                        "name": "Introduction to International Studies and Cross-Cultural Learning"
+                    },
+                    {
+                        "code": "ITDS 1156",
+                        "name": "Understanding Non-Western Cultures"
+                    }
+                ],
+                "courseCredit": "3"
             },
             {
-                "courseCode": "AREA I",
-                "courseName": "General Elective"
+                "courses": [
+                    {
+                        "code": "AREA I",
+                        "name": "General Elective"
+                    }
+                ],
+                "courseCredit": "3"
             }
         ]
     },
     "Fourth Year": {
         "Fall": [
             {
-                "courseCode": "CPSC 4115",
-                "courseName": "Algorithms (minimum grade of C)"
+                "courses": [
+                    {
+                        "code": "CPSC 4115",
+                        "name": "Algorithms (minimum grade of C)"
+                    }
+                ],
+                "courseCredit": "3"
             },
             {
-                "courseCode": "CPSC 4157",
-                "courseName": "Computer Networks (minimum grade of C)"
+                "courses": [
+                    {
+                        "code": "CPSC 4157",
+                        "name": "Computer Networks (minimum grade of C)"
+                    }
+                ],
+                "courseCredit": "3"
             },
             {
-                "courseCode": "CPSC 4155",
-                "courseName": "Computer Architecture (minimum grade of C)"
+                "courses": [
+                    {
+                        "code": "CPSC 4155",
+                        "name": "Computer Architecture (minimum grade of C)"
+                    }
+                ],
+                "courseCredit": "3"
             },
             {
-                "courseCode": "AREA H",
-                "courseName": "CPSC Upper-Division (minimum grade of C)"
+                "courses": [
+                    {
+                        "code": "CPSC 4115",
+                        "name": "Algorithms"
+                    },
+                    {
+                        "code": "CPSC 4148",
+                        "name": "Theory of Computation"
+                    },
+                    {
+                        "code": "CPSC 4155",
+                        "name": "Computer Architecture"
+                    },
+                    {
+                        "code": "CPSC 4157",
+                        "name": "Computer Networks"
+                    },
+                    {
+                        "code": "CPSC 4175",
+                        "name": "Software Engineering"
+                    },
+                    {
+                        "code": "CPSC 4176",
+                        "name": "Senior Software Engineering Project"
+                    }
+                ],
+                "courseCredit": "3"
             },
             {
-                "courseCode": "AREA I",
-                "courseName": "General Electives"
+                "courses": [
+                    {
+                        "code": "AREA I",
+                        "name": "General Electives"
+                    }
+                ],
+                "courseCredit": "2"
             }
         ],
         "Spring": [
             {
-                "courseCode": "CPSC 4176",
-                "courseName": "Senior Software Engineering Project (minimum grade of C)"
+                "courses": [
+                    {
+                        "code": "CPSC 4176",
+                        "name": "Senior Software Engineering Project (minimum grade of C)"
+                    }
+                ],
+                "courseCredit": "3"
             },
             {
-                "courseCode": "CPSC 4148",
-                "courseName": "Theory of Computation (minimum grade of C)"
+                "courses": [
+                    {
+                        "code": "CPSC 4148",
+                        "name": "Theory of Computation (minimum grade of C)"
+                    }
+                ],
+                "courseCredit": "3"
             },
             {
-                "courseCode": "CPSC 4000",
-                "courseName": "Baccalaureate Survey"
+                "courses": [
+                    {
+                        "code": "CPSC 4000",
+                        "name": "Baccalaureate Survey"
+                    }
+                ],
+                "courseCredit": "0"
             },
             {
-                "courseCode": "AREA H",
-                "courseName": "CPSC Upper-Division Elective (minimum grade of C)"
+                "courses": [
+                    {
+                        "code": "CPSC 4115",
+                        "name": "Algorithms"
+                    },
+                    {
+                        "code": "CPSC 4148",
+                        "name": "Theory of Computation"
+                    },
+                    {
+                        "code": "CPSC 4155",
+                        "name": "Computer Architecture"
+                    },
+                    {
+                        "code": "CPSC 4157",
+                        "name": "Computer Networks"
+                    },
+                    {
+                        "code": "CPSC 4175",
+                        "name": "Software Engineering"
+                    },
+                    {
+                        "code": "CPSC 4176",
+                        "name": "Senior Software Engineering Project"
+                    }
+                ],
+                "courseCredit": "3"
             },
             {
-                "courseCode": "AREA I",
-                "courseName": "General Electives"
+                "courses": [
+                    {
+                        "code": "AREA I",
+                        "name": "General Electives"
+                    }
+                ],
+                "courseCredit": "5"
             }
         ]
     }
