@@ -2,7 +2,7 @@ import re
 from pdfminer.high_level import extract_text
 
 
-text = extract_text("Sample Input3.pdf")
+text = extract_text("../data/Sample Input3.pdf")
 #print(text)
 
 #basic matches
