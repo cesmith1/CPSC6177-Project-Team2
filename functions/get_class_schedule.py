@@ -81,6 +81,7 @@ def get_area_courses(url, container_id):
     return results
 
 
+<<<<<<< HEAD
 def format_schedule(schedule):
     formatted = {
         "First Year": {"Fall": [], "Spring": []},
