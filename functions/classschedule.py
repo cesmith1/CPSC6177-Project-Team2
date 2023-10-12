@@ -46,13 +46,14 @@ class ClassSchedule:
     # args: course code (eg. "CPSC 2108")
     def getAvailability(self, courseCode):
         available = {}
-        yearIndex = 1
+        yearIndex = 0
         for year in self.yearList:
             for semester, reqs in  year.semesters.items():
                 for req in reqs:
                     for course in req.courses:
                         if courseCode.casefold() in course.code.casefold():
-                            available[f"Year {yearIndex}"] = semester
+                            available[f"Year[{yearIndex}]"] = semester
+            yearIndex += 1
         return available
             
     
@@ -60,7 +61,7 @@ class ClassSchedule:
         i = 0
         returnStr = ""
         for year in self.yearList:
-            returnStr += f"Year {i+1}:\n"
+            returnStr += f"Year[{i}]:\n"
             for semester, reqs in year.semesters.items():
                 returnStr += f"\t{semester}:\n"
                 for req in reqs:
