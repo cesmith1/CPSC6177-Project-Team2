@@ -4,8 +4,6 @@ import requests
 from bs4 import BeautifulSoup as bs
 import unicodedata
 import json
-import os
-
 
 def fetch_page_content(url):
     page = requests.get(url)
@@ -20,22 +18,40 @@ def extract_schedule(content):
     table = soup.select('#programmaptextcontainer tr')
     schedule = {}
 
+def get_request_page_content(url):
+    page = requests.get(url)
+    if page.status_code == 200:
+        content = bs(page.content, "html.parser")
+        return content
+    else:
+        error = "Error loading web page"
+        print(error)
+        return error
+
+def fetch_program_schedule(container_id):
+    soup_content = get_request_page_content(program_schedule_url)
+    if soup_content == "Error loading web page":
+        return soup_content + " - program schedule"
+    
+    results = {}
+    selector = f"{container_id} tr"
+    table = soup_content.css.iselect(selector)
     for tr in table:
         if len(tr['class']) == 1:
             rowClass = tr['class'][0]
             if rowClass == 'plangridyear':
-                schedule[tr.text] = {}
+                results[tr.text] = {}
             elif rowClass == 'plangridterm':
                 year = tr.find_previous_sibling(class_='plangridyear').text
-                schedule[year][tr.th.text] = []
+                results[year][tr.th.text] = []
             else:
                 course_code = unicodedata.normalize('NFKD', tr.td.text).upper()
                 course_name = unicodedata.normalize('NFKD', tr.td.find_next_sibling('td').text)
                 course_credit = unicodedata.normalize('NFKD', tr.td.find_next_sibling(class_='hourscol').text)
 
                 if 'or ' in course_code:
-                   course_code = course_code.split('or ')
-                   course_name = course_name.split('or ')
+                    course_code = course_code.split('or ')
+                    course_name = course_name.split('or ')
 
                 year = tr.find_previous_sibling(class_='plangridyear').text
                 term = tr.find_previous_sibling(class_='plangridterm').th.text
@@ -81,7 +97,6 @@ def get_area_courses(url, container_id):
     return results
 
 
-<<<<<<< HEAD
 def format_schedule(schedule):
     formatted = {
         "First Year": {"Fall": [], "Spring": []},
