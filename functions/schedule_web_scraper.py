@@ -146,7 +146,7 @@ class ScheduleWebScraper:
 
     # final formatted class schedule for usage
     def get_formatted_schedule(self):
-        if not self.can_fetch_data():
+        if not self.canFetchData():
             return {"error": "failed fetching web page contents"}
         
         self.replace_schedule_area_section()
@@ -177,7 +177,7 @@ class ScheduleWebScraper:
 
         return formatted_schedule
            
-    def can_fetch_data(self):
+    def canFetchData(self):
         return True if (self.schedule and self.area_courses) else False
 
 
