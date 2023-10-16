@@ -1,10 +1,11 @@
-"To write tests for the code provided, I needed to refactor the code into functions/classes so that it can be easily tested. I'll provide a basic structure for the tests and some example tests."
+#"To write tests for the code provided, I needed to refactor the code into functions/classes so that it can be easily tested. I'll provide a basic structure for the tests and some example tests."
 
 import requests
 from bs4 import BeautifulSoup as bs
 import unicodedata
 import json
 import os
+
 
 def fetch_page_content(url):
     page = requests.get(url)
