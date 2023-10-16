@@ -1,6 +1,7 @@
 # filename: class_scheduler.py
 
 import os
+from functions.schedule_web_scraper import ScheduleWebScraper
 
 def main():
     print("Hello, and welcome to the class scheduler. Please select an option from the list below.")
@@ -17,7 +18,9 @@ def main():
     elif choice == 'b':
         print("b selected")
     elif choice == 'c':
-        os.system(f"python3 functions/get_class_schedule.py")        
+        web_scraper = ScheduleWebScraper()
+        print(web_scraper.formatted_schedule)
+        # os.system(f"python3 functions/schedule_web_scraper.py")        
     else:
         print("Invalid choice. Exiting...")
 
