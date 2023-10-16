@@ -6,17 +6,6 @@ import unicodedata
 import json
 import os
 
-
-def tearDown(self):
-    # Check if the test passed
-    if hasattr(self, '_outcome'):  # Python 3.4+
-        result = self._outcome.result
-        if result.wasSuccessful():
-            print(f"{self._testMethodName} passed successfully!")
-    else:  # Python 3.3 and below
-        if not self._resultForDoCleanups.failures and not self._resultForDoCleanups.errors:
-            print(f"{self._testMethodName} passed successfully!")
-
 def fetch_page_content(url):
     page = requests.get(url)
     if page.status_code == 200:
