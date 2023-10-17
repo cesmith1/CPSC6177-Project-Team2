@@ -74,9 +74,13 @@ class OutputWriter :
         semester_border_bottom_right = self.workbook.add_format({'bottom':5, 'right':5, 'top':1})
         semester_border_top_left = self.workbook.add_format({'top':5, 'left':5, 'bottom':1})
         semester_border_bottom_left = self.workbook.add_format({'bottom':5, 'left':5, 'top':1})
+        total_border_left = self.workbook.add_format({'bold':1, 'align':'right', 'bottom':5, 'left':5, 'top':5})
+        total_border_right = self.workbook.add_format({'bold':1, 'align':'right' ,'bottom':5, 'right':5, 'top':5})
         
         # Store classes in upcoming loop for later
         classes = []
+        # Store total hours for grand total at the end
+        totalCreditHours = 0
 
         # Write Semester Content
         for y in range(len(self.years)):
@@ -103,6 +107,7 @@ class OutputWriter :
                     if index <= 7:
                         worksheet.write(f'A{(y*9)+4+index}', f'{outputClass.code} - {outputClass.name} {outputClass.semestersOffered}')
                         worksheet.write(f'B{(y*9)+4+index}', outputClass.credits)
+                        totalCreditHours += outputClass.credits
                     else:
                         raise Exception("Too many classes in a semester for output writer to handle!")
                     index += 1 
@@ -117,10 +122,15 @@ class OutputWriter :
                     if index <= 7:
                         worksheet.write(f'C{(y*9)+4+index}', f'{outputClass.code} - {outputClass.name} {outputClass.semestersOffered}')
                         worksheet.write(f'D{(y*9)+4+index}', outputClass.credits)
+                        totalCreditHours += outputClass.credits
                     else:
                         raise Exception("Too many classes in a semester for output writer to handle!")
                     index += 1
                     classes.append(outputClass)
+
+        # Write Total credit hours
+        worksheet.write(f'C{(len(self.years)*9)+3}', 'Total Credit Hours', total_border_left)
+        worksheet.write(f'D{(len(self.years)*9)+3}', totalCreditHours, total_border_right)
 
         # Write all required classes, credits and notes off to the right
         index = 0
