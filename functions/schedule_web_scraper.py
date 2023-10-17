@@ -1,12 +1,15 @@
+from pathlib import Path
 import requests
 from bs4 import BeautifulSoup as bs
 import unicodedata
 import json
 
+ROOT_DIR = Path(__file__).parent.parent
+
 class ScheduleWebScraper:
 
     def __init__(self) -> None:
-        self.class_schedule_json_path = "../data/class_schedule.json"
+        self.class_schedule_json_path = ROOT_DIR / 'data/class_schedule.json'
         self.program_schedule_url = "https://catalog.columbusstate.edu/academic-units/business/computer-science/computer-science-bs-software-systems-track/#programmaptextcontainer"
         self.area_courses_url = 'https://catalog.columbusstate.edu/academic-units/business/computer-science/computer-science-bs-software-systems-track/#programofstudytextcontainer'
         self.program_schedule_container_id = self.program_schedule_url[self.program_schedule_url.index("#") :]
