@@ -1,83 +1,81 @@
+import random
 import re
+
 from pdfminer.high_level import extract_text
+from py_pdf_parser.loaders import load_file
 
-def parseDegreeworksFile():
-    text = extract_text("../data/Sample Input3.pdf")
-    # print(text)
+filepath = ("../data/Sample Input3.pdf")
 
-    # basic matches
-    pattern = re.compile(r"[A-Z]{4} \d{4}[A-Z]?")
-    matches = pattern.findall(text)
-    # print(matches)
 
-    # or matches
-    pattern2 = re.compile(r"[A-Z]{4} \d{4}[A-Z]?[?:*]?[?: or]+\d{4}?")
-    matches2 = pattern2.findall(text)
-    new_matches20 = [re.sub(" or", ", XXXX", matches2) for matches2 in matches2]
-    new_matches2 = [re.split("  ", new_matches20) for new_matches20 in new_matches20]
-    new_matches21 = str(new_matches2)
-    new_matches21 = new_matches21.replace("[", "")
-    new_matches21 = new_matches21.replace("]", "")
-    new_matches21 = new_matches21.replace("*", "")
-    new_matches21 = new_matches21.replace("'", "")
-    new_matches211 = new_matches21.strip('][').split(', ')
-    # print(new_matches211)
+def parseDegreeworksFile(filepath):
+    document = load_file(filepath)
+    still_needed_elements = document.elements.filter_by_text_contains("Still Needed:")
 
-    # and matches
-    pattern3 = re.compile(r"[A-Z]{4} \d{4}[A-Z]?[?:*]?[?: and]+\d{4}?")
-    matches3 = pattern3.findall(text)
-    new_matches30 = [re.sub(" and", ", XXXX", matches3) for matches3 in matches3]
-    new_matches3 = [re.split("  ", new_matches30) for new_matches30 in new_matches30]
-    new_matches31 = str(new_matches3)
-    new_matches31 = new_matches31.replace("[", "")
-    new_matches31 = new_matches31.replace("]", "")
-    new_matches31 = new_matches31.replace("*", "")
-    new_matches31 = new_matches31.replace("'", "")
-    new_matches311 = new_matches31.strip('][').split(', ')
-    # print(new_matches311)
+    for el in still_needed_elements:
+        try:
+            elements = str(document.elements.to_the_right_of(el).extract_single_element().text())
 
-    # @ matches
-    pattern4 = re.compile(r"[A-Z]{4} \d+[?:@]?[?: or]+\d[?:@]?[?: or]+\d[?:@]?")
-    matches4 = pattern4.findall(text)
-    new_matches4 = [re.sub("@", "XXX", matches4) for matches4 in matches4]
-    new_matches41 = [re.sub(" or", ", XXXX", new_matches4) for new_matches4 in new_matches4]
-    new_matches42 = [re.split("  ", new_matches41) for new_matches41 in new_matches41]
-    new_matches411 = str(new_matches42)
-    new_matches411 = new_matches411.replace("[", "")
-    new_matches411 = new_matches411.replace("]", "")
-    new_matches411 = new_matches411.replace("'", "")
-    new_matches4111 = new_matches411.strip('][').split(', ')
-    # print(new_matches4111)
+            # Clean Parse Text
+            elements = elements.replace(" Classes ", ",")
+            elements = elements.replace(" Class ", ",")
+            elements = elements.replace("in", "")
+            elements = elements.replace("Credits", ",")
+            elements = elements.replace("Credit", ",")
+            elements = elements.replace("See CORE BLOCK section", '')
+            elements = elements.replace("See Area F: Computer Science - Systems section", '')
+            elements = elements.replace("See Major", '')
+            elements = elements.replace("Computer Science - Systems section", '')
+            elements = elements.replace("Choose from", 'Choose ')
+            elements = elements.replace(" of the followg:", '')
+            elements = elements.replace("  ", " ")
+            elements = elements.replace("  ", " ")
+            elements = elements.replace(" ,", ",")
+            elements = elements.replace(" or", ", or")
+            elements = elements.replace(" and", ", and")
 
-    # @ and whitespace matches
-    pattern5 = re.compile(r"[A-Z]{4} \s\d+[?:@]?[?: or]+\d[?:@]?[?: or]+\d[?:@]?[A-Z]?")
-    matches5 = pattern5.findall(text)
-    new_matches55 = [re.sub("@", "XXX", matches5) for matches5 in matches5]
-    new_matches5 = [re.sub("  ", " ", new_matches55) for new_matches55 in new_matches55]
-    new_matches51 = [re.sub(" or", ", XXXX", new_matches5) for new_matches5 in new_matches5]
-    new_matches52 = [re.split("  ", new_matches51) for new_matches51 in new_matches51]
-    new_matches511 = str(new_matches52)
-    new_matches511 = new_matches511.replace("[", "")
-    new_matches511 = new_matches511.replace("]", "")
-    new_matches511 = new_matches511.replace("'", "")
-    new_matches5111 = new_matches511.strip('][').split(', ')
-    # print(new_matches5111)
+            #Convert parsed text into lists
+            def convert(string):
+                alist = list(string.split('\n'))
+                blist = [re.sub("@", "XXX", alist) for alist in alist]
 
-    # whitespace matches
-    pattern6 = re.compile(r"[A-Z]{4} \s\d{4}[A-Z]?")
-    matches6 = pattern6.findall(text)
-    new_matches6 = [re.sub("  ", " ", matches6) for matches6 in matches6]
-    # print(new_matches6)
+                #Choose List Regex
+                clist = [re.findall(r'\((.*?)\)', blist) for blist in blist]
+                clist = str(clist)
+                clist = clist.replace('[', '')
+                clist = clist.replace(']', '')
+                clist = clist.replace("' ", "'")
+                clist = clist.replace(" '", "'")
 
-    print("List of All Possible Classes Still Needed")
-    list = new_matches211 + new_matches311 + new_matches4111 + new_matches5111 + matches + new_matches6
+                #Rest of List Regex
+                dlist = [re.sub(r'\([^)]*\)','', blist) for blist in blist]
+                dlist = str(dlist)
+                dlist = dlist.replace(', or', ',')
+                dlist = dlist.replace("','", '')
+                dlist = dlist.replace("'Choose 1'", "")
+                dlist = dlist.replace("'Choose 2'", "")
+                dlist = dlist.replace('[', '')
+                dlist = dlist.replace(']', '')
+                dlist = dlist.replace("' ", "'")
+                dlist = dlist.replace(" '", "'")
+                dlist = dlist.replace("''", '')
+                dlist = dlist.replace("5128U*", "CPSC 5128U*")
+                dlist = dlist.replace("5135U*", "CPSC 5135U*")
+                dlist = dlist.replace("5155U*", "CPSC 5155U*")
+                dlist = dlist.replace("5157U*", "CPSC 5157U*")
 
-    beautiful_list = []
-    [beautiful_list.append(item) for item in list if item not in beautiful_list]
-    beautiful_list = str(beautiful_list)
-    beautiful_list = beautiful_list.replace("'',", "")
-    beautiful_list = beautiful_list.replace(", ''", "")
-    return beautiful_list
+                #Find Choose 1 or Choose 2
+                choose = [re.findall(r'Choose (\d+)', blist) for blist in blist]
+                choose = str(choose)
+                choose = choose.replace('[', '')
+                choose = choose.replace(']', '')
+                choose = choose.replace("' ", "'")
+                choose = choose.replace(" '", "'")
 
-print(parseDegreeworksFile())
+                this_list = choose + clist + dlist
+                return this_list
+            print(convert(elements))
+        except:
+            print("An Exception Occurred")
 
+
+print(parseDegreeworksFile(filepath))
