@@ -5,7 +5,7 @@ import sys
 sys.path.append('functions')
 #from prereq-parser import print_prereq_parser_output
 #from degreeworks_parser import print_degreeworks_parser_output
-from schedule_web_scraper import ScheduleWebScraper
+from functions.schedule_web_scraper import ScheduleWebScraper
 
 def main():
     print("Hello, and welcome to the class scheduler. Please select an option from the list below.")
