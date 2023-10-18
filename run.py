@@ -3,7 +3,7 @@
 import os
 import sys
 sys.path.append('functions')
-#from prereq-parser import print_prereq_parser_output
+#from prereq-parser import print_prereq-parser_output
 #from degreeworks_parser import print_degreeworks_parser_output
 from functions.schedule_web_scraper import ScheduleWebScraper
 
@@ -19,18 +19,20 @@ def main():
 
     if choice == 'a':
         #username = input("Press enter to run parser for prereq. courses : ").strip()
-        os.system(f"python3 functions/prereq_parser.py")
-        #print_prereq_parser_output()
+        os.chdir("functions")
+        os.system(f"python3 prereq-parser.py")
+        #print_prereq-parser_output()
 
     elif choice == 'b':
+        os.chdir("functions")
         os.system(f"python3 degreeworks_parser.py")
         #print_degreeworks_parser_output()
 
     elif choice == 'c':
-        #web_scraper = ScheduleWebScraper()
-        #print(web_scraper.formatted_schedule)
+        web_scraper = ScheduleWebScraper()
+        print(web_scraper.formatted_schedule)
+        os.chdir("functions")
         os.system(f"python3 schedule_web_scraper.py")    
-        ScheduleWebScraper.print_schedule_web_scraper_output()
 
     elif choice == 'd':
         os.chdir("tests")

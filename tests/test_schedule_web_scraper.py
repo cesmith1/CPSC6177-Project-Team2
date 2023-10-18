@@ -39,36 +39,6 @@ class TestPrereqDAG(unittest.TestCase):
                 print(f"{self._testMethodName} passed successfully!")
 
 
-class TestScheduleWebScraper(unittest.TestCase):
-
-    def setUp(self):
-        # Sample JSON array for testing
-        self.jsonArray = [
-            {
-                "Rubric Number": "CPSC 2100",
-                "Course Name": "Intro to Programming",
-                "Semesters Offered": ["Fall", "Spring"],
-                "Children": ["CPSC 2108"],
-                "Other Reqs": []
-            },
-            {
-                "Rubric Number": "CPSC 2108",
-                "Course Name": "Data Structures",
-                "Semesters Offered": ["Fall", "Spring"],
-                "Children": [],
-                "Other Reqs": ["CPSC 2100"]
-            }
-        ]
-
-    def tearDown(self):
-        # Check if the tests passed
-        if hasattr(self, '_outcome'):  # Python 3.4+
-            result = self._outcome.result
-            if result.wasSuccessful():
-                print(f"{self._testMethodName} passed successfully!")
-        else:  # Python 3.3 and below
-            if not self._resultForDoCleanups.failures and not self._resultForDoCleanups.errors:
-                print(f"{self._testMethodName} passed successfully!")
 
     def test_get_request_page_content(self):
         scraper = ScheduleWebScraper()
@@ -100,6 +70,7 @@ class TestScheduleWebScraper(unittest.TestCase):
             
             # Check if the mocked status code is 404
             self.assertEqual(mocked_get_404.return_value.status_code, 404)
+    
 
 
 
