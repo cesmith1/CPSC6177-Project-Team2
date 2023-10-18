@@ -465,28 +465,12 @@
             {
                 "courses": [
                     {
-                        "code": "CPSC 4115",
-                        "name": "Algorithms"
+                        "code": "CPSC 3XXX",
+                        "name": "CPSC 3000 level or above"
                     },
                     {
-                        "code": "CPSC 4148",
-                        "name": "Theory of Computation"
-                    },
-                    {
-                        "code": "CPSC 4155",
-                        "name": "Computer Architecture"
-                    },
-                    {
-                        "code": "CPSC 4157",
-                        "name": "Computer Networks"
-                    },
-                    {
-                        "code": "CPSC 4175",
-                        "name": "Software Engineering"
-                    },
-                    {
-                        "code": "CPSC 4176",
-                        "name": "Senior Software Engineering Project"
+                        "code": "CYBR 3XXX",
+                        "name": "CYBR 3000 level or above"
                     }
                 ],
                 "courseCredit": "3"
@@ -523,28 +507,12 @@
             {
                 "courses": [
                     {
-                        "code": "CPSC 4115",
-                        "name": "Algorithms"
+                        "code": "CPSC 3XXX",
+                        "name": "CPSC 3000 level or above"
                     },
                     {
-                        "code": "CPSC 4148",
-                        "name": "Theory of Computation"
-                    },
-                    {
-                        "code": "CPSC 4155",
-                        "name": "Computer Architecture"
-                    },
-                    {
-                        "code": "CPSC 4157",
-                        "name": "Computer Networks"
-                    },
-                    {
-                        "code": "CPSC 4175",
-                        "name": "Software Engineering"
-                    },
-                    {
-                        "code": "CPSC 4176",
-                        "name": "Senior Software Engineering Project"
+                        "code": "CYBR 3XXX",
+                        "name": "CYBR 3000 level or above"
                     }
                 ],
                 "courseCredit": "3"
@@ -633,28 +601,12 @@
             {
                 "courses": [
                     {
-                        "code": "CPSC 4115",
-                        "name": "Algorithms"
+                        "code": "CPSC 3XXX",
+                        "name": "CPSC 3000 level or above"
                     },
                     {
-                        "code": "CPSC 4148",
-                        "name": "Theory of Computation"
-                    },
-                    {
-                        "code": "CPSC 4155",
-                        "name": "Computer Architecture"
-                    },
-                    {
-                        "code": "CPSC 4157",
-                        "name": "Computer Networks"
-                    },
-                    {
-                        "code": "CPSC 4175",
-                        "name": "Software Engineering"
-                    },
-                    {
-                        "code": "CPSC 4176",
-                        "name": "Senior Software Engineering Project"
+                        "code": "CYBR 3XXX",
+                        "name": "CYBR 3000 level or above"
                     }
                 ],
                 "courseCredit": "3"
@@ -700,28 +652,12 @@
             {
                 "courses": [
                     {
-                        "code": "CPSC 4115",
-                        "name": "Algorithms"
+                        "code": "CPSC 3XXX",
+                        "name": "CPSC 3000 level or above"
                     },
                     {
-                        "code": "CPSC 4148",
-                        "name": "Theory of Computation"
-                    },
-                    {
-                        "code": "CPSC 4155",
-                        "name": "Computer Architecture"
-                    },
-                    {
-                        "code": "CPSC 4157",
-                        "name": "Computer Networks"
-                    },
-                    {
-                        "code": "CPSC 4175",
-                        "name": "Software Engineering"
-                    },
-                    {
-                        "code": "CPSC 4176",
-                        "name": "Senior Software Engineering Project"
+                        "code": "CYBR 3XXX",
+                        "name": "CYBR 3000 level or above"
                     }
                 ],
                 "courseCredit": "3"

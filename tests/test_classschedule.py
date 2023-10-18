@@ -85,10 +85,18 @@ class TestSchedulingSystem(unittest.TestCase):
     def test_course_availability(self):
         # Retrieve the availability of the course "CPSC 1010"
         availability = self.schedule.getAvailability("CPSC 1010")
-        # Check if "CPSC 1010" is available in the first year
-        self.assertIn("Year[0]", availability)
-        # Check if "CPSC 1010" is available in the fall semester of the first year
-        self.assertEqual(availability["Year[0]"], "Fall")
+        
+        # Initialize a flag to False
+        found = False
+        
+        # Check if "CPSC 1010" is available in the first year and fall semester
+        for course_info in availability:
+            if course_info.year == 0 and course_info.semester == "Fall":
+                found = True
+        
+        # Assert that the course was found
+        self.assertTrue(found, "'CPSC 1010' was not found in Year 0, Fall semester.")
+
 
 if __name__ == "__main__":
     # Run the tests
