@@ -8,7 +8,7 @@ web_scraper = ScheduleWebScraper()
 
 #Here's are basic unittest test suite for the functions mentioned. Note that this test suite requires mocking because many of your functions make real web requests. The unittest.mock library will help avoid actual web requests during testing.
 
-class TestPrereqDAG(unittest.TestCase):
+class TestScheduleWebScraper(unittest.TestCase):
 
     def setUp(self):
         # Sample JSON array for testing

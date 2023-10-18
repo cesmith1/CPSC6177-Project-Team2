@@ -2,7 +2,7 @@ import unittest
 import re
 from pdfminer.high_level import extract_text
 
-class TestPDFExtractionAndRegex(unittest.TestCase):
+class TestDegreeWorksParser(unittest.TestCase):
 
     def setUp(self):
         self.text = extract_text('../SampleInput1.pdf')

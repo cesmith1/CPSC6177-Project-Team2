@@ -5,7 +5,7 @@ sys.path.append('../functions')
 from classschedule import Course, Requirement, Year, ClassSchedule
 
 
-class TestSchedulingSystem(unittest.TestCase):
+class TestClassSchedule(unittest.TestCase):
 
     def setUp(self):
         # Sample data to be used for testing
