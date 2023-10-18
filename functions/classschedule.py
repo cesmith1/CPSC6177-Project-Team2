@@ -1,4 +1,19 @@
 # Module containing the data structures for the class schedule.
+
+# class for storing each class found in the getAvailability method
+class CourseInfo:
+    def __init__(self, year, semester, code, name, credit):
+        self.year = year
+        self.semester = semester
+        self.code = code
+        self.name = name
+        self.credit = credit
+    
+    def __str__(self):
+        return '{' + f'"year":{self.year}, "semester":"{self.semester}", "code":"{self.code}", "name":"{self.name}", "credit":{self.credit}' + '}'
+
+    __repr__ = __str__
+
 class Course:
     def __init__(self, course):
         self.code = course['code']
@@ -45,17 +60,16 @@ class ClassSchedule:
     # Function to get the year and semester a course is in given its course code
     # args: course code (eg. "CPSC 2108")
     def getAvailability(self, courseCode):
-        available = {}
+        available = []
         yearIndex = 0
         for year in self.yearList:
             for semester, reqs in  year.semesters.items():
                 for req in reqs:
                     for course in req.courses:
                         if courseCode.casefold() in course.code.casefold():
-                            available[f"Year[{yearIndex}]"] = semester
+                            available.append(CourseInfo(yearIndex, semester, course.code, course.name, req.courseCredit))
             yearIndex += 1
         return available
-            
     
     def __str__(self):
         i = 0
