@@ -4,7 +4,7 @@ import re
 from pdfminer.high_level import extract_text
 from py_pdf_parser.loaders import load_file
 
-filepath = ("../data/Sample Input3.pdf")
+filepath = ("../data/Sample Input2.pdf")
 
 
 def parseDegreeworksFile(filepath):
@@ -14,7 +14,7 @@ def parseDegreeworksFile(filepath):
     for el in still_needed_elements:
         try:
             elements = str(document.elements.to_the_right_of(el).extract_single_element().text())
-
+            #print(elements)
             # Clean Parse Text
             elements = elements.replace(" Classes ", ",")
             elements = elements.replace(" Class ", ",")
@@ -62,6 +62,9 @@ def parseDegreeworksFile(filepath):
                 dlist = dlist.replace("5135U*", "CPSC 5135U*")
                 dlist = dlist.replace("5155U*", "CPSC 5155U*")
                 dlist = dlist.replace("5157U*", "CPSC 5157U*")
+                dlist = dlist.replace("MATH 3XXX, 4XXX, 5XXXU", "MATH 3XXX, MATH 4XXX, MATH 5XXXU")
+                dlist = dlist.replace("CPSC 3XXX, 4XXX, 5XXX", "CPSC 3XXX, CPSC 4XXX, CPSC 5XXX")
+                dlist = dlist.replace("CYBR 3XXX, 4XXX, 5XXX", "CYBR 3XXX, CYBR 4XXX, CYBR 5XXX")
 
                 #Find Choose 1 or Choose 2
                 choose = [re.findall(r'Choose (\d+)', blist) for blist in blist]
