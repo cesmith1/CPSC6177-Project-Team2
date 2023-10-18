@@ -4,6 +4,7 @@ import sys
 sys.path.append('../functions')
 from unittest.mock import patch
 from schedule_web_scraper import ScheduleWebScraper
+web_scraper = ScheduleWebScraper()
 
 #Here's are basic unittest test suite for the functions mentioned. Note that this test suite requires mocking because many of your functions make real web requests. The unittest.mock library will help avoid actual web requests during testing.
 
@@ -70,7 +71,8 @@ class TestPrereqDAG(unittest.TestCase):
             
             # Check if the mocked status code is 404
             self.assertEqual(mocked_get_404.return_value.status_code, 404)
-    
+    web_scraper.print_get_request_page_content("https://catalog.columbusstate.edu/academic-units/business/computer-science/computer-science-bs-software-systems-track/#programmaptextcontainer") # For demonstration purposes, replace "some-url" with the desired URL
+
 
 
 
@@ -81,6 +83,7 @@ class TestPrereqDAG(unittest.TestCase):
         # However, for simplicity, this test only checks if the return is a dictionary.
         result = scraper.fetch_program_schedule()
         self.assertIsInstance(result, dict)
+    #web_scraper.print_fetch_program_schedule()
 
     def test_fetch_area_courses(self):
         scraper = ScheduleWebScraper()
@@ -88,27 +91,41 @@ class TestPrereqDAG(unittest.TestCase):
         # This test only checks if the return is a dictionary.
         result = scraper.fetch_area_courses()
         self.assertIsInstance(result, dict)
+    #web_scraper.print_fetch_area_courses()
 
     def test_reformat_area_courses(self):
         scraper = ScheduleWebScraper()
         result = scraper.reformat_area_courses()
         self.assertIsInstance(result, dict)
+    #web_scraper.print_reformat_area_courses()
 
     def test_replace_schedule_area_section(self):
         scraper = ScheduleWebScraper()
         # This function doesn't return anything. It modifies an internal property.
         # So, we can only check if it runs without errors by calling it.
         scraper.replace_schedule_area_section()
+    #web_scraper.print_replace_schedule_area_section()
 
     def test_get_formatted_schedule(self):
         scraper = ScheduleWebScraper()
         result = scraper.get_formatted_schedule()
         self.assertIsInstance(result, dict)
+    web_scraper.print_get_formatted_schedule()
 
     def test_can_fetch_data(self):
         scraper = ScheduleWebScraper()
         result = scraper.can_fetch_data()
         self.assertIsInstance(result, bool)
+    web_scraper.print_can_fetch_data()
+
+
+#web_scraper.print_get_request_page_content("https://catalog.columbusstate.edu/academic-units/business/computer-science/computer-science-bs-software-systems-track/#programmaptextcontainer") # For demonstration purposes, replace "some-url" with the desired URL
+#web_scraper.print_fetch_program_schedule()
+#web_scraper.print_fetch_area_courses()
+#web_scraper.print_reformat_area_courses()
+#web_scraper.print_replace_schedule_area_section()
+#web_scraper.print_get_formatted_schedule()
+#web_scraper.print_can_fetch_data()
 
 if __name__ == '__main__':
     unittest.main()

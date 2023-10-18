@@ -183,6 +183,36 @@ class ScheduleWebScraper:
     def can_fetch_data(self):
         return True if (self.schedule and self.area_courses) else False
 
+    def print_get_request_page_content(self, url):
+        print(self.get_request_page_content(url))
+
+    def print_fetch_program_schedule(self):
+        print(self.fetch_program_schedule())
+
+    def print_fetch_area_courses(self):
+        print(self.fetch_area_courses())
+
+    def print_reformat_area_courses(self):
+        print(self.reformat_area_courses())
+
+    def print_replace_schedule_area_section(self):
+        self.replace_schedule_area_section()
+        print("Schedule Area Section Replaced.")
+
+    def print_get_formatted_schedule(self):
+        print(self.get_formatted_schedule())
+
+    def print_can_fetch_data(self):
+        print(self.can_fetch_data())
+
+web_scraper = ScheduleWebScraper()
+web_scraper.print_get_request_page_content("https://catalog.columbusstate.edu/academic-units/business/computer-science/computer-science-bs-software-systems-track/#programmaptextcontainer") # For demonstration purposes, replace "some-url" with the desired URL
+web_scraper.print_fetch_program_schedule()
+web_scraper.print_fetch_area_courses()
+web_scraper.print_reformat_area_courses()
+web_scraper.print_replace_schedule_area_section()
+web_scraper.print_get_formatted_schedule()
+web_scraper.print_can_fetch_data()
 
 # web_scraper = ScheduleWebScraper()
 # web_scraper.get_formatted_schedule()   # get formatted class schedule dictionary
