@@ -20,7 +20,7 @@ class TestAllTests(unittest.TestCase):
         print("")
 
         print("Testing prereq-parser.py: ")
-        os.system(f"python3 test_prereq-parser.py")
+        os.system(f"python3 test_prereq_parser.py")
         print("")
 
         print("Testing prereqdag.py: ")
