@@ -33,7 +33,8 @@ def main():
         ScheduleWebScraper.print_schedule_web_scraper_output()
 
     elif choice == 'd':
-        os.system(f"python3 test_all.py") 
+        os.chdir("tests")
+        os.system(f"python3 test_all.py")
 
     else:
         print("Invalid choice. Exiting...")
