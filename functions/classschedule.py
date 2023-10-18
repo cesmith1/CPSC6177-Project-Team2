@@ -1,6 +1,6 @@
 # Module containing the data structures for the class schedule.
 
-# class for storing each class found in the get metho
+# class for storing each class found in the getAvailability method
 class CourseInfo:
     def __init__(self, year, semester, code, name, credit):
         self.year = year
