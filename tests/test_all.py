@@ -3,7 +3,6 @@ import sys
 import os
 # Add the directory containing the classschedule module to the Python path
 sys.path.append('../functions')
-import tests
 
 
 class TestAllTests(unittest.TestCase):
@@ -29,6 +28,10 @@ class TestAllTests(unittest.TestCase):
 
         print("Testing schedule_web_scraper.py: ")
         os.system(f"python3 test_schedule_web_scraper.py")
+        print("")
+
+        print("Testing outputwriter.py: ")
+        os.system(f"python3 test_outputwriter.py")
         print("")
 
 if __name__ == "__main__":
