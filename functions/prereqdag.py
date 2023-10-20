@@ -58,7 +58,11 @@ class PrereqDAG:
         prereqs = []
         self._recurGetPrereqs(rubricNum, prereqs)
         return self.topoSort(prereqs)
-
+    
+    def getClass(self, classCode):
+        if classCode in self.dagDict:
+            return self.dagDict[classCode]
+        return DAGClass('', [], [], [])
 
     # Rewriten string writer for pretty printing of the dictionary (not topologically sorted)
     def __str__(self):

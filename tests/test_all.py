@@ -1,6 +1,6 @@
 import unittest
 import sys
-import os
+import subprocess
 # Add the directory containing the classschedule module to the Python path
 sys.path.append('../functions')
 
@@ -11,27 +11,27 @@ class TestAllTests(unittest.TestCase):
         print("")
         print("")
         print("Testing classschedule.py: ")
-        os.system(f"python3 test_classschedule.py")
+        subprocess.call("test_classschedule.py", shell=True)
         print("")
 
         print("Testing degreeworks_parser.py: ")
-        os.system(f"python3 test_degreeworks_parser.py")
+        subprocess.call("test_degreeworks_parser.py", shell=True)
         print("")
 
         print("Testing prereq-parser.py: ")
-        os.system(f"python3 test_prereq_parser.py")
+        subprocess.call("test_prereq_parser.py", shell=True)
         print("")
 
         print("Testing prereqdag.py: ")
-        os.system(f"python3 test_prereqdag.py")
+        subprocess.call("test_prereqdag.py", shell=True)
         print("")
 
         print("Testing schedule_web_scraper.py: ")
-        os.system(f"python3 test_schedule_web_scraper.py")
+        subprocess.call("test_schedule_web_scraper.py", shell=True)
         print("")
 
         print("Testing outputwriter.py: ")
-        os.system(f"python3 test_outputwriter.py")
+        subprocess.call("test_outputwriter.py", shell=True)
         print("")
 
 if __name__ == "__main__":

@@ -3,6 +3,16 @@ from py_pdf_parser.loaders import load_file
 
 filepath = ("../data/Sample Input3.pdf")
 
+class StillNeededCourse:
+
+    def __init__(self, numCourses, courseList):
+        self.numCourses, self.courseList = numCourses, courseList
+
+    def __str__(self):
+        return '{' + f"'numCourses':{self.numCourses}, 'courseList':{self.courseList}" + '}'
+    
+    __repr__ = __str__
+
 def parseDegreeworksFile(filepath):
     choose_from = []
     results = []
@@ -41,12 +51,7 @@ def parseDegreeworksFile(filepath):
                 else:
                     class_list.append(re.search(r'[A-Z]{4} \d{4}[A-Z]?', element).group())
                 
-                results.append(
-                    {
-                        "numCourses": int(num_class_credit),
-                        "courseList": class_list
-                    }
-                )
+                results.append(StillNeededCourse(int(num_class_credit), class_list))
             
             elif re.match(r'^\d+ Credit', element, re.IGNORECASE):
                 classes = []
@@ -70,12 +75,7 @@ def parseDegreeworksFile(filepath):
                     num_class_credit = int(num_class_credit) // 3 if int(num_class_credit) % 3 == 0 else 1
                     classes = re.findall(r'[A-Z]{4} \d{1}XXX', element)
 
-                results.append(
-                    {
-                        "numCourses": int(num_class_credit),
-                        "courseList": classes
-                    }
-                )
+                results.append(StillNeededCourse(int(num_class_credit), classes))
 
         except:
             pass
@@ -83,9 +83,9 @@ def parseDegreeworksFile(filepath):
     # print(choose_from)
     if choose_from:  # add choose_from list to results
         for c in choose_from:
-            results.append({'numCourses': c[0], 'courseList': c[1]})
+            results.append(StillNeededCourse(c[0], c[1]))
 
     return results
 
     
-print(parseDegreeworksFile(filepath))
+#print(parseDegreeworksFile(filepath))
