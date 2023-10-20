@@ -19,8 +19,9 @@ def main():
     studentName = input("Enter your full name: ").strip()
     csuId = input("Enter your CSU ID: ").strip()
     startingYear = input("Enter the next academic year (default=2023): ").strip()
-    if startingYear == "":
+    if not startingYear:
         startingYear = 2023
+    startingYear = int(startingYear)
     startingSemester = input("Enter the next semester (Fall/Spring, default=Spring): ").strip().lower()
     if startingSemester == "spring" or startingSemester == "":
         startingSemester = "Spring"
@@ -101,19 +102,23 @@ def getRecommendedSchedule(stillNeededCourseList, classSchedule, prereqs, starti
     for _ in range(len(classSchedule.yearList)):
         recommendedSchedule.append({'Fall':[], 'Spring':[]})
     for stillNeededCourse in stillNeededCourseList:
-        foundOne = False
+        numNeeded = stillNeededCourse.numCourses
         for potentialCourseCode in stillNeededCourse.courseList:
             availableCourses = classSchedule.getAvailability(potentialCourseCode)
             removeUnavailableCourses(availableCourses, startingSemester)
             if len(availableCourses) > 0:
-                selectedCourse = availableCourses[0]
-                prereqCourseInfo = prereqs.getClass(selectedCourse.code)
-                outputClass = OutputClass(selectedCourse.code, selectedCourse.name, prereqCourseInfo.semestersOffered, selectedCourse.credit, prereqCourseInfo.otherReqs)
-                recommendedSchedule[selectedCourse.year][selectedCourse.semester].append(outputClass)
-                foundOne = True
+                for availableCourse in availableCourses:
+                    if numNeeded == 0:
+                        break  
+                    prereqCourseInfo = prereqs.getClass(availableCourse.code)
+                    outputClass = OutputClass(availableCourse.code, availableCourse.name, prereqCourseInfo.semestersOffered, availableCourse.credit, prereqCourseInfo.otherReqs)
+                    recommendedSchedule[availableCourse.year][availableCourse.semester].append(outputClass)
+                    numNeeded -= 1
+            if numNeeded == 0:
                 break
-        if not foundOne:
-            print(f"Warning! Couldn't find any course in the class schedule for a requirement: {stillNeededCourse.courseList}")
+        if numNeeded > 0:
+            print(f"Warning! Couldn't find enough courses in the class schedule for to satify a requirement: {stillNeededCourse.courseList}")
+            print(f"******** Needed {str(stillNeededCourse.numCourses)} courses, but {str(stillNeededCourse.numCourses-numNeeded)} were found.")
     print('Recommended class schedule generated.')
     return recommendedSchedule
 
