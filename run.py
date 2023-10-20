@@ -22,6 +22,12 @@ def main():
     startingYear = input("Enter the next academic year (default=2023): ").strip()
     if startingYear == "":
         startingYear = 2023
+
+    if not startingYear:
+        startingYear = 2023
+    else:
+        startingYear = int(startingYear)  # Convert the input to an integer
+            
     startingSemester = input("Enter the next semester (Fall/Spring, default=Spring): ").strip().lower()
     if startingSemester == "spring" or startingSemester == "":
         startingSemester = "Spring"
