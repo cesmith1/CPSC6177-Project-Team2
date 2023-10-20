@@ -3,7 +3,7 @@ import xlsxwriter
 class OutputClass:
 
     def __init__(self, code, name, semestersOffered, credits, notes):
-        self.name, self.code, self.semestersOffered, self.credits, self.notes = name, code, semestersOffered, credits, notes
+        self.name, self.code, self.semestersOffered, self.credits, self.notes = name, code, semestersOffered, int(credits), notes
 
 # Output writer for creating the Excel file
 class OutputWriter :
@@ -59,7 +59,7 @@ class OutputWriter :
         worksheet.write('B1', 'Name:', bold_right_align)
         worksheet.write('C1', self.name)
         worksheet.write('D1', 'CSU ID:', bold_right_align)
-        worksheet.write('E1', str(+self.csuId))
+        worksheet.write('E1', str(self.csuId))
 
         # Add headers
         worksheet.merge_range('A2:D2', "Path to Graduation", title_format)
@@ -137,8 +137,21 @@ class OutputWriter :
         for outputClass in classes:
             worksheet.write(f'F{index+3}', f'{outputClass.code} - {outputClass.name} {outputClass.semestersOffered}')
             worksheet.write(f'G{index+3}', outputClass.credits)
-            worksheet.write(f'H{index+3}', outputClass.notes)
+            worksheet.write(f'H{index+3}', self._interpretClassNotes(outputClass.notes))
             index += 1
+
+    # Interpret any notes from DAG
+    def _interpretClassNotes(self, notes):
+        interpretedNotes = []
+        for note in notes:
+            if note == 'last semester':
+                interpretedNotes.append('Take your last semester')
+            elif note == 'jr/sr':
+                interpretedNotes.append('Must be junior or senior')
+            else:
+                interpretedNotes.append(note)
+
+        return ', '.join(interpretedNotes)
 
     def close(self):
         self.workbook.close()
