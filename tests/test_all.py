@@ -10,18 +10,18 @@ class TestAllTests(unittest.TestCase):
 
     def allTests():
         os.chdir("tests")
-        
+
         print("")
         print("")
         print("Testing classschedule.py: ")
         subprocess.call("python3 test_classschedule.py", shell=True)
         print("")
 
-        print("Testing degreeworks_parser.py: ")
+        print("Testing degreeworksparser.py: ")
         subprocess.call("python3 test_degreeworks_parser.py", shell=True)
         print("")
 
-        print("Testing prereq-parser.py: ")
+        print("Testing prereqparser.py: ")
         subprocess.call("python3 test_prereq_parser.py", shell=True)
         print("")
 
@@ -29,7 +29,7 @@ class TestAllTests(unittest.TestCase):
         subprocess.call("python3 test_prereqdag.py", shell=True)
         print("")
 
-        print("Testing schedule_web_scraper.py: ")
+        print("Testing schedulewebscraper.py: ")
         subprocess.call("python3 test_schedule_web_scraper.py", shell=True)
         print("")
 
