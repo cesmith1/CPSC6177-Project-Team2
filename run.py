@@ -23,8 +23,6 @@ def main():
     if startingYear == "":
         startingYear = 2023
 
-    if not startingYear:
-        startingYear = 2023
     else:
         startingYear = int(startingYear)  # Convert the input to an integer
             
