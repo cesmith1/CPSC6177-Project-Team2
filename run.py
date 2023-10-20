@@ -10,6 +10,7 @@ from functions.prereqdag import PrereqDAG
 from functions.classschedule import CourseInfo, ClassSchedule
 from functions.degreeworksparser import parseDegreeworksFile, StillNeededCourse
 from functions.outputwriter import OutputWriter, OutputClass
+sys.path.append('tests')
 
 ROOT_DIR = Path(__file__).parent
 
@@ -60,8 +61,7 @@ def main():
             writeResults(outputWriter, recommendedSchedule)
 
         elif choice == 't' or choice == 'test':
-            os.chdir("tests")
-            subprocess.call("test_all.py", shell=True)
+            subprocess.call("python3 tests/test_all.py", shell=True)
 
         elif choice == 'e' or choice == 'exit':
             print("Exiting...")
