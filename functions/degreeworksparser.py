@@ -1,84 +1,91 @@
-import random
 import re
-
-from pdfminer.high_level import extract_text
 from py_pdf_parser.loaders import load_file
 
-filepath = ("../data/Sample Input2.pdf")
-
+filepath = ("../data/Sample Input3.pdf")
 
 def parseDegreeworksFile(filepath):
+    choose_from = []
+    results = []
+
     document = load_file(filepath)
     still_needed_elements = document.elements.filter_by_text_contains("Still Needed:")
 
     for el in still_needed_elements:
         try:
-            elements = str(document.elements.to_the_right_of(el).extract_single_element().text())
-            #print(elements)
-            # Clean Parse Text
-            elements = elements.replace(" Classes ", ",")
-            elements = elements.replace(" Class ", ",")
-            elements = elements.replace("in", "")
-            elements = elements.replace("Credits", ",")
-            elements = elements.replace("Credit", ",")
-            elements = elements.replace("See CORE BLOCK section", '')
-            elements = elements.replace("See Area F: Computer Science - Systems section", '')
-            elements = elements.replace("See Major", '')
-            elements = elements.replace("Computer Science - Systems section", '')
-            elements = elements.replace("Choose from", 'Choose ')
-            elements = elements.replace(" of the followg:", '')
-            elements = elements.replace("  ", " ")
-            elements = elements.replace("  ", " ")
-            elements = elements.replace(" ,", ",")
-            elements = elements.replace(" or", ", or")
-            elements = elements.replace(" and", ", and")
+            element = document.elements.to_the_right_of(el).extract_single_element().text()
+            # print(element)
+            element = " ".join(element.split()) # remove extra spaces between words
 
-            #Convert parsed text into lists
-            def convert(string):
-                alist = list(string.split('\n'))
-                blist = [re.sub("@", "XXX", alist) for alist in alist]
+            # get startwith text ("1 Class in..." or  "6 Credits in")
+            num_class_credit = element.split(" ")[0]  
 
-                #Choose List Regex
-                clist = [re.findall(r'\((.*?)\)', blist) for blist in blist]
-                clist = str(clist)
-                clist = clist.replace('[', '')
-                clist = clist.replace(']', '')
-                clist = clist.replace("' ", "'")
-                clist = clist.replace(" '", "'")
+            if "Choose from" in element:
+                num_course = re.search(r'\d+', element).group()
+                choose_from.append([int(num_course), []])
+                
+            elif "( " in element:
+                code = re.search(r'[A-Z]{4} \d{4}[A-Z]?', element).group()
+                choose_from[len(choose_from) - 1][1].append(code)
+                
+            elif re.match(r'^\d+ Class', element, re.IGNORECASE):
+                class_list = []
+                if " or " in element:
+                    split_or = element.split(' or ')
+                    class_one = re.search(r'[A-Z]{4} \d{4}[A-Z]?', split_or[0]).group()
+                    code_prefix = class_one.split(" ")[0]
+                    class_list.append(class_one)
+                    remaining_courses = []
+                    course_num_only_pattern = '\d{4}[A-Z]?'
+                    remaining_courses = [ f"{code_prefix} {re.search(course_num_only_pattern, split_or[i]).group()}" if not re.match(r'^[A-Z]{4}', split_or[i]) else split_or[i] for i in range(1, len(split_or)) ]
+                    class_list += remaining_courses
+                else:
+                    class_list.append(re.search(r'[A-Z]{4} \d{4}[A-Z]?', element).group())
+                
+                results.append(
+                    {
+                        "numCourses": int(num_class_credit),
+                        "courseList": class_list
+                    }
+                )
+            
+            elif re.match(r'^\d+ Credit', element, re.IGNORECASE):
+                classes = []
+                if re.compile(r' \d@').search(element):
+                    element = element.replace("@", "XXX")
+                
+                if int(num_class_credit) < 3:
+                    if " or " in element:
+                        split_or = element.split(' or ')
+                        class_one = re.search(r'[A-Z]{4} \d{4}[A-Z]?', split_or[0]).group()
+                        code_prefix = class_one.split(" ")[0]
+                        classes.append(class_one)
+                        remaining_courses = []
+                        course_num_only_pattern = '\d{4}[A-Z]?'
+                        remaining_courses = [ f"{code_prefix} {re.search(course_num_only_pattern, split_or[i]).group()}" if not re.match(r'^[A-Z]{4}', split_or[i]) else split_or[i] for i in range(1, len(split_or)) ]
+                        
+                        remaining_courses = [ re.search(r'[A-Z]{4} \d{4}', c).group() for c in remaining_courses ]
+                        classes += remaining_courses
 
-                #Rest of List Regex
-                dlist = [re.sub(r'\([^)]*\)','', blist) for blist in blist]
-                dlist = str(dlist)
-                dlist = dlist.replace(', or', ',')
-                dlist = dlist.replace("','", '')
-                dlist = dlist.replace("'Choose 1'", "")
-                dlist = dlist.replace("'Choose 2'", "")
-                dlist = dlist.replace('[', '')
-                dlist = dlist.replace(']', '')
-                dlist = dlist.replace("' ", "'")
-                dlist = dlist.replace(" '", "'")
-                dlist = dlist.replace("''", '')
-                dlist = dlist.replace("5128U*", "CPSC 5128U*")
-                dlist = dlist.replace("5135U*", "CPSC 5135U*")
-                dlist = dlist.replace("5155U*", "CPSC 5155U*")
-                dlist = dlist.replace("5157U*", "CPSC 5157U*")
-                dlist = dlist.replace("MATH 3XXX, 4XXX, 5XXXU", "MATH 3XXX, MATH 4XXX, MATH 5XXXU")
-                dlist = dlist.replace("CPSC 3XXX, 4XXX, 5XXX", "CPSC 3XXX, CPSC 4XXX, CPSC 5XXX")
-                dlist = dlist.replace("CYBR 3XXX, 4XXX, 5XXX", "CYBR 3XXX, CYBR 4XXX, CYBR 5XXX")
+                else:
+                    num_class_credit = int(num_class_credit) // 3 if int(num_class_credit) % 3 == 0 else 1
+                    classes = re.findall(r'[A-Z]{4} \d{1}XXX', element)
 
-                #Find Choose 1 or Choose 2
-                choose = [re.findall(r'Choose (\d+)', blist) for blist in blist]
-                choose = str(choose)
-                choose = choose.replace('[', '')
-                choose = choose.replace(']', '')
-                choose = choose.replace("' ", "'")
-                choose = choose.replace(" '", "'")
+                results.append(
+                    {
+                        "numCourses": int(num_class_credit),
+                        "courseList": classes
+                    }
+                )
 
-                this_list = choose + clist + dlist
-                return this_list
-            print(convert(elements))
         except:
-            print("An Exception Occurred")
+            pass
+    
+    # print(choose_from)
+    if choose_from:  # add choose_from list to results
+        for c in choose_from:
+            results.append({'numCourses': c[0], 'courseList': c[1]})
 
+    return results
 
+    
 print(parseDegreeworksFile(filepath))
