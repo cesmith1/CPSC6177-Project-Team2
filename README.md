@@ -42,7 +42,7 @@ application's execution or by executing **_test_all.py**
 
 ## Execution
 
-## Running the application
+### Running the application
 
 To start the class scheduler application, the **_run.py_** script in the root directory should be executed.
 > [!IMPORTANT]
@@ -54,7 +54,7 @@ To start the class scheduler application, the **_run.py_** script in the root di
 > python run.py
 ```
 
-## Program Usage
+### Program Usage
 
 On execution, the user will be prompted to enter some details, including their full name and CSU number, the next 
 academic year, and the upcoming semester.
