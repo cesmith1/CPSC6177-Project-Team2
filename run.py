@@ -2,44 +2,144 @@
 
 import os
 import sys
-sys.path.append('functions')
-#from prereq-parser import print_prereq-parser_output
-#from degreeworks_parser import print_degreeworks_parser_output
-from functions.schedule_web_scraper import ScheduleWebScraper
+import subprocess
+from pathlib import Path
+from json import load
+from functions.schedulewebscraper import ScheduleWebScraper
+from functions.prereqdag import PrereqDAG
+from functions.classschedule import CourseInfo, ClassSchedule
+from functions.degreeworksparser import parseDegreeworksFile, StillNeededCourse
+from functions.outputwriter import OutputWriter, OutputClass
+
+ROOT_DIR = Path(__file__).parent
 
 def main():
-    print("Hello, and welcome to the class scheduler. Please select an option from the list below.")
+    print("Hello, and welcome to the class scheduler.")
     print()
-    print("a) Parse (Static) Prerequisite file")
-    print("b) Parse DegreeWorksPDF")
-    print("c) Webscrape & parse Class Schedule")
-    print("d) Run test case")
-    
-    choice = input("Enter your choice: ").strip().lower()
-
-    if choice == 'a':
-        #username = input("Press enter to run parser for prereq. courses : ").strip()
-        os.chdir("functions")
-        os.system(f"python3 prereq-parser.py")
-        #print_prereq-parser_output()
-
-    elif choice == 'b':
-        os.chdir("functions")
-        os.system(f"python3 degreeworks_parser.py")
-        #print_degreeworks_parser_output()
-
-    elif choice == 'c':
-        web_scraper = ScheduleWebScraper()
-        print(web_scraper.formatted_schedule)
-        os.chdir("functions")
-        os.system(f"python3 schedule_web_scraper.py")    
-
-    elif choice == 'd':
-        os.chdir("tests")
-        os.system(f"python3 test_all.py")
-
+    studentName = input("Enter your full name: ").strip()
+    csuId = input("Enter your CSU ID: ").strip()
+    startingYear = input("Enter the next academic year (default=2023): ").strip()
+    if not startingYear:
+        startingYear = 2023
+    startingYear = int(startingYear)
+    startingSemester = input("Enter the next semester (Fall/Spring, default=Spring): ").strip().lower()
+    if startingSemester == "spring" or startingSemester == "":
+        startingSemester = "Spring"
+    elif startingSemester == "fall":
+        startingSemester = "Fall"
     else:
-        print("Invalid choice. Exiting...")
+        print("Invalid semester name. Exiting...")
+        sys.exit(1)
+
+    while(True):
+        print()
+        print("Please select an option from the list below.")
+        print()
+        print("s(crape): Execute class schedule webscraper ")
+        print("p(rint): Generate and export recommended class schedule")
+        print("t(est): Run test cases")
+        print("e(xit): Exit program")
+        print()
+        
+        choice = input("Enter your choice: ").strip().lower()
+        print()
+
+        if choice == 's' or choice == 'scrape':
+            print('Scraping course schedule from CSU website')
+            webScraper = ScheduleWebScraper()
+            print(f'Course schedule has been exported to "{webScraper.class_schedule_json_path}"')
+
+        elif choice == 'p' or choice == 'print':
+            print("Provide the path to the degreeworks pdf containing the courses you still require for your degree track...")
+            print()
+            degreeworksFilePath = input("Input file: ").strip()
+            stillNeededCourseList = generateStillNeededCourseList(degreeworksFilePath)
+            classSchedule = generateClassSchedule()
+            prereqs = generatePrereqs()
+            recommendedSchedule = getRecommendedSchedule(stillNeededCourseList, classSchedule, prereqs, startingSemester)
+            outputWriter = OutputWriter(studentName, csuId, startingYear)
+            writeResults(outputWriter, recommendedSchedule)
+
+        elif choice == 't' or choice == 'test':
+            os.chdir("tests")
+            subprocess.call("test_all.py", shell=True)
+
+        elif choice == 'e' or choice == 'exit':
+            print("Exiting...")
+            sys.exit(0)
+
+        else:
+            print("Invalid choice. Exiting...")
+            sys.exit(1)
+
+def generateStillNeededCourseList(degreeworksFilePath):
+    print('Retrieving still needed courses from degreeworks pdf...')
+    stillNeededCourseList = parseDegreeworksFile(degreeworksFilePath)
+    print('Still needed course list successfully parsed and loaded.')
+    return stillNeededCourseList
+
+def generatePrereqs():
+    print('Retrieving prerequisites from json file...')
+    prereqsFile = open(ROOT_DIR / 'data/prereqs.json')
+    prereqsJson = load(prereqsFile)
+    prereqsFile.close()
+    prereqs = PrereqDAG(prereqsJson)
+    print('Prerequisites successfully parsed and loaded.')
+    return prereqs
+
+def generateClassSchedule():
+    print('Retrieving class schedule from json file...')
+    prereqsFile = open(ROOT_DIR / 'data/class_schedule.json')
+    prereqsJson = load(prereqsFile)
+    prereqsFile.close()
+    classSchedule = ClassSchedule(prereqsJson)
+    print('Class schedule successfully parsed and loaded.')
+    return classSchedule
+
+def getRecommendedSchedule(stillNeededCourseList, classSchedule, prereqs, startingSemester):
+    print('Preparing recommended class schedule...')
+    recommendedSchedule = []
+    for _ in range(len(classSchedule.yearList)):
+        recommendedSchedule.append({'Fall':[], 'Spring':[]})
+    for stillNeededCourse in stillNeededCourseList:
+        numNeeded = stillNeededCourse.numCourses
+        for potentialCourseCode in stillNeededCourse.courseList:
+            availableCourses = classSchedule.getAvailability(potentialCourseCode)
+            removeUnavailableCourses(availableCourses, startingSemester)
+            if len(availableCourses) > 0:
+                for availableCourse in availableCourses:
+                    if numNeeded == 0:
+                        break  
+                    prereqCourseInfo = prereqs.getClass(availableCourse.code)
+                    outputClass = OutputClass(availableCourse.code, availableCourse.name, prereqCourseInfo.semestersOffered, availableCourse.credit, prereqCourseInfo.otherReqs)
+                    recommendedSchedule[availableCourse.year][availableCourse.semester].append(outputClass)
+                    numNeeded -= 1
+            if numNeeded == 0:
+                break
+        if numNeeded > 0:
+            print(f"Warning! Couldn't find enough courses in the class schedule for to satify a requirement: {stillNeededCourse.courseList}")
+            print(f"******** Needed {str(stillNeededCourse.numCourses)} courses, but {str(stillNeededCourse.numCourses-numNeeded)} were found.")
+    print('Recommended class schedule generated.')
+    return recommendedSchedule
+
+# Print results to file
+def writeResults(outputWriter, recommendedSchedule):
+    print('Writing recommended class schedule to "./output.xlsx"...')
+    for yearIndex in range(len(recommendedSchedule)):
+        for semester in recommendedSchedule[yearIndex]:
+            outputWriter.addSemesterToWriter(yearIndex, semester, recommendedSchedule[yearIndex][semester])
+    outputWriter.write()
+    print('Recommended class schedule was successfully written to "./output.xlsx".')
+    print('The application can now be terminated or run again to generate another class schedule.')
+    outputWriter.close()
+
+# Remove any courses from the running that are in first year Spring if the starting semester is fall
+def removeUnavailableCourses(availableCourses, startingSemester):
+    if startingSemester == 'Spring':
+        return
+    for index in range(len(availableCourses)):
+        if availableCourses[index].year == 0 and availableCourses[index].semester == 'Spring':
+            del availableCourses[index]
 
 if __name__ == "__main__":
     main()
