@@ -81,7 +81,7 @@ class OutputWriter:
         total_border_right = self.workbook.add_format({'bold': 1, 'align': 'right', 'bottom': 5, 'right': 5, 'top': 5})
 
         # Store classes in upcoming loop for later
-        classes_dict = {}
+        classes = []
         # Store total hours for grand total at the end
         totalCreditHours = 0
 
@@ -144,6 +144,7 @@ class OutputWriter:
                     else:
                         raise Exception("Too many classes in a semester for output writer to handle!")
                     index += 1
+                    classes.append(outputClass)
 
         # Write Total credit hours
         worksheet.write(f'C{(len(self.years) * 9) + 3}', 'Total Credit Hours', total_border_left)
