@@ -32,6 +32,8 @@ class OutputWriter:
     # Execute writer. ONLY CALL THIS METHOD ONCE!
     def write(self):
         worksheet = self.workbook.add_worksheet()
+        unique_path_to_graduation = set()
+
         # Generic formatting
         bold_right_align = self.workbook.add_format({'bold': 1, 'align': 'right'})
         bold = self.workbook.add_format({'bold': 1})
@@ -81,7 +83,7 @@ class OutputWriter:
         total_border_right = self.workbook.add_format({'bold': 1, 'align': 'right', 'bottom': 5, 'right': 5, 'top': 5})
 
         # Store classes in upcoming loop for later
-        classes = []
+        classes_dict = {}
         # Store total hours for grand total at the end
         totalCreditHours = 0
 
@@ -112,7 +114,6 @@ class OutputWriter:
                                          {'type': 'no_errors', 'format': semester_border_bottom_left})
             worksheet.conditional_format(f'D{(y * 9) + 11}:D{(y * 9) + 11}',
                                          {'type': 'no_errors', 'format': semester_border_bottom_right})
-
             if 'Fall' in self.years[y]:
                 worksheet.write(f'A{(y * 9) + 3}', f'Fall {self.startingYear + y}', bold)
                 worksheet.write(f'B{(y * 9) + 3}', 'Credits', bold)
@@ -120,15 +121,18 @@ class OutputWriter:
                 worksheet.write(f'B{(y * 9) + 11}', f'=SUM(B{(y * 9) + 4}:B{(y * 9) + 10})', bold)
                 index = 0
                 for outputClass in self.years[y]['Fall']:
-                    if index <= 7:
-                        worksheet.write(f'A{(y * 9) + 4 + index}',
-                                        f'{outputClass.code} - {outputClass.name} {outputClass.semestersOffered}')
-                        worksheet.write(f'B{(y * 9) + 4 + index}', outputClass.credits)
-                        totalCreditHours += outputClass.credits
-                    else:
-                        raise Exception("Too many classes in a semester for output writer to handle!")
+                    # Check if this class is not already in the set
+                    if outputClass.code not in unique_path_to_graduation:
+                        if index <= 7:
+                            worksheet.write(f'A{(y * 9) + 4 + index}',
+                                            f'{outputClass.code} - {outputClass.name} {outputClass.semestersOffered}')
+                            worksheet.write(f'B{(y * 9) + 4 + index}', outputClass.credits)
+                            totalCreditHours += outputClass.credits
+                            unique_path_to_graduation.add(outputClass.code)
+                        else:
+                            raise Exception("Too many classes in a semester for output writer to handle!")
                     index += 1
-                    classes.append(outputClass)
+                    classes_dict[outputClass.code] = outputClass
             if 'Spring' in self.years[y]:
                 worksheet.write(f'C{(y * 9) + 3}', f'Spring {self.startingYear + y}', bold)
                 worksheet.write(f'D{(y * 9) + 3}', 'Credits', bold)
@@ -136,19 +140,24 @@ class OutputWriter:
                 worksheet.write(f'D{(y * 9) + 11}', f'=SUM(D{(y * 9) + 4}:D{(y * 9) + 10})', bold)
                 index = 0
                 for outputClass in self.years[y]['Spring']:
-                    if index <= 7:
-                        worksheet.write(f'C{(y * 9) + 4 + index}',
-                                        f'{outputClass.code} - {outputClass.name} {outputClass.semestersOffered}')
-                        worksheet.write(f'D{(y * 9) + 4 + index}', outputClass.credits)
-                        totalCreditHours += outputClass.credits
-                    else:
-                        raise Exception("Too many classes in a semester for output writer to handle!")
+                    # Check if this class is not already in the set
+                    if outputClass.code not in unique_path_to_graduation:
+                        if index <= 7:
+                            worksheet.write(f'C{(y * 9) + 4 + index}',
+                                            f'{outputClass.code} - {outputClass.name} {outputClass.semestersOffered}')
+                            worksheet.write(f'D{(y * 9) + 4 + index}', outputClass.credits)
+                            totalCreditHours += outputClass.credits
+                            unique_path_to_graduation.add(outputClass.code)
+                        else:
+                            raise Exception("Too many classes in a semester for output writer to handle!")
                     index += 1
-                    classes.append(outputClass)
+                    classes_dict[outputClass.code] = outputClass
 
         # Write Total credit hours
         worksheet.write(f'C{(len(self.years) * 9) + 3}', 'Total Credit Hours', total_border_left)
         worksheet.write(f'D{(len(self.years) * 9) + 3}', totalCreditHours, total_border_right)
+
+        classes = list(classes_dict.values())
 
         # Write all required classes, credits and notes off to the right
         index = 0
