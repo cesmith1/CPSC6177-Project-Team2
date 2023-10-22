@@ -47,6 +47,9 @@ application's execution or by executing **_test_all.py**
 To start the class scheduler application, the **_run.py_** script in the root directory should be executed.
 > [!IMPORTANT]
 > In order to execute the application, python 3.11 or later should be installed on the host machine.
+> Package manager *pip* is used to manage package dependencies. 
+> *requirements.txt* in project root directory contains all required packages. 
+> Run ```pip install -r requirements.txt``` to install them before running the application. 
 > See the **Requirements** and **Resources** sections below.
 
 ```
