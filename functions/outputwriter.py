@@ -113,7 +113,6 @@ class OutputWriter:
             worksheet.conditional_format(f'D{(y * 9) + 11}:D{(y * 9) + 11}',
                                          {'type': 'no_errors', 'format': semester_border_bottom_right})
 
-            courses_added_to_path = set()
             if 'Fall' in self.years[y]:
                 worksheet.write(f'A{(y * 9) + 3}', f'Fall {self.startingYear + y}', bold)
                 worksheet.write(f'B{(y * 9) + 3}', 'Credits', bold)
@@ -126,11 +125,10 @@ class OutputWriter:
                                         f'{outputClass.code} - {outputClass.name} {outputClass.semestersOffered}')
                         worksheet.write(f'B{(y * 9) + 4 + index}', outputClass.credits)
                         totalCreditHours += outputClass.credits
-                        courses_added_to_path = set()
                     else:
                         raise Exception("Too many classes in a semester for output writer to handle!")
                     index += 1
-
+                    classes.append(outputClass)
             if 'Spring' in self.years[y]:
                 worksheet.write(f'C{(y * 9) + 3}', f'Spring {self.startingYear + y}', bold)
                 worksheet.write(f'D{(y * 9) + 3}', 'Credits', bold)
@@ -143,17 +141,13 @@ class OutputWriter:
                                         f'{outputClass.code} - {outputClass.name} {outputClass.semestersOffered}')
                         worksheet.write(f'D{(y * 9) + 4 + index}', outputClass.credits)
                         totalCreditHours += outputClass.credits
-                        courses_added_to_path = set()
                     else:
                         raise Exception("Too many classes in a semester for output writer to handle!")
                     index += 1
 
-
         # Write Total credit hours
         worksheet.write(f'C{(len(self.years) * 9) + 3}', 'Total Credit Hours', total_border_left)
         worksheet.write(f'D{(len(self.years) * 9) + 3}', totalCreditHours, total_border_right)
-
-        classes = list(classes_dict.values())
 
         # Write all required classes, credits and notes off to the right
         index = 0
