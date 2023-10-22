@@ -118,7 +118,7 @@ def getRecommendedSchedule(stillNeededCourseList, classSchedule, prereqs, starti
             if numNeeded == 0:
                 break
         if numNeeded > 0:
-            print(f"Warning! Couldn't find enough courses in the class schedule for to satify a requirement: {stillNeededCourse.courseList}")
+            print(f"Warning! Couldn't find enough courses in the class schedule to satify a requirement: {stillNeededCourse.courseList}")
             print(f"******** Needed {str(stillNeededCourse.numCourses)} courses, but {str(stillNeededCourse.numCourses-numNeeded)} were found.")
     print('Recommended class schedule generated.')
     return recommendedSchedule

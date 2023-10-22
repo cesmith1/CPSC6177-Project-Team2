@@ -83,8 +83,9 @@ def parseDegreeworksFile(filepath):
 
                         remaining_courses = [re.search(r'[A-Z]{4} \d{4}', c).group() for c in remaining_courses]
                         classes += remaining_courses
-                    else:
-                        classes.append(re.search(r'[A-Z]{4} \d{1}XXX', element).group())
+                else:
+                    num_class_credit = int(num_class_credit) // 3 if int(num_class_credit) % 3 == 0 else 1
+                    classes = re.findall(r'[A-Z]{4} \d{1}XXX', element)
                 results.append(StillNeededCourse(int(num_class_credit), classes))
 
         except:
