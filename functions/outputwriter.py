@@ -81,7 +81,7 @@ class OutputWriter:
         total_border_right = self.workbook.add_format({'bold': 1, 'align': 'right', 'bottom': 5, 'right': 5, 'top': 5})
 
         # Store classes in upcoming loop for later
-        classes_dict = {}
+        classes = []
         # Store total hours for grand total at the end
         totalCreditHours = 0
 
@@ -127,7 +127,7 @@ class OutputWriter:
                     else:
                         raise Exception("Too many classes in a semester for output writer to handle!")
                     index += 1
-                    classes_dict[outputClass.code] = outputClass
+                    classes.append(outputClass)
             if 'Spring' in self.years[y]:
                 worksheet.write(f'C{(y * 9) + 3}', f'Spring {self.startingYear + y}', bold)
                 worksheet.write(f'D{(y * 9) + 3}', 'Credits', bold)
@@ -143,13 +143,11 @@ class OutputWriter:
                     else:
                         raise Exception("Too many classes in a semester for output writer to handle!")
                     index += 1
-                    classes_dict[outputClass.code] = outputClass
+                    classes.append(outputClass)
 
         # Write Total credit hours
         worksheet.write(f'C{(len(self.years) * 9) + 3}', 'Total Credit Hours', total_border_left)
         worksheet.write(f'D{(len(self.years) * 9) + 3}', totalCreditHours, total_border_right)
-
-        classes = list(classes_dict.values())
 
         # Write all required classes, credits and notes off to the right
         index = 0

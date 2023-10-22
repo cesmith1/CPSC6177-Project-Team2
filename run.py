@@ -106,6 +106,7 @@ def getRecommendedSchedule(stillNeededCourseList, classSchedule, prereqs, starti
         for potentialCourseCode in stillNeededCourse.courseList:
             availableCourses = classSchedule.getAvailability(potentialCourseCode)
             removeUnavailableCourses(availableCourses, startingSemester)
+            availableCourses = removeDuplicates(availableCourses)
             if len(availableCourses) > 0:
                 for availableCourse in availableCourses:
                     if numNeeded == 0:
@@ -140,6 +141,16 @@ def removeUnavailableCourses(availableCourses, startingSemester):
     for index in range(len(availableCourses)):
         if availableCourses[index].year == 0 and availableCourses[index].semester == 'Spring':
             del availableCourses[index]
+
+def removeDuplicates(availableCourses):
+    indexesToDelete = []
+    for index in range(len(availableCourses)):
+        for searchIndex in range((index + 1), len(availableCourses)):
+            if availableCourses[index].code == availableCourses[searchIndex].code and 'XXX' not in availableCourses[index].code:
+                indexesToDelete.append(searchIndex)
+    availableCourses = [v for i, v in enumerate(availableCourses) if i not in indexesToDelete]
+    return availableCourses
+
 
 if __name__ == "__main__":
     main()
