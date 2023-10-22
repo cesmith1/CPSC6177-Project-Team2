@@ -112,6 +112,7 @@ class OutputWriter:
                                          {'type': 'no_errors', 'format': semester_border_bottom_left})
             worksheet.conditional_format(f'D{(y * 9) + 11}:D{(y * 9) + 11}',
                                          {'type': 'no_errors', 'format': semester_border_bottom_right})
+
             if 'Fall' in self.years[y]:
                 worksheet.write(f'A{(y * 9) + 3}', f'Fall {self.startingYear + y}', bold)
                 worksheet.write(f'B{(y * 9) + 3}', 'Credits', bold)

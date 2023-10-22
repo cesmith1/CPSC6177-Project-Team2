@@ -4,28 +4,34 @@ from bs4 import BeautifulSoup as bs
 import unicodedata
 import json
 
+# Define the root directory as the parent directory of the script
 ROOT_DIR = Path(__file__).parent.parent
 
 class ScheduleWebScraper:
-
     def __init__(self) -> None:
+        # Define paths and URLs
         self.class_schedule_json_path = ROOT_DIR / 'data/class_schedule.json'
         self.program_schedule_url = "https://catalog.columbusstate.edu/academic-units/business/computer-science/computer-science-bs-software-systems-track/#programmaptextcontainer"
         self.area_courses_url = 'https://catalog.columbusstate.edu/academic-units/business/computer-science/computer-science-bs-software-systems-track/#programofstudytextcontainer'
         self.program_schedule_container_id = self.program_schedule_url[self.program_schedule_url.index("#") :]
         self.area_courses_container_id = self.area_courses_url[self.area_courses_url.index("#") :]
+
+        # Initialize variables to store data
         self.schedule = self.fetch_program_schedule()
         self.area_courses = self.fetch_area_courses()
         self.formatted_schedule = self.get_formatted_schedule()
 
+    # Method to perform a GET request and return the content of the page.
     def get_request_page_content(self, url):
         page = requests.get(url)
         return bs(page.content, "html.parser") if page.status_code == 200 else "Error loading page"
 
+    # Method to fetch the program schedule.
     def fetch_program_schedule(self):
         results = {}
         soup_content = self.get_request_page_content(self.program_schedule_url)
         if soup_content != "Error loading page":
+            # Select program schedule table rows
             selector = f"{self.program_schedule_container_id} tr"
             table = soup_content.css.iselect(selector)
             for tr in table:
@@ -37,6 +43,7 @@ class ScheduleWebScraper:
                         year = tr.find_previous_sibling(class_='plangridyear').text
                         results[year][tr.th.text] = []
                     else:
+                        # Extract course information
                         course_code = unicodedata.normalize('NFKD', tr.td.text).upper()
                         course_name = unicodedata.normalize('NFKD', tr.td.find_next_sibling('td').text)
                         course_credit = unicodedata.normalize('NFKD', tr.td.find_next_sibling(class_='hourscol').text)
@@ -47,13 +54,19 @@ class ScheduleWebScraper:
 
                         year = tr.find_previous_sibling(class_='plangridyear').text
                         term = tr.find_previous_sibling(class_='plangridterm').th.text
-                        results[year][term].append({"courseCode": course_code, "courseName": course_name, "courseCredit": course_credit})
+                        results[year][term].append({
+                            "courseCode": course_code,
+                            "courseName": course_name,
+                            "courseCredit": course_credit
+                        })
         return results
 
+    # Method to fetch area courses.
     def fetch_area_courses(self):
         results = {}
         soup_content = self.get_request_page_content(self.area_courses_url)
         if soup_content != "Error loading page":
+            # Select area courses table rows
             selector = f"{self.area_courses_container_id} tbody tr"
             table = soup_content.css.iselect(selector)
             area = ""
@@ -72,18 +85,20 @@ class ScheduleWebScraper:
                         if 'following' in sibling.text or 'each' in sibling.text:
                             course_code = unicodedata.normalize('NFKD', tr.td.text)
                             course_name = unicodedata.normalize('NFKD', tr.td.find_next_sibling('td').text)
-                            results[area][subarea].append(
-                                {"courseCode": course_code, "courseName": course_name},
-                            )
+                            results[area][subarea].append({
+                                "courseCode": course_code,
+                                "courseName": course_name,
+                            })
                             break
-                        elif 'Area' in sibling.text: break
+                        elif 'Area' in sibling.text:
+                            break
         return results
 
-    # clean up / rearrange area-courses web results 
+    # Method to reformat the fetched area courses.
     def reformat_area_courses(self):
         results = {}
         for area, contents in self.area_courses.items():
-            area_text = area[0:6].upper()    # e.g., AREA A
+            area_text = area[0:6].upper()  # e.g., AREA A
             content_keys = list(contents.keys())
 
             if len(content_keys) == 1:
@@ -96,8 +111,8 @@ class ScheduleWebScraper:
                         after_following_idx = key.index('following') + len('following') + 1
                         results[f'{area_text} {key[after_following_idx:].capitalize()}'] = contents[key]
         return results
-    
-    # replace area-courses in schedule
+
+    # Method to replace the schedule's area section.
     def replace_schedule_area_section(self):
         formatted_area_courses = self.reformat_area_courses()
         for year, semesters in self.schedule.items():
@@ -114,8 +129,8 @@ class ScheduleWebScraper:
                     if code == "AREA B1":
                         course['courseCode'] = [i for i in course['courseName'].split(" or ")]
                         course['courseName'] = [i for i in course['courseName'].split(" or ")]
-                        
-                        course['courseCode'] =[ i[0 : i.find(' ', i.find(' ')+1)] for i in course['courseCode'] ]
+
+                        course['courseCode'] = [i[0: i.find(' ', i.find(' ') + 1)] for i in course['courseCode']]
                         continue
 
                     if code == "AREA B2":
@@ -124,10 +139,13 @@ class ScheduleWebScraper:
                         continue
 
                     if code == "AREA D":
-                        course['courseCode'] = [i["courseCode"] for i in formatted_area_courses['AREA D D1:'] if "no lab" not in i["courseName"]]
-                        course['courseName'] = [i["courseName"] for i in formatted_area_courses['AREA D D1:'] if "no lab" not in i["courseName"]]
-                        
-                        course['courseCode'] = [ i[0:i.index('&')] + " " + i[i.index('&'):] if '&' in i else i for i in course['courseCode']]
+                        course['courseCode'] = [i["courseCode"] for i in formatted_area_courses['AREA D D1:'] if
+                                                "no lab" not in i["courseName"]]
+                        course['courseName'] = [i["courseName"] for i in formatted_area_courses['AREA D D1:'] if
+                                                "no lab" not in i["courseName"]]
+
+                        course['courseCode'] = [i[0:i.index('&')] + " " + i[i.index('&'):] if '&' in i else i for i
+                                                in course['courseCode']]
                         continue
 
                     if code == "AREA H":
@@ -138,81 +156,58 @@ class ScheduleWebScraper:
                     if isinstance(code, str) and code.startswith("AREA") and "I" not in code:
                         for area, courses in formatted_area_courses.items():
                             if len(area.split(" ")) > 2:
-                                if not code[-1].isnumeric() and code in area: 
+                                if not code[-1].isnumeric() and code in area:
                                     if area.split(" ")[2] in name:
                                         course['courseCode'] = [i["courseCode"] for i in courses]
                                         course['courseName'] = [i["courseName"] for i in courses]
-                            else: # area A, F, G, H
+                            else:  # area A, F, G, H
                                 if area in code:
                                     course['courseCode'] = [i["courseCode"] for i in courses]
                                     course['courseName'] = [i["courseName"] for i in courses]
 
-    # final formatted class schedule for usage
+    # Method to generate a formatted class schedule.
     def get_formatted_schedule(self):
         if not self.can_fetch_data():
             return {"error": "failed fetching web page contents"}
-        
+
         self.replace_schedule_area_section()
-        # print(self.schedule)
-        formatted_schedule = { "First Year": {"Fall": [], "Spring": []},
-                                "Second Year": {"Fall": [], "Spring": []},
-                                "Third Year": {"Fall": [], "Spring": []},
-                                "Fourth Year": {"Fall": [], "Spring": []} }
+
+        formatted_schedule = {
+            "First Year": {"Fall": [], "Spring": []},
+            "Second Year": {"Fall": [], "Spring": []},
+            "Third Year": {"Fall": [], "Spring": []},
+            "Fourth Year": {"Fall": [], "Spring": []}
+        }
 
         for year, semesters in formatted_schedule.items():
             for s, l in semesters.items():
                 for course in self.schedule[year][s]:
                     if type(course['courseCode']) is not list:
                         l.append({
-                                    "courses": [
-                                        {"code": course['courseCode'], "name": course['courseName']}
-                                    ],
-                                    "courseCredit": course['courseCredit']
-                                })
+                            "courses": [
+                                {"code": course['courseCode'], "name": course['courseName']}
+                            ],
+                            "courseCredit": course['courseCredit']
+                        })
                     else:
                         l.append({
-                                    "courses": [ {"code": c, "name": course['courseName'][i]} for i, c in enumerate(course['courseCode']) ],
-                                    "courseCredit": course['courseCredit']
-                                })  
-        json_str = json.dumps(formatted_schedule, indent=4) 
+                            "courses": [{"code": c, "name": course['courseName'][i]} for i, c in
+                                        enumerate(course['courseCode'])],
+                            "courseCredit": course['courseCredit']
+                        })
+
+        json_str = json.dumps(formatted_schedule, indent=4)
         with open(self.class_schedule_json_path, 'w') as scheduleFile:
             scheduleFile.write(json_str)
 
         return formatted_schedule
-           
+
+    # Method to check if data can be fetched.
     def can_fetch_data(self):
         return True if (self.schedule and self.area_courses) else False
 
-    def print_get_request_page_content(self, url):
-        print("Getting request page content:")
-        print(self.get_request_page_content(url))
-
-    def print_fetch_program_schedule(self):
-        print("Fetched program schedule:")
-        print(self.fetch_program_schedule())
-
-    def print_fetch_area_courses(self):
-        print("Fetched area courses:")
-        print(self.fetch_area_courses())
-
-    def print_reformat_area_courses(self):
-        print("Reformatted area courses:")
-        print(self.reformat_area_courses())
-
-    def print_replace_schedule_area_section(self):
-        self.replace_schedule_area_section()
-        print("Schedule Area Section Replaced:")
-
-    def print_get_formatted_schedule(self):
-        print("Getting formatted schedule:")
-        print(self.get_formatted_schedule())
-
-    def print_can_fetch_data(self):
-        print("Fetching data:")
-        print(self.can_fetch_data())
-
+# Uncomment the following lines to use the web scraper:
 # web_scraper = ScheduleWebScraper()
 # web_scraper.get_formatted_schedule()   # get formatted class schedule dictionary
-
-# print(web_scraper.class_schedule_json_path)   # get path to class schedule json file
+# print(web_scraper.class_schedule_json_path)   # get path to class schedule JSON file
 # print(web_scraper.formatted_schedule)         # get formatted class schedule dictionary

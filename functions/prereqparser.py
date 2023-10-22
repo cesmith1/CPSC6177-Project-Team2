@@ -47,7 +47,7 @@ for match in matches:
     }
     courses.append(course)
 
-# Save to JSON file
+# Save the parsed data to a JSON file
 with open('../data/prereqs.json', 'w') as json_file:
     json.dump(courses, json_file, indent=4)
 
