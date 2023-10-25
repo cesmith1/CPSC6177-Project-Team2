@@ -1,5 +1,16 @@
 # Module containing the data structures for the prereq DAG.
 
+# Class to store an error in the case that a preq rule is violated
+class PrereqViolation:
+    def __init__(self, prereqs, causeCourse):
+        self.prereqs, self.causeCourse = prereqs, causeCourse
+
+    def getMessage(self):
+        return f"'{self.causeCourse}' should be taken before courses: {self.prereqs}"
+
+    __str__ = getMessage
+    __repr__ = getMessage
+
 # Class for each node in the dictionary "Rubric Number":{class object}
 class DAGClass:
     def __init__(self, name, semestersOffered, children, otherReqs):
@@ -33,6 +44,7 @@ class PrereqDAG:
     # Courses that are already completed will not be added to the result
     # Args: incompleteRubricNumbers - A list of course rubric nums not yet completed.
     def topoSort(self, incompleteRubricNumbers):
+
         visited = {}
         for k in self.dagDict:
             visited[k] = False
@@ -42,6 +54,33 @@ class PrereqDAG:
             if visited[v] == False:
                 self._recurTopoSort(v, visited, sorted, incompleteRubricNumbers)
         return sorted
+    
+    # Identify and return any prereq violations in a schedule
+    def getPrereqViolations(self, recommendedSchedule):
+        # Store return value here, list of prereq violations (Will be empty if none are found)
+        prereqViolations = []
+        # List to store all courses taken in each semester as we go along
+        completedCourses = []
+        for year in recommendedSchedule:
+            for courses in year.values():
+                # Add all courses taken this semester to completed courses
+                for course in courses:
+                    completedCourses.append(course.code)
+                # Iterate over courses added this semester
+                for course in courses:
+                    # List to store each missing prereq for a given course
+                    shouldBePrereqs = []
+                    # Iterate over all courses taken (including this semster)
+                    for completedCourse in completedCourses:
+                        # Get all prereqs for the completed course
+                        prereqCodes = self.getPrereqs(completedCourse)
+                        # Add completed course to missing prereqs list if the course taken this semester is a prereq for a completed course
+                        if course.code in prereqCodes:
+                            shouldBePrereqs.append(completedCourse)
+                    # Store missing prereqs for the course if they were found
+                    if shouldBePrereqs:
+                        prereqViolations.append(PrereqViolation(shouldBePrereqs, course.code))
+        return prereqViolations
     
     # Private helper function - recursive search for prereqs of a given class.
     # Results are stored in prereqs variable as a list of rubric numbers.   

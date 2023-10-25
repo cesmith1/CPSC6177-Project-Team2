@@ -22,11 +22,11 @@ def main():
     if not startingYear:
         startingYear = 2023
     startingYear = int(startingYear)
-    startingSemester = input("Enter the next semester (Fall/Spring, default=Spring): ").strip().lower()
-    if startingSemester == "spring" or startingSemester == "":
-        startingSemester = "Spring"
-    elif startingSemester == "fall":
+    startingSemester = input("Enter the next semester (Fall/Spring, default=Fall): ").strip().lower()
+    if startingSemester == "fall" or startingSemester == "":
         startingSemester = "Fall"
+    elif startingSemester == "spring":
+        startingSemester = "Spring"
     else:
         print("Invalid semester name. Exiting...")
         sys.exit(1)
@@ -57,8 +57,9 @@ def main():
             classSchedule = generateClassSchedule()
             prereqs = generatePrereqs()
             recommendedSchedule = getRecommendedSchedule(stillNeededCourseList, classSchedule, prereqs, startingSemester)
+            prereqViolations = getPrereqViolations(prereqs, recommendedSchedule)
             outputWriter = OutputWriter(studentName, csuId, startingYear)
-            writeResults(outputWriter, recommendedSchedule)
+            writeResults(outputWriter, recommendedSchedule, prereqViolations)
 
         elif choice == 't' or choice == 'test':
             os.chdir("tests")
@@ -123,12 +124,27 @@ def getRecommendedSchedule(stillNeededCourseList, classSchedule, prereqs, starti
     print('Recommended class schedule generated.')
     return recommendedSchedule
 
+def getPrereqViolations(prereqs, recommendedSchedule):
+    print('Searching for prerequisite violations before writing recommended schedule...')
+    prereqViolations = prereqs.getPrereqViolations(recommendedSchedule)
+    if prereqViolations:
+        print('WARNING! Prerequisite violations found in recommended schedule!')
+        for prereqViolation in prereqViolations:
+            print(f'******** {prereqViolation}')
+        print('Prerequisite violations will be written to "./output.xlsx" under the "Prerequisite Violation Warnings" section.')
+    else:
+        "No prequisite violations found in recommended schedule."
+    return prereqViolations
+
+
 # Print results to file
-def writeResults(outputWriter, recommendedSchedule):
+def writeResults(outputWriter, recommendedSchedule, prereqViolations):
     print('Writing recommended class schedule to "./output.xlsx"...')
     for yearIndex in range(len(recommendedSchedule)):
         for semester in recommendedSchedule[yearIndex]:
             outputWriter.addSemesterToWriter(yearIndex, semester, recommendedSchedule[yearIndex][semester])
+    if prereqViolations:
+        outputWriter.addPrereqViolations(prereqViolations)
     outputWriter.write()
     print('Recommended class schedule was successfully written to "./output.xlsx".')
     print('The application can now be terminated or run again to generate another class schedule.')
@@ -136,10 +152,10 @@ def writeResults(outputWriter, recommendedSchedule):
 
 # Remove any courses from the running that are in first year Spring if the starting semester is fall
 def removeUnavailableCourses(availableCourses, startingSemester):
-    if startingSemester == 'Spring':
+    if startingSemester == 'Fall':
         return
     for index in range(len(availableCourses)):
-        if availableCourses[index].year == 0 and availableCourses[index].semester == 'Spring':
+        if availableCourses[index].year == 0 and availableCourses[index].semester == 'Fall':
             del availableCourses[index]
 
 def removeDuplicates(availableCourses):
