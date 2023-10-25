@@ -17,6 +17,7 @@ class OutputWriter:
         self.name = name
         self.csuId = csuId
         self.years = []
+        self.prereqViolations = []
         self.startingYear = startingYear
         self.currentYeat = startingYear
         self.workbook = xlsxwriter.Workbook('./output.xlsx')
@@ -28,6 +29,9 @@ class OutputWriter:
             self.years[yearIndex][semester] = classes
         else:
             self.years.insert(yearIndex, {semester: classes})
+    
+    def addPrereqViolations(self, prereqViolations):
+        self.prereqViolations += prereqViolations
 
     # Execute writer. ONLY CALL THIS METHOD ONCE!
     def write(self):
@@ -130,7 +134,7 @@ class OutputWriter:
                     index += 1
                     classes.append(outputClass)
             if 'Spring' in self.years[y]:
-                worksheet.write(f'C{(y * 9) + 3}', f'Spring {self.startingYear + y}', bold)
+                worksheet.write(f'C{(y * 9) + 3}', f'Spring {self.startingYear + y + 1}', bold)
                 worksheet.write(f'D{(y * 9) + 3}', 'Credits', bold)
                 worksheet.write(f'C{(y * 9) + 11}', 'Total', bold)
                 worksheet.write(f'D{(y * 9) + 11}', f'=SUM(D{(y * 9) + 4}:D{(y * 9) + 10})', bold)
@@ -157,6 +161,17 @@ class OutputWriter:
             worksheet.write(f'G{index + 3}', outputClass.credits)
             worksheet.write(f'H{index + 3}', self._interpretClassNotes(outputClass.notes))
             index += 1
+        
+        index += 1
+        if self.prereqViolations:
+            bold_header_warnings = self.workbook.add_format({'bold': 1, 'valign': 'bottom', 'bottom': 5, 'bg_color': 'yellow'})
+            worksheet.merge_range(f'F{index + 3}:H{index + 3}', 'Prerequisite Violation Warnings', bold_header_warnings)
+            index += 1
+            for prereqViolation in self.prereqViolations:
+                worksheet.merge_range(f'F{index + 3}:H{index + 3}', prereqViolation.getMessage())
+                index += 1
+            
+
 
     # Interpret any notes from DAG
     def _interpretClassNotes(self, notes):
