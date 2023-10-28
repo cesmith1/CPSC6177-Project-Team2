@@ -69,7 +69,7 @@ def main():
 
         elif choice == 't' or choice == 'test':
             os.chdir("tests")
-            subprocess.call("test_all.py", shell=True)
+            subprocess.call("python3 test_all.py", shell=True)
 
         elif choice == 'e' or choice == 'exit':
             print("Exiting...")
