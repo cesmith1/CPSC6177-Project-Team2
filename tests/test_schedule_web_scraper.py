@@ -3,7 +3,7 @@ import sys
 # Add the directory containing the classschedule module to the Python path
 sys.path.append('../functions')
 from unittest.mock import patch
-from schedule_web_scraper import ScheduleWebScraper
+from schedulewebscraper import ScheduleWebScraper
 web_scraper = ScheduleWebScraper()
 
 #Here's are basic unittest test suite for the functions mentioned. Note that this test suite requires mocking because many of your functions make real web requests. The unittest.mock library will help avoid actual web requests during testing.
