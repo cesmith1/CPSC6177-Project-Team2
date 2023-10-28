@@ -16,11 +16,11 @@ class TestAllTests(unittest.TestCase):
         print("")
 
         print("Testing degreeworks_parser.py: ")
-        os.system(f"python3 test_degreeworks_parser.py")
+        os.system(f"python3 test_degreeworksparser.py")
         print("")
 
         print("Testing prereq_parser.py: ")
-        os.system(f"python3 test_prereq_parser.py")
+        os.system(f"python3 test_prereqparser.py")
         print("")
 
         print("Testing prereqdag.py: ")
@@ -28,7 +28,7 @@ class TestAllTests(unittest.TestCase):
         print("")
 
         print("Testing schedule_web_scraper.py: ")
-        os.system(f"python3 test_schedule_web_scraper.py")
+        os.system(f"python3 test_schedulewebscraper.py")
         print("")
 
 if __name__ == "__main__":
