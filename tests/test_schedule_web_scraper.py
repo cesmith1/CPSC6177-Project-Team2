@@ -10,6 +10,7 @@ web_scraper = ScheduleWebScraper()
 
 class TestScheduleWebScraper(unittest.TestCase):
 
+
     def setUp(self):
         # Sample JSON array for testing
         self.jsonArray = [
