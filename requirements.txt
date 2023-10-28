@@ -14,3 +14,4 @@ soupsieve==2.5
 urllib3==2.0.4
 Wand==0.6.10
 XlsxWriter==3.1.8
+coverage==7.3.2
