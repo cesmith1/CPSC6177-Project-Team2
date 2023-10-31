@@ -19,8 +19,14 @@ def main():
     studentName = input("Enter your full name: ").strip()
     csuId = input("Enter your CSU ID: ").strip()
     startingYear = input("Enter the next academic year (default=2023): ").strip()
+    while not startingYear.isnumeric() and startingYear:
+        startingYear = ''
+        print("Warning! negative or non-integer entered for year. Please only enter a positive integer for the academic year...")
+        startingYear = input("Enter the next academic year (default=2023): ").strip()
+
     if not startingYear:
         startingYear = 2023
+    
     startingYear = int(startingYear)
     startingSemester = input("Enter the next semester (Fall/Spring, default=Spring): ").strip().lower()
     if startingSemester == "spring" or startingSemester == "":
