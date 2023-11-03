@@ -1,9 +1,10 @@
 import unittest
 import sys
 import os
+sys.path.insert(0, os.path.abspath('..'))
 # Add the directory containing the classschedule module to the Python path
 sys.path.append('../functions')
-from outputwriter import OutputWriter, OutputClass  # Import necessary classes from your module
+from functions.outputwriter import OutputWriter, OutputClass  # Import necessary classes from your module
 import xlsxwriter
 
 class TestOutputWriter(unittest.TestCase):
