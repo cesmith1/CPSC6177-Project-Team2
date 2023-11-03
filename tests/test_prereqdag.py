@@ -4,6 +4,7 @@ import os
 # Add the directory containing the classschedule module to the Python path
 sys.path.insert(0, os.path.abspath('..'))
 from functions.prereqdag import PrereqDAG, DAGClass
+from functions.outputwriter import OutputClass
 
 class TestPrereqDAG(unittest.TestCase):
 
@@ -50,6 +51,21 @@ class TestPrereqDAG(unittest.TestCase):
         dag = PrereqDAG(self.jsonArray)
         prereqs = dag.getPrereqs("CPSC 2108")
         self.assertEqual(prereqs, ["CPSC 2100"])
+        
+    def test_getPrereqViolations(self):
+        dag = PrereqDAG(self.jsonArray)
+        recommendedSchedule = [{"Fall":[OutputClass("CPSC 2108", "", [], 3, [])], "Spring":[OutputClass("CPSC 2100", "", [], 3, [])]}]
+        violations = dag.getPrereqViolations(recommendedSchedule)
+        self.assertEqual(violations[0].causeCourse, "CPSC 2100")
+        self.assertEqual(violations[0].prereqs[0], "CPSC 2108")
+        
+    def test_getClass(self):
+        dag = PrereqDAG(self.jsonArray)
+        course = dag.getClass("CPSC 2100")
+        self.assertEqual(course.name, "Intro to Programming")
+        self.assertEqual(course.semestersOffered, ["Fall", "Spring"])
+        self.assertEqual(course.children, ["CPSC 2108"])
+        self.assertEqual(course.otherReqs, [])
 
     def test_str(self):
         dag = PrereqDAG(self.jsonArray)
