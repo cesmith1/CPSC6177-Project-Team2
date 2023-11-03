@@ -1,11 +1,14 @@
 import unittest
+import os
+import sys
+sys.path.insert(0, os.path.abspath('..'))
 import re
 from pdfminer.high_level import extract_text
 
 class TestDegreeWorksParser(unittest.TestCase):
 
     def setUp(self):
-        self.text = extract_text('../data/SampleInput1.pdf')
+        self.text = extract_text('./data/SampleInput1.pdf')
         self.pattern = re.compile(r"[A-Z]{4} \d{4}[A-Z]?\s*([A-Za-z\s\-]+)")
 
     def tearDown(self):

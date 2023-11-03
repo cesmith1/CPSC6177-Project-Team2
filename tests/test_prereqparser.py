@@ -1,5 +1,7 @@
 import unittest
 import os
+import sys
+sys.path.insert(0, os.path.abspath('..'))
 from PyPDF4 import PdfFileReader
 import json
 #import prereqparser as pp  # assuming your parser code is saved in prereqparser.py
@@ -8,8 +10,8 @@ class TestPrereqParser(unittest.TestCase):
 
     def setUp(self):
         # Setup any pre-conditions before running tests, e.g., paths or sample data
-        self.pdf_path = '../PrerequisiteGraph-Software_Systems2019-2020.pdf'
-        self.json_output_path = '../data/prereqs.json'
+        self.pdf_path = './PrerequisiteGraph-Software_Systems2019-2020.pdf'
+        self.json_output_path = './data/prereqs.json'
 
     def test_pdf_read(self):
         """Test if the PDF file is successfully read."""

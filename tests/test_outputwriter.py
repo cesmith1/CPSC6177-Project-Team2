@@ -2,8 +2,9 @@ import unittest
 import sys
 import os
 # Add the directory containing the classschedule module to the Python path
-sys.path.append('../functions')
-from outputwriter import OutputWriter, OutputClass  # Import necessary classes from your module
+sys.path.insert(0, os.path.abspath('..'))
+from functions.outputwriter import OutputWriter, OutputClass  # Import necessary classes from your module
+from functions.prereqdag import PrereqViolation
 import xlsxwriter
 
 class TestOutputWriter(unittest.TestCase):
@@ -25,11 +26,15 @@ class TestOutputWriter(unittest.TestCase):
     def test_add_semester(self):
         writer = OutputWriter('John Doe', 123456789, 2021)
         writer.addSemesterToWriter(0, 'Fall', [OutputClass('MATH 101', 'Math 101', ['Fa', 'Sp'], 3, 'Basic Math')])
+        writer.addSemesterToWriter(0, 'Spring', [OutputClass('MATH 102', 'Math 102', ['Fa', 'Sp'], 3, 'Intermediate Math')])
         self.assertIn('Fall', writer.years[0])
+        self.assertIn('Spring', writer.years[0])
 
     def test_write_and_close(self):
         writer = OutputWriter('John Doe', 123456789, 2021)
-        writer.addSemesterToWriter(0, 'Fall', [OutputClass('MATH 101', 'Math 101', ['Fa', 'Sp'], 3, 'Basic Math')])
+        writer.addSemesterToWriter(0, 'Fall', [OutputClass('MATH 102', 'Math 102', ['Fa', 'Sp'], 3, 'Intermediate Math')])
+        writer.addSemesterToWriter(0, 'Spring', [OutputClass('MATH 101', 'Math 101', ['Fa', 'Sp'], 3, 'Basic Math')])
+        writer.addPrereqViolations([PrereqViolation('MATH 101', ['MATH 102'])])
         writer.write()
         writer.close()
 
