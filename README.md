@@ -37,8 +37,17 @@ The modules utilized by the program are as follows:
 
 ### Tests
 
-The **_tests_** subdirectory contains all unit tests for the application. They can all be executed during the main
-application's execution or by executing **_test_all.py**
+To execute test cases, run the following after installing all requirements:
+
+```
+> python -m coverage run -m unittest
+```
+
+You can then view the code coverage report using the coverage tool:
+
+```
+> python -m coverage report
+```
 
 ## Execution
 
@@ -109,20 +118,6 @@ was executed from.
 Writing recommended class schedule to "./output.xlsx"...
 Recommended class schedule was successfully written to "./output.xlsx".
 The application can now be terminated or run again to generate another class schedule.
-```
-
-## Testing
-
-To execute test cases, run the following after installing all requirements:
-
-```
-> python -m coverage run -m unittest
-```
-
-You can then view the report with the following:
-
-```
-> python -m coverage report
 ```
 
 ## Requirements
