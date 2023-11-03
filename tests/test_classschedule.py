@@ -97,6 +97,18 @@ class TestClassSchedule(unittest.TestCase):
         
         # Assert that the course was found
         self.assertTrue(found, "'CPSC 1010' was not found in Year 0, Fall semester.")
+        
+    def test_print(self):
+        scheduleStringRep = str(self.schedule)
+        self.assertTrue(scheduleStringRep, "Could not write ClassSchedule as string")
+        # Retrieve the availability of the course "CPSC 1010"
+        availability = self.schedule.getAvailability("CPSC 1010")
+        courseInfoStringRep = str(availability[0])
+        self.assertTrue(courseInfoStringRep, "Could not write CourseInfo as string")
+        # Retrieve the requirements for the fall semester of the first year
+        requirements = self.schedule.getRequirements(0, "fall")
+        requirementsStringRep = str(requirements)
+        self.assertTrue(courseInfoStringRep, "Could not write Requirement as string")
 
 
 if __name__ == "__main__":
