@@ -78,7 +78,6 @@ Please select an option from the list below.
 
 s(crape): Execute class schedule webscraper
 p(rint): Generate and export recommended class schedule
-t(est): Run test cases
 e(xit): Exit program
 ```
 
@@ -86,7 +85,6 @@ Selection can be done with a single letter or the entire option name (i.e. `s` o
 The options are further explained below:
 - **scrape** - Executes the class schedule webscraper and writes the result to **_./data/class_schedule.json_**
 - **print** - Pulls all data from **_data_** subdirectory and generates a class schedule, exporting it to **_./output.xlsx_**
-- **test** - Executes all unit tests and prints the results to the console
 - **exit** - Terminates the program
 
 Any unexpected input will result in the program gracefully exiting. Once an operation has completed, the user will be
@@ -113,15 +111,25 @@ Recommended class schedule was successfully written to "./output.xlsx".
 The application can now be terminated or run again to generate another class schedule.
 ```
 
+## Testing
+
+To execute test cases, run the following after installing all requirements:
+
+```
+> python -m coverage run -m unittest
+```
+
+You can then view the report with the following:
+
+```
+> python -m coverage report
+```
+
 ## Requirements
 
 - An personal computer or vritual machine with an OS capable of running Python 3
 - Python 3.11.5 installed and optionally added to the system PATH for easy execution
 - Git installed on your local machine to do your commits and pushes from local
-
-## App Execution
-
-In order to execute the program, make do 
 
 ## Resources
 - [Python 3.11.5](https://www.python.org/downloads/release/python-3115/)

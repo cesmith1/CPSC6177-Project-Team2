@@ -3,6 +3,7 @@
 import os
 import sys
 import subprocess
+import unittest
 from pathlib import Path
 from json import load
 from functions.schedulewebscraper import ScheduleWebScraper
@@ -37,7 +38,6 @@ def main():
         print()
         print("s(crape): Execute class schedule webscraper ")
         print("p(rint): Generate and export recommended class schedule")
-        print("t(est): Run test cases")
         print("e(xit): Exit program")
         print()
         
@@ -60,10 +60,6 @@ def main():
             prereqViolations = getPrereqViolations(prereqs, recommendedSchedule)
             outputWriter = OutputWriter(studentName, csuId, startingYear)
             writeResults(outputWriter, recommendedSchedule, prereqViolations)
-
-        elif choice == 't' or choice == 'test':
-            os.chdir("tests")
-            subprocess.call("python3 test_all.py", shell=True)
 
         elif choice == 'e' or choice == 'exit':
             print("Exiting...")
