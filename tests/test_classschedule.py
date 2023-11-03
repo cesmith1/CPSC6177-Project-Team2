@@ -1,8 +1,9 @@
 import unittest
 import sys
-sys.path.append('../functions')
+import os
+sys.path.insert(0, os.path.abspath('..'))
 # Add the directory containing the classschedule module to the Python path
-from classschedule import Course, Requirement, Year, ClassSchedule
+from functions.classschedule import Course, Requirement, Year, ClassSchedule
 
 
 class TestClassSchedule(unittest.TestCase):

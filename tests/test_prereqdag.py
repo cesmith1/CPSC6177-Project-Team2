@@ -1,8 +1,9 @@
 import unittest
 import sys
+import os
 # Add the directory containing the classschedule module to the Python path
-sys.path.append('../functions')
-from prereqdag import PrereqDAG, DAGClass
+sys.path.insert(0, os.path.abspath('..'))
+from functions.prereqdag import PrereqDAG, DAGClass
 
 class TestPrereqDAG(unittest.TestCase):
 
