@@ -29,14 +29,16 @@ def main():
         startingYear = 2023
     
     startingYear = int(startingYear)
-    startingSemester = input("Enter the next semester (Fall/Spring, default=Fall): ").strip().lower()
-    if startingSemester == "fall" or startingSemester == "":
-        startingSemester = "Fall"
-    elif startingSemester == "spring":
-        startingSemester = "Spring"
-    else:
-        print("Invalid semester name. Exiting...")
-        sys.exit(1)
+    startingSemester = ""
+    while not startingSemester:
+        startingSemester = input("Enter the next semester (Fall/Spring, default=Fall): ").strip().lower()
+        if startingSemester == "fall" or startingSemester == "":
+            startingSemester = "Fall"
+        elif startingSemester == "spring":
+            startingSemester = "Spring"
+        else:
+            startingSemester = ""
+            print('Invalid semester name. Please enter either "Spring" or "Fall"')
 
     while(True):
         print()
