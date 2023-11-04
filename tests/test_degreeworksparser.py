@@ -97,7 +97,7 @@ class TestDegreeWorksParser(unittest.TestCase):
         self.assertIn('Senior Software Engineering Project', self.text)
         pattern = re.compile(r'1 Class in CPSC 4176\*')
         self.assertIsNotNone(pattern.search(self.text))
-
+        
     def test_parseDegreeworksFile(self):
         results = parseDegreeworksFile('./data/Sample Input1.pdf')
         self.assertEqual(len(results), 13)
