@@ -101,10 +101,3 @@ class TestClassSchedule(unittest.TestCase):
 if __name__ == "__main__":
     # Run the tests
     unittest.main()
-
-""" Each function in the TestSchedulingSystem class is a 
-test case that checks a specific functionality or behavior 
-of the classes from your classschedule module. The setUp method is a 
-special method that is run before each test case to set up any objects or 
-data that will be used in the test. The unittest.main() function is used to 
-run the tests when the script is run. """

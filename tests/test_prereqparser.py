@@ -18,7 +18,7 @@ class TestPrereqParser(unittest.TestCase):
                 reader = PdfFileReader(file)
                 self.assertIsNotNone(reader, "Failed to read the PDF file.")
                 self.assertGreater(reader.numPages, 0, "No pages detected in the PDF file.")
-            print("test_pdf_read passed successfully!")
+        print("test_pdf_read passed successfully!")
 
     def test_course_data_extraction(self):
         """Test if the course data is successfully extracted."""
