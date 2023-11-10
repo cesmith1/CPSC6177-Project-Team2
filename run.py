@@ -3,6 +3,7 @@
 import os
 import sys
 import subprocess
+import unittest
 from pathlib import Path
 from json import load
 from functions.schedulewebscraper import ScheduleWebScraper
@@ -19,17 +20,25 @@ def main():
     studentName = input("Enter your full name: ").strip()
     csuId = input("Enter your CSU ID: ").strip()
     startingYear = input("Enter the next academic year (default=2023): ").strip()
+    while not startingYear.isnumeric() and startingYear:
+        startingYear = ''
+        print("Warning! negative or non-integer entered for year. Please only enter a positive integer for the academic year...")
+        startingYear = input("Enter the next academic year (default=2023): ").strip()
+
     if not startingYear:
         startingYear = 2023
+    
     startingYear = int(startingYear)
-    startingSemester = input("Enter the next semester (Fall/Spring, default=Fall): ").strip().lower()
-    if startingSemester == "fall" or startingSemester == "":
-        startingSemester = "Fall"
-    elif startingSemester == "spring":
-        startingSemester = "Spring"
-    else:
-        print("Invalid semester name. Exiting...")
-        sys.exit(1)
+    startingSemester = ""
+    while not startingSemester:
+        startingSemester = input("Enter the next semester (Fall/Spring, default=Fall): ").strip().lower()
+        if startingSemester == "fall" or startingSemester == "":
+            startingSemester = "Fall"
+        elif startingSemester == "spring":
+            startingSemester = "Spring"
+        else:
+            startingSemester = ""
+            print('Invalid semester name. Please enter either "Spring" or "Fall"')
 
     while(True):
         print()
@@ -37,7 +46,6 @@ def main():
         print()
         print("s(crape): Execute class schedule webscraper ")
         print("p(rint): Generate and export recommended class schedule")
-        print("t(est): Run test cases")
         print("e(xit): Exit program")
         print()
         
@@ -54,6 +62,10 @@ def main():
             print()
             degreeworksFilePath = input("Input file: ").strip()
             stillNeededCourseList = generateStillNeededCourseList(degreeworksFilePath)
+            while isinstance(stillNeededCourseList, str) and stillNeededCourseList.startswith("Error: "):
+                print(stillNeededCourseList)
+                degreeworksFilePath = input("Input file: ").strip()
+                stillNeededCourseList = generateStillNeededCourseList(degreeworksFilePath)
             classSchedule = generateClassSchedule()
             prereqs = generatePrereqs()
             recommendedSchedule = getRecommendedSchedule(stillNeededCourseList, classSchedule, prereqs, startingSemester)
@@ -61,23 +73,23 @@ def main():
             outputWriter = OutputWriter(studentName, csuId, startingYear)
             writeResults(outputWriter, recommendedSchedule, prereqViolations)
 
-        elif choice == 't' or choice == 'test':
-            os.chdir("tests")
-            subprocess.call("python3 test_all.py", shell=True)
-
         elif choice == 'e' or choice == 'exit':
             print("Exiting...")
             sys.exit(0)
 
         else:
-            print("Invalid choice. Exiting...")
-            sys.exit(1)
+            print("Invalid choice...")
 
 def generateStillNeededCourseList(degreeworksFilePath):
-    print('Retrieving still needed courses from degreeworks pdf...')
-    stillNeededCourseList = parseDegreeworksFile(degreeworksFilePath)
-    print('Still needed course list successfully parsed and loaded.')
-    return stillNeededCourseList
+    try:
+        print('Retrieving still needed courses from degreeworks pdf...')
+        stillNeededCourseList = parseDegreeworksFile(degreeworksFilePath)
+        print('Still needed course list successfully parsed and loaded.')
+        return stillNeededCourseList
+    except FileNotFoundError as not_found_err:
+        return f"Error: {not_found_err.strerror}. Please provide valid file path."
+    except Exception as err:
+        return f"Error: {err} Please provide a PDF file."
 
 def generatePrereqs():
     print('Retrieving prerequisites from json file...')

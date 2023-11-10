@@ -1,11 +1,15 @@
 import unittest
+import os
+import sys
+sys.path.insert(0, os.path.abspath('..'))
 import re
 from pdfminer.high_level import extract_text
+from functions.degreeworksparser import parseDegreeworksFile
 
 class TestDegreeWorksParser(unittest.TestCase):
 
     def setUp(self):
-        self.text = extract_text('../data/SampleInput1.pdf')
+        self.text = extract_text('./data/SampleInput1.pdf')
         self.pattern = re.compile(r"[A-Z]{4} \d{4}[A-Z]?\s*([A-Za-z\s\-]+)")
 
     def tearDown(self):
@@ -93,6 +97,16 @@ class TestDegreeWorksParser(unittest.TestCase):
         self.assertIn('Senior Software Engineering Project', self.text)
         pattern = re.compile(r'1 Class in CPSC 4176\*')
         self.assertIsNotNone(pattern.search(self.text))
+        
+    def test_parseDegreeworksFile(self):
+        results = parseDegreeworksFile('./data/Sample Input1.pdf')
+        self.assertEqual(len(results), 13)
+        results2 = parseDegreeworksFile('./data/Sample Input2.pdf')
+        self.assertEqual(len(results2), 21)
+        results3 = parseDegreeworksFile('./data/Sample Input3.pdf')
+        self.assertEqual(len(results3), 22)
+        strRep = str(results[0])
+        self.assertTrue(strRep)
 
 if __name__ == "__main__":
     unittest.main()
