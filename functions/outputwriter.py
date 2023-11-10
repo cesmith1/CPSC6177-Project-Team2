@@ -8,6 +8,7 @@ class OutputClass:
             credits), notes
 
 
+
 # Output writer for creating the Excel file
 class OutputWriter:
 

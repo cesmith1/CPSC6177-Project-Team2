@@ -22,6 +22,7 @@ class TestOutputWriter(unittest.TestCase):
         self.assertEqual(writer.csuId, 123456789)
         self.assertEqual(writer.startingYear, 2021)
         self.assertIsInstance(writer.workbook, xlsxwriter.Workbook)
+        print("test_initialization passed successfully!")
 
     def test_add_semester(self):
         writer = OutputWriter('John Doe', 123456789, 2021)
@@ -29,6 +30,7 @@ class TestOutputWriter(unittest.TestCase):
         writer.addSemesterToWriter(0, 'Spring', [OutputClass('MATH 102', 'Math 102', ['Fa', 'Sp'], 3, 'Intermediate Math')])
         self.assertIn('Fall', writer.years[0])
         self.assertIn('Spring', writer.years[0])
+        print("test_add_semester passed successfully!")
 
     def test_write_and_close(self):
         writer = OutputWriter('John Doe', 123456789, 2021)
@@ -37,6 +39,7 @@ class TestOutputWriter(unittest.TestCase):
         writer.addPrereqViolations([PrereqViolation('MATH 101', ['MATH 102'])])
         writer.write()
         writer.close()
+        print("test_write_and_close passed successfully!")
 
         # Check if the file exists
         self.assertTrue(os.path.exists('./output.xlsx'))
