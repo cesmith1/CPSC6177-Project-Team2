@@ -62,6 +62,10 @@ def main():
             print()
             degreeworksFilePath = input("Input file: ").strip()
             stillNeededCourseList = generateStillNeededCourseList(degreeworksFilePath)
+            while isinstance(stillNeededCourseList, str) and stillNeededCourseList.startswith("Error: "):
+                print(stillNeededCourseList)
+                degreeworksFilePath = input("Input file: ").strip()
+                stillNeededCourseList = generateStillNeededCourseList(degreeworksFilePath)
             classSchedule = generateClassSchedule()
             prereqs = generatePrereqs()
             recommendedSchedule = getRecommendedSchedule(stillNeededCourseList, classSchedule, prereqs, startingSemester)
@@ -74,14 +78,18 @@ def main():
             sys.exit(0)
 
         else:
-            print("Invalid choice. Exiting...")
-            sys.exit(1)
+            print("Invalid choice...")
 
 def generateStillNeededCourseList(degreeworksFilePath):
-    print('Retrieving still needed courses from degreeworks pdf...')
-    stillNeededCourseList = parseDegreeworksFile(degreeworksFilePath)
-    print('Still needed course list successfully parsed and loaded.')
-    return stillNeededCourseList
+    try:
+        print('Retrieving still needed courses from degreeworks pdf...')
+        stillNeededCourseList = parseDegreeworksFile(degreeworksFilePath)
+        print('Still needed course list successfully parsed and loaded.')
+        return stillNeededCourseList
+    except FileNotFoundError as not_found_err:
+        return f"Error: {not_found_err.strerror}. Please provide valid file path."
+    except Exception as err:
+        return f"Error: {err} Please provide a PDF file."
 
 def generatePrereqs():
     print('Retrieving prerequisites from json file...')
