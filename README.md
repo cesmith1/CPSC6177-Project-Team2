@@ -103,7 +103,7 @@ If **print** is selected, the user will be prompted to provide their degreeworks
 ```
 Provide the path to the degreeworks pdf containing the courses you still require for your degree track...
 
-Input file: ./data/Sample Input2.pdf
+Input file: ./_internal/data/Sample Input2.pdf
 ```
 
 > [!NOTE]
