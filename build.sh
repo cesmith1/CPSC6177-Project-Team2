@@ -1,0 +1,1 @@
+pyinstaller run.py --add-data="data:data" --name SmartClassPlanner
