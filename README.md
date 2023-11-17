@@ -91,7 +91,9 @@ in this repo. The release can be downloaded in both a binary zip format and a wi
 [Advanced Installer](https://www.advancedinstaller.com/).
 
 To use the installer, download and run the **_SmartClassPlanner-Setup-x86.msi_** installer from releases. Follow the prompts to
-install. Use all default options.
+install. Use all default options. Select "Install" when prompted.
+
+![image](https://github.com/cesmith1/CPSC6177-Project-Team2/assets/144077890/a2d21519-fd4b-4979-bf7f-2efe5f882c53)
 
 The automated installer places the executable and its data files inside **_%APPDATA%/SmartClassPlanner/_**
 
@@ -221,6 +223,8 @@ Prerequisite violations will be written to "./output.xlsx" under the "Prerequisi
 
 Once a schedule is generated, these prereq vilations can be viewed under the mentioned "Prerequisite Violation Warnings" section
 in the resulting output file.
+
+![image](https://github.com/cesmith1/CPSC6177-Project-Team2/assets/144077890/5a940762-2340-43f6-96ad-e9acc6b33321)
 
 ### Running the Application as a Python Script
 
