@@ -7,6 +7,27 @@ The primary purpose of the *Smart Class Planner* is to provide a student with a 
 order to complete their degree track. To accomplish this, the application uses a combination of user input
 and data files in order to create an accurate estimate of which classes a student should take.
 
+## Requirements
+
+- An personal computer or vritual machine with an OS capable of running Python 3
+- A Windows 10 or 11 operating system is required for the provided installer to function
+- Build compatibility with other operating systems may vary. See **Manual Installation** section above.
+- Python 3.11.5 installed and optionally added to the system PATH for easy execution
+- Git installed on your local machine to do your commits and pushes from local
+
+> [!IMPORTANT]
+> In order to build or execute the application, python 3.11 or later should be installed on the host machine.
+> Package manager *pip* is used to manage dependencies. 
+> *requirements.txt* in project root directory contains all required packages. 
+> Run ```pip install -r requirements.txt``` to install them before running the application. 
+> See the **Requirements** and **Resources** sections below.
+
+## Download
+
+The latest release build can be found in the [releases](https://github.com/cesmith1/CPSC6177-Project-Team2/releases) section
+in this repo. The release can be downloaded in both a binary zip format and a windows installer package that was created through 
+[Advanced Installer](https://www.advancedinstaller.com/).
+
 ## Application Structure
 
 ### Data
@@ -49,16 +70,9 @@ You can then view the code coverage report using the coverage tool:
 > python -m coverage report
 ```
 
-## Compiling
+## Build
 
-> [!IMPORTANT]
-> In order to build or execute the application, python 3.11 or later should be installed on the host machine.
-> Package manager *pip* is used to manage dependencies. 
-> *requirements.txt* in project root directory contains all required packages. 
-> Run ```pip install -r requirements.txt``` to install them before running the application. 
-> See the **Requirements** and **Resources** sections below.
-
-### Automated Compiling
+### Build Script
 
 The **_build.sh_** script included in the repo's root directory will compile the application automatically.
 
@@ -73,7 +87,7 @@ All files in the **_data_** directory will be packaged in the **_./dist/SmartCla
 This directory must remain in the same directory as the **_SmartClassPlanner.exe_** executable, as it contains resources
 that are required for the executable.
 
-### Manual Compiling
+### Manual Build
 
 *pyinstall* can be invoked manually to customize the build. This may be useful to produce a portable executable with the **--onefile**
 directive or some other custom build options. The build method executed by the script is the following:
@@ -84,11 +98,9 @@ directive or some other custom build options. The build method executed by the s
 
 ## Installation
 
-### Automated Installation
+See the **Download** section above for links to the binaries.
 
-The latest release build can be found in the [releases](https://github.com/cesmith1/CPSC6177-Project-Team2/releases) section
-in this repo. The release can be downloaded in both a binary zip format and a windows installer packages through 
-[Advanced Installer](https://www.advancedinstaller.com/).
+### Automated Installation
 
 To use the installer, download and run the **_SmartClassPlanner-Setup-x86.msi_** installer from releases. Follow the prompts to
 install. Use all default options. Select "Install" when prompted.
@@ -124,7 +136,7 @@ from *Command Prompt* or *PowerShell* globally.
 
 If you have built the application from its source code, you can also execute the program from **_./dist/SmartClassPlanner/SmartClassPlanner.exe_**
 
-## Execution
+## Usage
 
 ### Running the Application
 
@@ -243,14 +255,6 @@ To start the class scheduler application, the **_run.py_** script in the root di
 Hello, and welcome to the Smart Class Planner.
 ...
 ```
-
-## Requirements
-
-- An personal computer or vritual machine with an OS capable of running Python 3
-- A Windows 10 or 11 operating system is required for the provided installer to function
-- Build compatibility with other operating systems may vary. See **Manual Installation** section above.
-- Python 3.11.5 installed and optionally added to the system PATH for easy execution
-- Git installed on your local machine to do your commits and pushes from local
 
 ## Resources
 - [Python 3.11.5](https://www.python.org/downloads/release/python-3115/)
