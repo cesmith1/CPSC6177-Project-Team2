@@ -15,7 +15,7 @@ from functions.outputwriter import OutputWriter, OutputClass
 ROOT_DIR = Path(__file__).parent
 
 def main():
-    print("Hello, and welcome to the class scheduler.")
+    print("Hello, and welcome to the Smart Class Planner.")
     print()
     studentName = input("Enter your full name: ").strip()
     csuId = input("Enter your CSU ID: ").strip()
