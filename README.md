@@ -100,6 +100,8 @@ directive or some other custom build options. The build method executed by the s
 
 See the **Download** section above for links to the binaries.
 
+While not used directly for installation the *Advanced Installer* project file can be found in this repo as well under **_advancedInstallerProject/SmartClassPlanner.aip_**
+
 ### Automated Installation
 
 To use the installer, download and run the **_SmartClassPlanner-Setup-x86.msi_** installer from releases. Follow the prompts to

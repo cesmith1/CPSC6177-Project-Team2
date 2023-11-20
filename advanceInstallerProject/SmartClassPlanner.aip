@@ -1,0 +1,510 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<DOCUMENT Type="Advanced Installer" CreateVersion="21.2.2" version="21.2.2" Modules="simple" RootPath="." Language="en" Id="{8BD143D0-D5A7-4E3D-BE6F-6A59431E8FEC}">
+  <COMPONENT cid="caphyon.advinst.msicomp.ProjectOptionsComponent">
+    <ROW Name="HiddenItems" Value="AppXProductDetailsComponent;AppXDependenciesComponent;AppXAppDetailsComponent;AppXVisualAssetsComponent;AppXCapabilitiesComponent;AppXAppDeclarationsComponent;AppXUriRulesComponent;FixupComponent;MsiXDiffComponent;MsixManifestEditorComponent"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiPropsComponent">
+    <ROW Property="AI_BITMAP_DISPLAY_MODE" Value="0"/>
+    <ROW Property="ALLUSERS" Value="1"/>
+    <ROW Property="ARPCOMMENTS" Value="This installer database contains the logic and data required to install [|ProductName]." ValueLocId="*"/>
+    <ROW Property="ARPURLINFOABOUT" Value="https://github.com/cesmith1/CPSC6177-Project-Team2"/>
+    <ROW Property="Manufacturer" Value="Team2"/>
+    <ROW Property="ProductCode" Value="1033:{ACE08D63-EC3B-4F4E-9E8E-88FADF38F64A} " Type="16"/>
+    <ROW Property="ProductLanguage" Value="1033"/>
+    <ROW Property="ProductName" Value="SmartClassPlanner"/>
+    <ROW Property="ProductVersion" Value="1.0.0" Options="32"/>
+    <ROW Property="REBOOT" MultiBuildValue="DefaultBuild:Suppress"/>
+    <ROW Property="SecureCustomProperties" Value="OLDPRODUCTS;AI_NEWERPRODUCTFOUND"/>
+    <ROW Property="UpgradeCode" Value="{FF80F095-FDD4-49BB-A3A2-95366CA2BE9A}"/>
+    <ROW Property="WindowsType9X" MultiBuildValue="DefaultBuild:Windows 9x/ME" ValueLocId="-"/>
+    <ROW Property="WindowsType9XDisplay" MultiBuildValue="DefaultBuild:Windows 9x/ME" ValueLocId="-"/>
+    <ROW Property="WindowsTypeNT40" MultiBuildValue="DefaultBuild:Windows NT 4.0" ValueLocId="-"/>
+    <ROW Property="WindowsTypeNT40Display" MultiBuildValue="DefaultBuild:Windows NT 4.0" ValueLocId="-"/>
+    <ROW Property="WindowsTypeNT50" MultiBuildValue="DefaultBuild:Windows 2000" ValueLocId="-"/>
+    <ROW Property="WindowsTypeNT50Display" MultiBuildValue="DefaultBuild:Windows 2000" ValueLocId="-"/>
+    <ROW Property="WindowsTypeNT5X" MultiBuildValue="DefaultBuild:Windows XP/2003" ValueLocId="-"/>
+    <ROW Property="WindowsTypeNT5XDisplay" MultiBuildValue="DefaultBuild:Windows XP/2003" ValueLocId="-"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiDirsComponent">
+    <ROW Directory="APPDIR" Directory_Parent="TARGETDIR" DefaultDir="APPDIR:." IsPseudoRoot="1"/>
+    <ROW Directory="AppDataFolder" Directory_Parent="TARGETDIR" DefaultDir="APPDAT~1|AppDataFolder" IsPseudoRoot="1"/>
+    <ROW Directory="SmartClassPlanner_1_Dir" Directory_Parent="AppDataFolder" DefaultDir="SMARTC~1|SmartClassPlanner"/>
+    <ROW Directory="TARGETDIR" DefaultDir="SourceDir"/>
+    <ROW Directory="_internal_Dir" Directory_Parent="SmartClassPlanner_1_Dir" DefaultDir="_INTER~1|_internal"/>
+    <ROW Directory="bindings_Dir" Directory_Parent="hazmat_Dir" DefaultDir="bindings"/>
+    <ROW Directory="certifi_Dir" Directory_Parent="_internal_Dir" DefaultDir="certifi"/>
+    <ROW Directory="charset_normalizer_Dir" Directory_Parent="_internal_Dir" DefaultDir="CHARSE~1|charset_normalizer"/>
+    <ROW Directory="cmap_Dir" Directory_Parent="pdfminer_Dir" DefaultDir="cmap"/>
+    <ROW Directory="cryptography41.0.4.distinfo_Dir" Directory_Parent="_internal_Dir" DefaultDir="CRYPTO~1.DIS|cryptography-41.0.4.dist-info"/>
+    <ROW Directory="cryptography_Dir" Directory_Parent="_internal_Dir" DefaultDir="CRYPTO~1|cryptography"/>
+    <ROW Directory="data_Dir" Directory_Parent="_internal_Dir" DefaultDir="data"/>
+    <ROW Directory="hazmat_Dir" Directory_Parent="cryptography_Dir" DefaultDir="hazmat"/>
+    <ROW Directory="pdfminer_Dir" Directory_Parent="_internal_Dir" DefaultDir="pdfminer"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiCompsComponent">
+    <ROW Component="APPDIR" ComponentId="{23B8E23F-4E74-4089-A40B-16DBF21AC0B3}" Directory_="APPDIR" Attributes="0"/>
+    <ROW Component="EUCH.pickle.gz" ComponentId="{0B7FAF1B-FD55-48CD-B564-30970F5D24A9}" Directory_="cmap_Dir" Attributes="0" KeyPath="EUCH.pickle.gz" Type="0"/>
+    <ROW Component="INSTALLER" ComponentId="{57EA59D3-24A9-4B32-9482-C8FB7B3ED5F4}" Directory_="cryptography41.0.4.distinfo_Dir" Attributes="0" KeyPath="INSTALLER" Type="0"/>
+    <ROW Component="ProductInformation" ComponentId="{E9488D01-2F68-4DD8-8E01-D8B21EDAF1F2}" Directory_="APPDIR" Attributes="4" KeyPath="Version"/>
+    <ROW Component="SmartClassPlanner.exe" ComponentId="{C25D5C31-DE9F-4E40-88F0-DC59BA945F42}" Directory_="SmartClassPlanner_1_Dir" Attributes="256" KeyPath="SmartClassPlanner.exe"/>
+    <ROW Component="VCRUNTIME140.dll" ComponentId="{9074C424-F28A-4D1C-9A1F-9994BB9DFC4B}" Directory_="_internal_Dir" Attributes="256" KeyPath="VCRUNTIME140.dll"/>
+    <ROW Component="_rust.pyd" ComponentId="{46575D36-0AA7-4D15-BED6-93C8498FF416}" Directory_="bindings_Dir" Attributes="256" KeyPath="_rust.pyd" Type="0"/>
+    <ROW Component="apimswincoreconsolel110.dll" ComponentId="{968B07A1-65E8-46C4-8DAA-162B724EA414}" Directory_="_internal_Dir" Attributes="256" KeyPath="apimswincoreconsolel110.dll"/>
+    <ROW Component="apimswincoredatetimel110.dll" ComponentId="{D28BCB87-5109-49BC-A037-8B1D69BB84CA}" Directory_="_internal_Dir" Attributes="256" KeyPath="apimswincoredatetimel110.dll"/>
+    <ROW Component="apimswincoredebugl110.dll" ComponentId="{E8F90D26-DEBB-48F8-A7BB-4ADA34A76705}" Directory_="_internal_Dir" Attributes="256" KeyPath="apimswincoredebugl110.dll"/>
+    <ROW Component="apimswincoreerrorhandlingl110.dll" ComponentId="{91EFF2F9-7233-4CD1-8852-FCBBE3E251A2}" Directory_="_internal_Dir" Attributes="256" KeyPath="apimswincoreerrorhandlingl110.dll"/>
+    <ROW Component="apimswincorefibersl110.dll" ComponentId="{1067AF0B-71C4-4535-AF5D-4849E09A539E}" Directory_="_internal_Dir" Attributes="256" KeyPath="apimswincorefibersl110.dll"/>
+    <ROW Component="apimswincorefilel110.dll" ComponentId="{0F4B3A34-51E3-419B-8CD9-2F0F5E3A0E9C}" Directory_="_internal_Dir" Attributes="256" KeyPath="apimswincorefilel110.dll"/>
+    <ROW Component="apimswincorefilel120.dll" ComponentId="{52060C0B-FD2A-4891-A771-94426BB24AC2}" Directory_="_internal_Dir" Attributes="256" KeyPath="apimswincorefilel120.dll"/>
+    <ROW Component="apimswincorefilel210.dll" ComponentId="{1DF006E2-BF97-4994-8F82-1200AC954382}" Directory_="_internal_Dir" Attributes="256" KeyPath="apimswincorefilel210.dll"/>
+    <ROW Component="apimswincorehandlel110.dll" ComponentId="{D9032D77-8C81-48B5-8367-82E4805360D0}" Directory_="_internal_Dir" Attributes="256" KeyPath="apimswincorehandlel110.dll"/>
+    <ROW Component="apimswincoreheapl110.dll" ComponentId="{77EEAD5B-143D-4563-B966-FD080DF59942}" Directory_="_internal_Dir" Attributes="256" KeyPath="apimswincoreheapl110.dll"/>
+    <ROW Component="apimswincoreinterlockedl110.dll" ComponentId="{3DB0816D-7309-43D4-9CA9-955FE5ED4951}" Directory_="_internal_Dir" Attributes="256" KeyPath="apimswincoreinterlockedl110.dll"/>
+    <ROW Component="apimswincorelibraryloaderl110.dll" ComponentId="{C9526B3B-4EAC-40DB-8063-21648B6EBB80}" Directory_="_internal_Dir" Attributes="256" KeyPath="apimswincorelibraryloaderl110.dll"/>
+    <ROW Component="apimswincorelocalizationl120.dll" ComponentId="{FE6720A6-762A-4ABA-9322-FBC60B65E4A1}" Directory_="_internal_Dir" Attributes="256" KeyPath="apimswincorelocalizationl120.dll"/>
+    <ROW Component="apimswincorememoryl110.dll" ComponentId="{5ED71FEA-721F-4BB2-8B70-853866C065F7}" Directory_="_internal_Dir" Attributes="256" KeyPath="apimswincorememoryl110.dll"/>
+    <ROW Component="apimswincorenamedpipel110.dll" ComponentId="{F3C04D4C-3C31-4E3D-BC4B-F6CF7E1B5F48}" Directory_="_internal_Dir" Attributes="256" KeyPath="apimswincorenamedpipel110.dll"/>
+    <ROW Component="apimswincoreprocessenvironmentl110.dll" ComponentId="{F8EEF3FA-9CBD-4273-BED4-D19D67431792}" Directory_="_internal_Dir" Attributes="256" KeyPath="apimswincoreprocessenvironmentl110.dll"/>
+    <ROW Component="apimswincoreprocessthreadsl110.dll" ComponentId="{A7389206-1981-4FF2-9C52-D54E178FF088}" Directory_="_internal_Dir" Attributes="256" KeyPath="apimswincoreprocessthreadsl110.dll"/>
+    <ROW Component="apimswincoreprocessthreadsl111.dll" ComponentId="{13888D95-C18F-4E4E-89B2-D2DF51FE6728}" Directory_="_internal_Dir" Attributes="256" KeyPath="apimswincoreprocessthreadsl111.dll"/>
+    <ROW Component="apimswincoreprofilel110.dll" ComponentId="{4FDED1FE-0A33-4794-8092-8D6FB03B0600}" Directory_="_internal_Dir" Attributes="256" KeyPath="apimswincoreprofilel110.dll"/>
+    <ROW Component="apimswincorertlsupportl110.dll" ComponentId="{7648D967-93DB-4A0D-A36D-4BCF672F565F}" Directory_="_internal_Dir" Attributes="256" KeyPath="apimswincorertlsupportl110.dll"/>
+    <ROW Component="apimswincorestringl110.dll" ComponentId="{DA6274E3-F9E3-4935-8438-B7254E5498FB}" Directory_="_internal_Dir" Attributes="256" KeyPath="apimswincorestringl110.dll"/>
+    <ROW Component="apimswincoresynchl110.dll" ComponentId="{9F5B8595-9684-46B6-9F21-E5CCE226B451}" Directory_="_internal_Dir" Attributes="256" KeyPath="apimswincoresynchl110.dll"/>
+    <ROW Component="apimswincoresynchl120.dll" ComponentId="{A4A1DA1F-A5DB-452F-8CDE-E5B7BBF28EF2}" Directory_="_internal_Dir" Attributes="256" KeyPath="apimswincoresynchl120.dll"/>
+    <ROW Component="apimswincoresysinfol110.dll" ComponentId="{1128162C-A8F0-441A-AFF7-14D086EF2CE0}" Directory_="_internal_Dir" Attributes="256" KeyPath="apimswincoresysinfol110.dll"/>
+    <ROW Component="apimswincoretimezonel110.dll" ComponentId="{BB90860F-47B7-4E61-902E-1766B7BBC51D}" Directory_="_internal_Dir" Attributes="256" KeyPath="apimswincoretimezonel110.dll"/>
+    <ROW Component="apimswincoreutill110.dll" ComponentId="{1503985D-0D61-478D-9A67-736712486518}" Directory_="_internal_Dir" Attributes="256" KeyPath="apimswincoreutill110.dll"/>
+    <ROW Component="apimswincrtconiol110.dll" ComponentId="{F77E94DC-7DDE-4E46-B3D0-8458E9A9D1ED}" Directory_="_internal_Dir" Attributes="256" KeyPath="apimswincrtconiol110.dll"/>
+    <ROW Component="apimswincrtconvertl110.dll" ComponentId="{ECE79DD5-41F5-4BEF-A48C-5E147F861375}" Directory_="_internal_Dir" Attributes="256" KeyPath="apimswincrtconvertl110.dll"/>
+    <ROW Component="apimswincrtenvironmentl110.dll" ComponentId="{238F875C-15F8-4750-AE15-87648857B9C5}" Directory_="_internal_Dir" Attributes="256" KeyPath="apimswincrtenvironmentl110.dll"/>
+    <ROW Component="apimswincrtfilesysteml110.dll" ComponentId="{C32F4A9B-5308-40FE-BCE9-2ECBBE2CEC46}" Directory_="_internal_Dir" Attributes="256" KeyPath="apimswincrtfilesysteml110.dll"/>
+    <ROW Component="apimswincrtheapl110.dll" ComponentId="{99799EAE-B481-4E08-9D96-5BA9E429B09E}" Directory_="_internal_Dir" Attributes="256" KeyPath="apimswincrtheapl110.dll"/>
+    <ROW Component="apimswincrtlocalel110.dll" ComponentId="{B2DDBBB5-4A57-46C0-B559-199F73BAB1CA}" Directory_="_internal_Dir" Attributes="256" KeyPath="apimswincrtlocalel110.dll"/>
+    <ROW Component="apimswincrtmathl110.dll" ComponentId="{D19D41FD-F35A-4C47-A103-C5388255B1D4}" Directory_="_internal_Dir" Attributes="256" KeyPath="apimswincrtmathl110.dll"/>
+    <ROW Component="apimswincrtprocessl110.dll" ComponentId="{B6E23829-1405-44CD-940A-F887D75788CA}" Directory_="_internal_Dir" Attributes="256" KeyPath="apimswincrtprocessl110.dll"/>
+    <ROW Component="apimswincrtruntimel110.dll" ComponentId="{B0714F39-4F23-41B6-BF64-1214EB51C2A8}" Directory_="_internal_Dir" Attributes="256" KeyPath="apimswincrtruntimel110.dll"/>
+    <ROW Component="apimswincrtstdiol110.dll" ComponentId="{AACB80FC-7F8A-4D22-AA7F-E7A9BBA42F46}" Directory_="_internal_Dir" Attributes="256" KeyPath="apimswincrtstdiol110.dll"/>
+    <ROW Component="apimswincrtstringl110.dll" ComponentId="{7E30393F-2E2C-4975-81C7-6F84FE6E0AC9}" Directory_="_internal_Dir" Attributes="256" KeyPath="apimswincrtstringl110.dll"/>
+    <ROW Component="apimswincrttimel110.dll" ComponentId="{94BDF390-0A71-4C35-AD86-B1904F3256AD}" Directory_="_internal_Dir" Attributes="256" KeyPath="apimswincrttimel110.dll"/>
+    <ROW Component="apimswincrtutilityl110.dll" ComponentId="{93439B60-9811-40CC-8D9F-0886511F10F9}" Directory_="_internal_Dir" Attributes="256" KeyPath="apimswincrtutilityl110.dll"/>
+    <ROW Component="base_library.zip" ComponentId="{84DF301D-8D49-4E1D-B7A1-BDA66096C3E0}" Directory_="_internal_Dir" Attributes="0" KeyPath="base_library.zip" Type="0"/>
+    <ROW Component="cacert.pem" ComponentId="{DC44D6C2-BDD6-4406-8454-7EBFA78736AA}" Directory_="certifi_Dir" Attributes="0" KeyPath="cacert.pem" Type="0"/>
+    <ROW Component="class_schedule.json" ComponentId="{B97FC3D2-4ADA-4535-91A2-FD6186AE3E6B}" Directory_="data_Dir" Attributes="0" KeyPath="class_schedule.json" Type="0"/>
+    <ROW Component="libcrypto3.dll" ComponentId="{00D6E426-B729-41D6-A761-0275E6C87F29}" Directory_="_internal_Dir" Attributes="256" KeyPath="libcrypto3.dll"/>
+    <ROW Component="libffi8.dll" ComponentId="{29E71067-46E4-4838-85C3-86DD45E184D9}" Directory_="_internal_Dir" Attributes="256" KeyPath="libffi8.dll"/>
+    <ROW Component="libssl3.dll" ComponentId="{4899C488-1AFB-45E8-8EFB-0A4C57F36C66}" Directory_="_internal_Dir" Attributes="256" KeyPath="libssl3.dll"/>
+    <ROW Component="md.cp311win_amd64.pyd" ComponentId="{AD9FC64A-8F58-429C-977C-6111A13F3ADB}" Directory_="charset_normalizer_Dir" Attributes="256" KeyPath="md.cp311win_amd64.pyd" Type="0"/>
+    <ROW Component="py.typed" ComponentId="{2D6C04E6-CF22-48C9-B531-3E045B88378A}" Directory_="pdfminer_Dir" Attributes="0" KeyPath="py.typed_1" Type="0"/>
+    <ROW Component="python3.dll" ComponentId="{D1561B5A-0470-4F57-B5EF-50715C39F5E6}" Directory_="_internal_Dir" Attributes="256" KeyPath="python3.dll"/>
+    <ROW Component="python311.dll" ComponentId="{40C4E99B-43A6-497B-B46C-AFCE6A0C7AF8}" Directory_="_internal_Dir" Attributes="256" KeyPath="python311.dll"/>
+    <ROW Component="ucrtbase.dll" ComponentId="{2A9D3880-399F-4E31-A779-215DFE04E9AD}" Directory_="_internal_Dir" Attributes="256" KeyPath="ucrtbase.dll"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiFeatsComponent">
+    <ROW Feature="MainFeature" Title="MainFeature" Description="Description" Display="1" Level="1" Directory_="APPDIR" Attributes="0"/>
+    <ATTRIBUTE name="CurrentFeature" value="MainFeature"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiFilesComponent">
+    <ROW File="SmartClassPlanner.exe" Component_="SmartClassPlanner.exe" FileName="SMARTC~1.EXE|SmartClassPlanner.exe" Attributes="0" SourcePath="..\git\CPSC6177-Project-Team2\dist\SmartClassPlanner\SmartClassPlanner.exe" SelfReg="false" DigSign="true"/>
+    <ROW File="apimswincoreconsolel110.dll" Component_="apimswincoreconsolel110.dll" FileName="API-MS~1.DLL|api-ms-win-core-console-l1-1-0.dll" Attributes="0" SourcePath="..\git\CPSC6177-Project-Team2\dist\SmartClassPlanner\_internal\api-ms-win-core-console-l1-1-0.dll" SelfReg="false"/>
+    <ROW File="apimswincoredatetimel110.dll" Component_="apimswincoredatetimel110.dll" FileName="API-MS~2.DLL|api-ms-win-core-datetime-l1-1-0.dll" Attributes="0" SourcePath="..\git\CPSC6177-Project-Team2\dist\SmartClassPlanner\_internal\api-ms-win-core-datetime-l1-1-0.dll" SelfReg="false"/>
+    <ROW File="apimswincoredebugl110.dll" Component_="apimswincoredebugl110.dll" FileName="API-MS~3.DLL|api-ms-win-core-debug-l1-1-0.dll" Attributes="0" SourcePath="..\git\CPSC6177-Project-Team2\dist\SmartClassPlanner\_internal\api-ms-win-core-debug-l1-1-0.dll" SelfReg="false"/>
+    <ROW File="apimswincoreerrorhandlingl110.dll" Component_="apimswincoreerrorhandlingl110.dll" FileName="API-MS~4.DLL|api-ms-win-core-errorhandling-l1-1-0.dll" Attributes="0" SourcePath="..\git\CPSC6177-Project-Team2\dist\SmartClassPlanner\_internal\api-ms-win-core-errorhandling-l1-1-0.dll" SelfReg="false"/>
+    <ROW File="apimswincorefibersl110.dll" Component_="apimswincorefibersl110.dll" FileName="API-MS~5.DLL|api-ms-win-core-fibers-l1-1-0.dll" Attributes="0" SourcePath="..\git\CPSC6177-Project-Team2\dist\SmartClassPlanner\_internal\api-ms-win-core-fibers-l1-1-0.dll" SelfReg="false"/>
+    <ROW File="apimswincorefilel110.dll" Component_="apimswincorefilel110.dll" FileName="API-MS~6.DLL|api-ms-win-core-file-l1-1-0.dll" Attributes="0" SourcePath="..\git\CPSC6177-Project-Team2\dist\SmartClassPlanner\_internal\api-ms-win-core-file-l1-1-0.dll" SelfReg="false"/>
+    <ROW File="apimswincorefilel120.dll" Component_="apimswincorefilel120.dll" FileName="API-MS~7.DLL|api-ms-win-core-file-l1-2-0.dll" Attributes="0" SourcePath="..\git\CPSC6177-Project-Team2\dist\SmartClassPlanner\_internal\api-ms-win-core-file-l1-2-0.dll" SelfReg="false"/>
+    <ROW File="apimswincorefilel210.dll" Component_="apimswincorefilel210.dll" FileName="API-MS~8.DLL|api-ms-win-core-file-l2-1-0.dll" Attributes="0" SourcePath="..\git\CPSC6177-Project-Team2\dist\SmartClassPlanner\_internal\api-ms-win-core-file-l2-1-0.dll" SelfReg="false"/>
+    <ROW File="apimswincorehandlel110.dll" Component_="apimswincorehandlel110.dll" FileName="API-MS~9.DLL|api-ms-win-core-handle-l1-1-0.dll" Attributes="0" SourcePath="..\git\CPSC6177-Project-Team2\dist\SmartClassPlanner\_internal\api-ms-win-core-handle-l1-1-0.dll" SelfReg="false"/>
+    <ROW File="apimswincoreheapl110.dll" Component_="apimswincoreheapl110.dll" FileName="API-M~10.DLL|api-ms-win-core-heap-l1-1-0.dll" Attributes="0" SourcePath="..\git\CPSC6177-Project-Team2\dist\SmartClassPlanner\_internal\api-ms-win-core-heap-l1-1-0.dll" SelfReg="false"/>
+    <ROW File="apimswincoreinterlockedl110.dll" Component_="apimswincoreinterlockedl110.dll" FileName="API-M~11.DLL|api-ms-win-core-interlocked-l1-1-0.dll" Attributes="0" SourcePath="..\git\CPSC6177-Project-Team2\dist\SmartClassPlanner\_internal\api-ms-win-core-interlocked-l1-1-0.dll" SelfReg="false"/>
+    <ROW File="apimswincorelibraryloaderl110.dll" Component_="apimswincorelibraryloaderl110.dll" FileName="API-M~12.DLL|api-ms-win-core-libraryloader-l1-1-0.dll" Attributes="0" SourcePath="..\git\CPSC6177-Project-Team2\dist\SmartClassPlanner\_internal\api-ms-win-core-libraryloader-l1-1-0.dll" SelfReg="false"/>
+    <ROW File="apimswincorelocalizationl120.dll" Component_="apimswincorelocalizationl120.dll" FileName="API-M~13.DLL|api-ms-win-core-localization-l1-2-0.dll" Attributes="0" SourcePath="..\git\CPSC6177-Project-Team2\dist\SmartClassPlanner\_internal\api-ms-win-core-localization-l1-2-0.dll" SelfReg="false"/>
+    <ROW File="apimswincorememoryl110.dll" Component_="apimswincorememoryl110.dll" FileName="API-M~14.DLL|api-ms-win-core-memory-l1-1-0.dll" Attributes="0" SourcePath="..\git\CPSC6177-Project-Team2\dist\SmartClassPlanner\_internal\api-ms-win-core-memory-l1-1-0.dll" SelfReg="false"/>
+    <ROW File="apimswincorenamedpipel110.dll" Component_="apimswincorenamedpipel110.dll" FileName="API-M~15.DLL|api-ms-win-core-namedpipe-l1-1-0.dll" Attributes="0" SourcePath="..\git\CPSC6177-Project-Team2\dist\SmartClassPlanner\_internal\api-ms-win-core-namedpipe-l1-1-0.dll" SelfReg="false"/>
+    <ROW File="apimswincoreprocessenvironmentl110.dll" Component_="apimswincoreprocessenvironmentl110.dll" FileName="API-M~16.DLL|api-ms-win-core-processenvironment-l1-1-0.dll" Attributes="0" SourcePath="..\git\CPSC6177-Project-Team2\dist\SmartClassPlanner\_internal\api-ms-win-core-processenvironment-l1-1-0.dll" SelfReg="false"/>
+    <ROW File="apimswincoreprocessthreadsl110.dll" Component_="apimswincoreprocessthreadsl110.dll" FileName="API-M~17.DLL|api-ms-win-core-processthreads-l1-1-0.dll" Attributes="0" SourcePath="..\git\CPSC6177-Project-Team2\dist\SmartClassPlanner\_internal\api-ms-win-core-processthreads-l1-1-0.dll" SelfReg="false"/>
+    <ROW File="apimswincoreprocessthreadsl111.dll" Component_="apimswincoreprocessthreadsl111.dll" FileName="API-M~18.DLL|api-ms-win-core-processthreads-l1-1-1.dll" Attributes="0" SourcePath="..\git\CPSC6177-Project-Team2\dist\SmartClassPlanner\_internal\api-ms-win-core-processthreads-l1-1-1.dll" SelfReg="false"/>
+    <ROW File="apimswincoreprofilel110.dll" Component_="apimswincoreprofilel110.dll" FileName="API-M~19.DLL|api-ms-win-core-profile-l1-1-0.dll" Attributes="0" SourcePath="..\git\CPSC6177-Project-Team2\dist\SmartClassPlanner\_internal\api-ms-win-core-profile-l1-1-0.dll" SelfReg="false"/>
+    <ROW File="apimswincorertlsupportl110.dll" Component_="apimswincorertlsupportl110.dll" FileName="API-M~20.DLL|api-ms-win-core-rtlsupport-l1-1-0.dll" Attributes="0" SourcePath="..\git\CPSC6177-Project-Team2\dist\SmartClassPlanner\_internal\api-ms-win-core-rtlsupport-l1-1-0.dll" SelfReg="false"/>
+    <ROW File="apimswincorestringl110.dll" Component_="apimswincorestringl110.dll" FileName="API-M~21.DLL|api-ms-win-core-string-l1-1-0.dll" Attributes="0" SourcePath="..\git\CPSC6177-Project-Team2\dist\SmartClassPlanner\_internal\api-ms-win-core-string-l1-1-0.dll" SelfReg="false"/>
+    <ROW File="apimswincoresynchl110.dll" Component_="apimswincoresynchl110.dll" FileName="API-M~22.DLL|api-ms-win-core-synch-l1-1-0.dll" Attributes="0" SourcePath="..\git\CPSC6177-Project-Team2\dist\SmartClassPlanner\_internal\api-ms-win-core-synch-l1-1-0.dll" SelfReg="false"/>
+    <ROW File="apimswincoresynchl120.dll" Component_="apimswincoresynchl120.dll" FileName="API-M~23.DLL|api-ms-win-core-synch-l1-2-0.dll" Attributes="0" SourcePath="..\git\CPSC6177-Project-Team2\dist\SmartClassPlanner\_internal\api-ms-win-core-synch-l1-2-0.dll" SelfReg="false"/>
+    <ROW File="apimswincoresysinfol110.dll" Component_="apimswincoresysinfol110.dll" FileName="API-M~24.DLL|api-ms-win-core-sysinfo-l1-1-0.dll" Attributes="0" SourcePath="..\git\CPSC6177-Project-Team2\dist\SmartClassPlanner\_internal\api-ms-win-core-sysinfo-l1-1-0.dll" SelfReg="false"/>
+    <ROW File="apimswincoretimezonel110.dll" Component_="apimswincoretimezonel110.dll" FileName="API-M~25.DLL|api-ms-win-core-timezone-l1-1-0.dll" Attributes="0" SourcePath="..\git\CPSC6177-Project-Team2\dist\SmartClassPlanner\_internal\api-ms-win-core-timezone-l1-1-0.dll" SelfReg="false"/>
+    <ROW File="apimswincoreutill110.dll" Component_="apimswincoreutill110.dll" FileName="API-M~26.DLL|api-ms-win-core-util-l1-1-0.dll" Attributes="0" SourcePath="..\git\CPSC6177-Project-Team2\dist\SmartClassPlanner\_internal\api-ms-win-core-util-l1-1-0.dll" SelfReg="false"/>
+    <ROW File="apimswincrtconiol110.dll" Component_="apimswincrtconiol110.dll" FileName="API-M~27.DLL|api-ms-win-crt-conio-l1-1-0.dll" Attributes="0" SourcePath="..\git\CPSC6177-Project-Team2\dist\SmartClassPlanner\_internal\api-ms-win-crt-conio-l1-1-0.dll" SelfReg="false"/>
+    <ROW File="apimswincrtconvertl110.dll" Component_="apimswincrtconvertl110.dll" FileName="API-M~28.DLL|api-ms-win-crt-convert-l1-1-0.dll" Attributes="0" SourcePath="..\git\CPSC6177-Project-Team2\dist\SmartClassPlanner\_internal\api-ms-win-crt-convert-l1-1-0.dll" SelfReg="false"/>
+    <ROW File="apimswincrtenvironmentl110.dll" Component_="apimswincrtenvironmentl110.dll" FileName="API-M~29.DLL|api-ms-win-crt-environment-l1-1-0.dll" Attributes="0" SourcePath="..\git\CPSC6177-Project-Team2\dist\SmartClassPlanner\_internal\api-ms-win-crt-environment-l1-1-0.dll" SelfReg="false"/>
+    <ROW File="apimswincrtfilesysteml110.dll" Component_="apimswincrtfilesysteml110.dll" FileName="API-M~30.DLL|api-ms-win-crt-filesystem-l1-1-0.dll" Attributes="0" SourcePath="..\git\CPSC6177-Project-Team2\dist\SmartClassPlanner\_internal\api-ms-win-crt-filesystem-l1-1-0.dll" SelfReg="false"/>
+    <ROW File="apimswincrtheapl110.dll" Component_="apimswincrtheapl110.dll" FileName="API-M~31.DLL|api-ms-win-crt-heap-l1-1-0.dll" Attributes="0" SourcePath="..\git\CPSC6177-Project-Team2\dist\SmartClassPlanner\_internal\api-ms-win-crt-heap-l1-1-0.dll" SelfReg="false"/>
+    <ROW File="apimswincrtlocalel110.dll" Component_="apimswincrtlocalel110.dll" FileName="API-M~32.DLL|api-ms-win-crt-locale-l1-1-0.dll" Attributes="0" SourcePath="..\git\CPSC6177-Project-Team2\dist\SmartClassPlanner\_internal\api-ms-win-crt-locale-l1-1-0.dll" SelfReg="false"/>
+    <ROW File="apimswincrtmathl110.dll" Component_="apimswincrtmathl110.dll" FileName="API-M~33.DLL|api-ms-win-crt-math-l1-1-0.dll" Attributes="0" SourcePath="..\git\CPSC6177-Project-Team2\dist\SmartClassPlanner\_internal\api-ms-win-crt-math-l1-1-0.dll" SelfReg="false"/>
+    <ROW File="apimswincrtprocessl110.dll" Component_="apimswincrtprocessl110.dll" FileName="API-M~34.DLL|api-ms-win-crt-process-l1-1-0.dll" Attributes="0" SourcePath="..\git\CPSC6177-Project-Team2\dist\SmartClassPlanner\_internal\api-ms-win-crt-process-l1-1-0.dll" SelfReg="false"/>
+    <ROW File="apimswincrtruntimel110.dll" Component_="apimswincrtruntimel110.dll" FileName="API-M~35.DLL|api-ms-win-crt-runtime-l1-1-0.dll" Attributes="0" SourcePath="..\git\CPSC6177-Project-Team2\dist\SmartClassPlanner\_internal\api-ms-win-crt-runtime-l1-1-0.dll" SelfReg="false"/>
+    <ROW File="apimswincrtstdiol110.dll" Component_="apimswincrtstdiol110.dll" FileName="API-M~36.DLL|api-ms-win-crt-stdio-l1-1-0.dll" Attributes="0" SourcePath="..\git\CPSC6177-Project-Team2\dist\SmartClassPlanner\_internal\api-ms-win-crt-stdio-l1-1-0.dll" SelfReg="false"/>
+    <ROW File="apimswincrtstringl110.dll" Component_="apimswincrtstringl110.dll" FileName="API-M~37.DLL|api-ms-win-crt-string-l1-1-0.dll" Attributes="0" SourcePath="..\git\CPSC6177-Project-Team2\dist\SmartClassPlanner\_internal\api-ms-win-crt-string-l1-1-0.dll" SelfReg="false"/>
+    <ROW File="apimswincrttimel110.dll" Component_="apimswincrttimel110.dll" FileName="API-M~38.DLL|api-ms-win-crt-time-l1-1-0.dll" Attributes="0" SourcePath="..\git\CPSC6177-Project-Team2\dist\SmartClassPlanner\_internal\api-ms-win-crt-time-l1-1-0.dll" SelfReg="false"/>
+    <ROW File="apimswincrtutilityl110.dll" Component_="apimswincrtutilityl110.dll" FileName="API-M~39.DLL|api-ms-win-crt-utility-l1-1-0.dll" Attributes="0" SourcePath="..\git\CPSC6177-Project-Team2\dist\SmartClassPlanner\_internal\api-ms-win-crt-utility-l1-1-0.dll" SelfReg="false"/>
+    <ROW File="base_library.zip" Component_="base_library.zip" FileName="BASE_L~1.ZIP|base_library.zip" Attributes="0" SourcePath="..\git\CPSC6177-Project-Team2\dist\SmartClassPlanner\_internal\base_library.zip" SelfReg="false"/>
+    <ROW File="cacert.pem" Component_="cacert.pem" FileName="cacert.pem" Attributes="0" SourcePath="..\git\CPSC6177-Project-Team2\dist\SmartClassPlanner\_internal\certifi\cacert.pem" SelfReg="false"/>
+    <ROW File="py.typed" Component_="cacert.pem" FileName="PY~1.TYP|py.typed" Attributes="0" SourcePath="..\git\CPSC6177-Project-Team2\dist\SmartClassPlanner\_internal\certifi\py.typed" SelfReg="false"/>
+    <ROW File="md.cp311win_amd64.pyd" Component_="md.cp311win_amd64.pyd" FileName="MDCP31~1.PYD|md.cp311-win_amd64.pyd" Attributes="0" SourcePath="..\git\CPSC6177-Project-Team2\dist\SmartClassPlanner\_internal\charset_normalizer\md.cp311-win_amd64.pyd" SelfReg="false"/>
+    <ROW File="md__mypyc.cp311win_amd64.pyd" Component_="md.cp311win_amd64.pyd" FileName="MD__MY~1.PYD|md__mypyc.cp311-win_amd64.pyd" Attributes="0" SourcePath="..\git\CPSC6177-Project-Team2\dist\SmartClassPlanner\_internal\charset_normalizer\md__mypyc.cp311-win_amd64.pyd" SelfReg="false"/>
+    <ROW File="_rust.pyd" Component_="_rust.pyd" FileName="_rust.pyd" Attributes="0" SourcePath="..\git\CPSC6177-Project-Team2\dist\SmartClassPlanner\_internal\cryptography\hazmat\bindings\_rust.pyd" SelfReg="false"/>
+    <ROW File="INSTALLER" Component_="INSTALLER" FileName="INSTAL~1|INSTALLER" Attributes="0" SourcePath="..\git\CPSC6177-Project-Team2\dist\SmartClassPlanner\_internal\cryptography-41.0.4.dist-info\INSTALLER" SelfReg="false"/>
+    <ROW File="LICENSE" Component_="INSTALLER" FileName="LICENSE" Attributes="0" SourcePath="..\git\CPSC6177-Project-Team2\dist\SmartClassPlanner\_internal\cryptography-41.0.4.dist-info\LICENSE" SelfReg="false"/>
+    <ROW File="LICENSE.APACHE" Component_="INSTALLER" FileName="LICENS~1.APA|LICENSE.APACHE" Attributes="0" SourcePath="..\git\CPSC6177-Project-Team2\dist\SmartClassPlanner\_internal\cryptography-41.0.4.dist-info\LICENSE.APACHE" SelfReg="false"/>
+    <ROW File="LICENSE.BSD" Component_="INSTALLER" FileName="LICENSE.BSD" Attributes="0" SourcePath="..\git\CPSC6177-Project-Team2\dist\SmartClassPlanner\_internal\cryptography-41.0.4.dist-info\LICENSE.BSD" SelfReg="false"/>
+    <ROW File="METADATA" Component_="INSTALLER" FileName="METADATA" Attributes="0" SourcePath="..\git\CPSC6177-Project-Team2\dist\SmartClassPlanner\_internal\cryptography-41.0.4.dist-info\METADATA" SelfReg="false"/>
+    <ROW File="RECORD" Component_="INSTALLER" FileName="RECORD" Attributes="0" SourcePath="..\git\CPSC6177-Project-Team2\dist\SmartClassPlanner\_internal\cryptography-41.0.4.dist-info\RECORD" SelfReg="false"/>
+    <ROW File="REQUESTED" Component_="INSTALLER" FileName="REQUES~1|REQUESTED" Attributes="0" SourcePath="..\git\CPSC6177-Project-Team2\dist\SmartClassPlanner\_internal\cryptography-41.0.4.dist-info\REQUESTED" SelfReg="false"/>
+    <ROW File="top_level.txt" Component_="INSTALLER" FileName="TOP_LE~1.TXT|top_level.txt" Attributes="0" SourcePath="..\git\CPSC6177-Project-Team2\dist\SmartClassPlanner\_internal\cryptography-41.0.4.dist-info\top_level.txt" SelfReg="false"/>
+    <ROW File="WHEEL" Component_="INSTALLER" FileName="WHEEL" Attributes="0" SourcePath="..\git\CPSC6177-Project-Team2\dist\SmartClassPlanner\_internal\cryptography-41.0.4.dist-info\WHEEL" SelfReg="false"/>
+    <ROW File="class_schedule.json" Component_="class_schedule.json" FileName="CLASS_~1.JSO|class_schedule.json" Attributes="0" SourcePath="..\git\CPSC6177-Project-Team2\dist\SmartClassPlanner\_internal\data\class_schedule.json" SelfReg="false"/>
+    <ROW File="class_schedule.json.BACKUP" Component_="class_schedule.json" FileName="CLASS_~1.BAC|class_schedule.json.BACKUP" Attributes="0" SourcePath="..\git\CPSC6177-Project-Team2\dist\SmartClassPlanner\_internal\data\class_schedule.json.BACKUP" SelfReg="false"/>
+    <ROW File="prereqs.json" Component_="class_schedule.json" FileName="PREREQ~1.JSO|prereqs.json" Attributes="0" SourcePath="..\git\CPSC6177-Project-Team2\dist\SmartClassPlanner\_internal\data\prereqs.json" SelfReg="false"/>
+    <ROW File="PrerequisiteGraphSoftware_Systems20192020.pdf" Component_="class_schedule.json" FileName="PREREQ~1.PDF|PrerequisiteGraph-Software_Systems2019-2020.pdf" Attributes="0" SourcePath="..\git\CPSC6177-Project-Team2\dist\SmartClassPlanner\_internal\data\PrerequisiteGraph-Software_Systems2019-2020.pdf" SelfReg="false"/>
+    <ROW File="SampleInput1.pdf" Component_="class_schedule.json" FileName="SAMPLE~1.PDF|Sample Input1.pdf" Attributes="0" SourcePath="..\git\CPSC6177-Project-Team2\dist\SmartClassPlanner\_internal\data\Sample Input1.pdf" SelfReg="false"/>
+    <ROW File="SampleInput2.pdf" Component_="class_schedule.json" FileName="SAMPLE~2.PDF|Sample Input2.pdf" Attributes="0" SourcePath="..\git\CPSC6177-Project-Team2\dist\SmartClassPlanner\_internal\data\Sample Input2.pdf" SelfReg="false"/>
+    <ROW File="SampleInput3.pdf" Component_="class_schedule.json" FileName="SAMPLE~3.PDF|Sample Input3.pdf" Attributes="0" SourcePath="..\git\CPSC6177-Project-Team2\dist\SmartClassPlanner\_internal\data\Sample Input3.pdf" SelfReg="false"/>
+    <ROW File="SampleInput1.pdf_1" Component_="class_schedule.json" FileName="SAMPLE~4.PDF|SampleInput1.pdf" Attributes="0" SourcePath="..\git\CPSC6177-Project-Team2\dist\SmartClassPlanner\_internal\data\SampleInput1.pdf" SelfReg="false"/>
+    <ROW File="libcrypto3.dll" Component_="libcrypto3.dll" FileName="LIBCRY~1.DLL|libcrypto-3.dll" Attributes="0" SourcePath="..\git\CPSC6177-Project-Team2\dist\SmartClassPlanner\_internal\libcrypto-3.dll" SelfReg="false"/>
+    <ROW File="libffi8.dll" Component_="libffi8.dll" FileName="libffi-8.dll" Attributes="0" SourcePath="..\git\CPSC6177-Project-Team2\dist\SmartClassPlanner\_internal\libffi-8.dll" SelfReg="false"/>
+    <ROW File="libssl3.dll" Component_="libssl3.dll" FileName="libssl-3.dll" Attributes="0" SourcePath="..\git\CPSC6177-Project-Team2\dist\SmartClassPlanner\_internal\libssl-3.dll" SelfReg="false"/>
+    <ROW File="EUCH.pickle.gz" Component_="EUCH.pickle.gz" FileName="78-EUC~1.GZ|78-EUC-H.pickle.gz" Attributes="0" SourcePath="..\git\CPSC6177-Project-Team2\dist\SmartClassPlanner\_internal\pdfminer\cmap\78-EUC-H.pickle.gz" SelfReg="false"/>
+    <ROW File="EUCV.pickle.gz" Component_="EUCH.pickle.gz" FileName="78-EUC~2.GZ|78-EUC-V.pickle.gz" Attributes="0" SourcePath="..\git\CPSC6177-Project-Team2\dist\SmartClassPlanner\_internal\pdfminer\cmap\78-EUC-V.pickle.gz" SelfReg="false"/>
+    <ROW File="H.pickle.gz" Component_="EUCH.pickle.gz" FileName="78-HPI~1.GZ|78-H.pickle.gz" Attributes="0" SourcePath="..\git\CPSC6177-Project-Team2\dist\SmartClassPlanner\_internal\pdfminer\cmap\78-H.pickle.gz" SelfReg="false"/>
+    <ROW File="RKSJH.pickle.gz" Component_="EUCH.pickle.gz" FileName="78-RKS~1.GZ|78-RKSJ-H.pickle.gz" Attributes="0" SourcePath="..\git\CPSC6177-Project-Team2\dist\SmartClassPlanner\_internal\pdfminer\cmap\78-RKSJ-H.pickle.gz" SelfReg="false"/>
+    <ROW File="RKSJV.pickle.gz" Component_="EUCH.pickle.gz" FileName="78-RKS~2.GZ|78-RKSJ-V.pickle.gz" Attributes="0" SourcePath="..\git\CPSC6177-Project-Team2\dist\SmartClassPlanner\_internal\pdfminer\cmap\78-RKSJ-V.pickle.gz" SelfReg="false"/>
+    <ROW File="V.pickle.gz" Component_="EUCH.pickle.gz" FileName="78-VPI~1.GZ|78-V.pickle.gz" Attributes="0" SourcePath="..\git\CPSC6177-Project-Team2\dist\SmartClassPlanner\_internal\pdfminer\cmap\78-V.pickle.gz" SelfReg="false"/>
+    <ROW File="msRKSJH.pickle.gz" Component_="EUCH.pickle.gz" FileName="78MS-R~1.GZ|78ms-RKSJ-H.pickle.gz" Attributes="0" SourcePath="..\git\CPSC6177-Project-Team2\dist\SmartClassPlanner\_internal\pdfminer\cmap\78ms-RKSJ-H.pickle.gz" SelfReg="false"/>
+    <ROW File="msRKSJV.pickle.gz" Component_="EUCH.pickle.gz" FileName="78MS-R~2.GZ|78ms-RKSJ-V.pickle.gz" Attributes="0" SourcePath="..\git\CPSC6177-Project-Team2\dist\SmartClassPlanner\_internal\pdfminer\cmap\78ms-RKSJ-V.pickle.gz" SelfReg="false"/>
+    <ROW File="pvRKSJH.pickle.gz" Component_="EUCH.pickle.gz" FileName="83PV-R~1.GZ|83pv-RKSJ-H.pickle.gz" Attributes="0" SourcePath="..\git\CPSC6177-Project-Team2\dist\SmartClassPlanner\_internal\pdfminer\cmap\83pv-RKSJ-H.pickle.gz" SelfReg="false"/>
+    <ROW File="pvRKSJV.pickle.gz" Component_="EUCH.pickle.gz" FileName="83PV-R~2.GZ|83pv-RKSJ-V.pickle.gz" Attributes="0" SourcePath="..\git\CPSC6177-Project-Team2\dist\SmartClassPlanner\_internal\pdfminer\cmap\83pv-RKSJ-V.pickle.gz" SelfReg="false"/>
+    <ROW File="msRKSJH.pickle.gz_1" Component_="EUCH.pickle.gz" FileName="90MS-R~1.GZ|90ms-RKSJ-H.pickle.gz" Attributes="0" SourcePath="..\git\CPSC6177-Project-Team2\dist\SmartClassPlanner\_internal\pdfminer\cmap\90ms-RKSJ-H.pickle.gz" SelfReg="false"/>
+    <ROW File="msRKSJV.pickle.gz_1" Component_="EUCH.pickle.gz" FileName="90MS-R~2.GZ|90ms-RKSJ-V.pickle.gz" Attributes="0" SourcePath="..\git\CPSC6177-Project-Team2\dist\SmartClassPlanner\_internal\pdfminer\cmap\90ms-RKSJ-V.pickle.gz" SelfReg="false"/>
+    <ROW File="mspRKSJH.pickle.gz" Component_="EUCH.pickle.gz" FileName="90MSP-~1.GZ|90msp-RKSJ-H.pickle.gz" Attributes="0" SourcePath="..\git\CPSC6177-Project-Team2\dist\SmartClassPlanner\_internal\pdfminer\cmap\90msp-RKSJ-H.pickle.gz" SelfReg="false"/>
+    <ROW File="mspRKSJV.pickle.gz" Component_="EUCH.pickle.gz" FileName="90MSP-~2.GZ|90msp-RKSJ-V.pickle.gz" Attributes="0" SourcePath="..\git\CPSC6177-Project-Team2\dist\SmartClassPlanner\_internal\pdfminer\cmap\90msp-RKSJ-V.pickle.gz" SelfReg="false"/>
+    <ROW File="pvRKSJH.pickle.gz_1" Component_="EUCH.pickle.gz" FileName="90PV-R~1.GZ|90pv-RKSJ-H.pickle.gz" Attributes="0" SourcePath="..\git\CPSC6177-Project-Team2\dist\SmartClassPlanner\_internal\pdfminer\cmap\90pv-RKSJ-H.pickle.gz" SelfReg="false"/>
+    <ROW File="pvRKSJV.pickle.gz_1" Component_="EUCH.pickle.gz" FileName="90PV-R~2.GZ|90pv-RKSJ-V.pickle.gz" Attributes="0" SourcePath="..\git\CPSC6177-Project-Team2\dist\SmartClassPlanner\_internal\pdfminer\cmap\90pv-RKSJ-V.pickle.gz" SelfReg="false"/>
+    <ROW File="AddH.pickle.gz" Component_="EUCH.pickle.gz" FileName="ADD-HP~1.GZ|Add-H.pickle.gz" Attributes="0" SourcePath="..\git\CPSC6177-Project-Team2\dist\SmartClassPlanner\_internal\pdfminer\cmap\Add-H.pickle.gz" SelfReg="false"/>
+    <ROW File="AddRKSJH.pickle.gz" Component_="EUCH.pickle.gz" FileName="ADD-RK~1.GZ|Add-RKSJ-H.pickle.gz" Attributes="0" SourcePath="..\git\CPSC6177-Project-Team2\dist\SmartClassPlanner\_internal\pdfminer\cmap\Add-RKSJ-H.pickle.gz" SelfReg="false"/>
+    <ROW File="AddRKSJV.pickle.gz" Component_="EUCH.pickle.gz" FileName="ADD-RK~2.GZ|Add-RKSJ-V.pickle.gz" Attributes="0" SourcePath="..\git\CPSC6177-Project-Team2\dist\SmartClassPlanner\_internal\pdfminer\cmap\Add-RKSJ-V.pickle.gz" SelfReg="false"/>
+    <ROW File="AddV.pickle.gz" Component_="EUCH.pickle.gz" FileName="ADD-VP~1.GZ|Add-V.pickle.gz" Attributes="0" SourcePath="..\git\CPSC6177-Project-Team2\dist\SmartClassPlanner\_internal\pdfminer\cmap\Add-V.pickle.gz" SelfReg="false"/>
+    <ROW File="B5H.pickle.gz" Component_="EUCH.pickle.gz" FileName="B5-HPI~1.GZ|B5-H.pickle.gz" Attributes="0" SourcePath="..\git\CPSC6177-Project-Team2\dist\SmartClassPlanner\_internal\pdfminer\cmap\B5-H.pickle.gz" SelfReg="false"/>
+    <ROW File="B5V.pickle.gz" Component_="EUCH.pickle.gz" FileName="B5-VPI~1.GZ|B5-V.pickle.gz" Attributes="0" SourcePath="..\git\CPSC6177-Project-Team2\dist\SmartClassPlanner\_internal\pdfminer\cmap\B5-V.pickle.gz" SelfReg="false"/>
+    <ROW File="B5pcH.pickle.gz" Component_="EUCH.pickle.gz" FileName="B5PC-H~1.GZ|B5pc-H.pickle.gz" Attributes="0" SourcePath="..\git\CPSC6177-Project-Team2\dist\SmartClassPlanner\_internal\pdfminer\cmap\B5pc-H.pickle.gz" SelfReg="false"/>
+    <ROW File="B5pcV.pickle.gz" Component_="EUCH.pickle.gz" FileName="B5PC-V~1.GZ|B5pc-V.pickle.gz" Attributes="0" SourcePath="..\git\CPSC6177-Project-Team2\dist\SmartClassPlanner\_internal\pdfminer\cmap\B5pc-V.pickle.gz" SelfReg="false"/>
+    <ROW File="CNSEUCH.pickle.gz" Component_="EUCH.pickle.gz" FileName="CNS-EU~1.GZ|CNS-EUC-H.pickle.gz" Attributes="0" SourcePath="..\git\CPSC6177-Project-Team2\dist\SmartClassPlanner\_internal\pdfminer\cmap\CNS-EUC-H.pickle.gz" SelfReg="false"/>
+    <ROW File="CNSEUCV.pickle.gz" Component_="EUCH.pickle.gz" FileName="CNS-EU~2.GZ|CNS-EUC-V.pickle.gz" Attributes="0" SourcePath="..\git\CPSC6177-Project-Team2\dist\SmartClassPlanner\_internal\pdfminer\cmap\CNS-EUC-V.pickle.gz" SelfReg="false"/>
+    <ROW File="CNS1H.pickle.gz" Component_="EUCH.pickle.gz" FileName="CNS1-H~1.GZ|CNS1-H.pickle.gz" Attributes="0" SourcePath="..\git\CPSC6177-Project-Team2\dist\SmartClassPlanner\_internal\pdfminer\cmap\CNS1-H.pickle.gz" SelfReg="false"/>
+    <ROW File="CNS1V.pickle.gz" Component_="EUCH.pickle.gz" FileName="CNS1-V~1.GZ|CNS1-V.pickle.gz" Attributes="0" SourcePath="..\git\CPSC6177-Project-Team2\dist\SmartClassPlanner\_internal\pdfminer\cmap\CNS1-V.pickle.gz" SelfReg="false"/>
+    <ROW File="CNS2H.pickle.gz" Component_="EUCH.pickle.gz" FileName="CNS2-H~1.GZ|CNS2-H.pickle.gz" Attributes="0" SourcePath="..\git\CPSC6177-Project-Team2\dist\SmartClassPlanner\_internal\pdfminer\cmap\CNS2-H.pickle.gz" SelfReg="false"/>
+    <ROW File="CNS2V.pickle.gz" Component_="EUCH.pickle.gz" FileName="CNS2-V~1.GZ|CNS2-V.pickle.gz" Attributes="0" SourcePath="..\git\CPSC6177-Project-Team2\dist\SmartClassPlanner\_internal\pdfminer\cmap\CNS2-V.pickle.gz" SelfReg="false"/>
+    <ROW File="ETenB5H.pickle.gz" Component_="EUCH.pickle.gz" FileName="ETEN-B~1.GZ|ETen-B5-H.pickle.gz" Attributes="0" SourcePath="..\git\CPSC6177-Project-Team2\dist\SmartClassPlanner\_internal\pdfminer\cmap\ETen-B5-H.pickle.gz" SelfReg="false"/>
+    <ROW File="ETenB5V.pickle.gz" Component_="EUCH.pickle.gz" FileName="ETEN-B~2.GZ|ETen-B5-V.pickle.gz" Attributes="0" SourcePath="..\git\CPSC6177-Project-Team2\dist\SmartClassPlanner\_internal\pdfminer\cmap\ETen-B5-V.pickle.gz" SelfReg="false"/>
+    <ROW File="ETenmsB5H.pickle.gz" Component_="EUCH.pickle.gz" FileName="ETENMS~1.GZ|ETenms-B5-H.pickle.gz" Attributes="0" SourcePath="..\git\CPSC6177-Project-Team2\dist\SmartClassPlanner\_internal\pdfminer\cmap\ETenms-B5-H.pickle.gz" SelfReg="false"/>
+    <ROW File="ETenmsB5V.pickle.gz" Component_="EUCH.pickle.gz" FileName="ETENMS~2.GZ|ETenms-B5-V.pickle.gz" Attributes="0" SourcePath="..\git\CPSC6177-Project-Team2\dist\SmartClassPlanner\_internal\pdfminer\cmap\ETenms-B5-V.pickle.gz" SelfReg="false"/>
+    <ROW File="ETHKB5H.pickle.gz" Component_="EUCH.pickle.gz" FileName="ETHK-B~1.GZ|ETHK-B5-H.pickle.gz" Attributes="0" SourcePath="..\git\CPSC6177-Project-Team2\dist\SmartClassPlanner\_internal\pdfminer\cmap\ETHK-B5-H.pickle.gz" SelfReg="false"/>
+    <ROW File="ETHKB5V.pickle.gz" Component_="EUCH.pickle.gz" FileName="ETHK-B~2.GZ|ETHK-B5-V.pickle.gz" Attributes="0" SourcePath="..\git\CPSC6177-Project-Team2\dist\SmartClassPlanner\_internal\pdfminer\cmap\ETHK-B5-V.pickle.gz" SelfReg="false"/>
+    <ROW File="EUCH.pickle.gz_1" Component_="EUCH.pickle.gz" FileName="EUC-HP~1.GZ|EUC-H.pickle.gz" Attributes="0" SourcePath="..\git\CPSC6177-Project-Team2\dist\SmartClassPlanner\_internal\pdfminer\cmap\EUC-H.pickle.gz" SelfReg="false"/>
+    <ROW File="EUCV.pickle.gz_1" Component_="EUCH.pickle.gz" FileName="EUC-VP~1.GZ|EUC-V.pickle.gz" Attributes="0" SourcePath="..\git\CPSC6177-Project-Team2\dist\SmartClassPlanner\_internal\pdfminer\cmap\EUC-V.pickle.gz" SelfReg="false"/>
+    <ROW File="ExtH.pickle.gz" Component_="EUCH.pickle.gz" FileName="EXT-HP~1.GZ|Ext-H.pickle.gz" Attributes="0" SourcePath="..\git\CPSC6177-Project-Team2\dist\SmartClassPlanner\_internal\pdfminer\cmap\Ext-H.pickle.gz" SelfReg="false"/>
+    <ROW File="ExtRKSJH.pickle.gz" Component_="EUCH.pickle.gz" FileName="EXT-RK~1.GZ|Ext-RKSJ-H.pickle.gz" Attributes="0" SourcePath="..\git\CPSC6177-Project-Team2\dist\SmartClassPlanner\_internal\pdfminer\cmap\Ext-RKSJ-H.pickle.gz" SelfReg="false"/>
+    <ROW File="ExtRKSJV.pickle.gz" Component_="EUCH.pickle.gz" FileName="EXT-RK~2.GZ|Ext-RKSJ-V.pickle.gz" Attributes="0" SourcePath="..\git\CPSC6177-Project-Team2\dist\SmartClassPlanner\_internal\pdfminer\cmap\Ext-RKSJ-V.pickle.gz" SelfReg="false"/>
+    <ROW File="ExtV.pickle.gz" Component_="EUCH.pickle.gz" FileName="EXT-VP~1.GZ|Ext-V.pickle.gz" Attributes="0" SourcePath="..\git\CPSC6177-Project-Team2\dist\SmartClassPlanner\_internal\pdfminer\cmap\Ext-V.pickle.gz" SelfReg="false"/>
+    <ROW File="GBEUCH.pickle.gz" Component_="EUCH.pickle.gz" FileName="GB-EUC~1.GZ|GB-EUC-H.pickle.gz" Attributes="0" SourcePath="..\git\CPSC6177-Project-Team2\dist\SmartClassPlanner\_internal\pdfminer\cmap\GB-EUC-H.pickle.gz" SelfReg="false"/>
+    <ROW File="GBEUCV.pickle.gz" Component_="EUCH.pickle.gz" FileName="GB-EUC~2.GZ|GB-EUC-V.pickle.gz" Attributes="0" SourcePath="..\git\CPSC6177-Project-Team2\dist\SmartClassPlanner\_internal\pdfminer\cmap\GB-EUC-V.pickle.gz" SelfReg="false"/>
+    <ROW File="GBH.pickle.gz" Component_="EUCH.pickle.gz" FileName="GB-HPI~1.GZ|GB-H.pickle.gz" Attributes="0" SourcePath="..\git\CPSC6177-Project-Team2\dist\SmartClassPlanner\_internal\pdfminer\cmap\GB-H.pickle.gz" SelfReg="false"/>
+    <ROW File="GBV.pickle.gz" Component_="EUCH.pickle.gz" FileName="GB-VPI~1.GZ|GB-V.pickle.gz" Attributes="0" SourcePath="..\git\CPSC6177-Project-Team2\dist\SmartClassPlanner\_internal\pdfminer\cmap\GB-V.pickle.gz" SelfReg="false"/>
+    <ROW File="GBKEUCH.pickle.gz" Component_="EUCH.pickle.gz" FileName="GBK-EU~1.GZ|GBK-EUC-H.pickle.gz" Attributes="0" SourcePath="..\git\CPSC6177-Project-Team2\dist\SmartClassPlanner\_internal\pdfminer\cmap\GBK-EUC-H.pickle.gz" SelfReg="false"/>
+    <ROW File="GBKEUCV.pickle.gz" Component_="EUCH.pickle.gz" FileName="GBK-EU~2.GZ|GBK-EUC-V.pickle.gz" Attributes="0" SourcePath="..\git\CPSC6177-Project-Team2\dist\SmartClassPlanner\_internal\pdfminer\cmap\GBK-EUC-V.pickle.gz" SelfReg="false"/>
+    <ROW File="GBK2KH.pickle.gz" Component_="EUCH.pickle.gz" FileName="GBK2K-~1.GZ|GBK2K-H.pickle.gz" Attributes="0" SourcePath="..\git\CPSC6177-Project-Team2\dist\SmartClassPlanner\_internal\pdfminer\cmap\GBK2K-H.pickle.gz" SelfReg="false"/>
+    <ROW File="GBK2KV.pickle.gz" Component_="EUCH.pickle.gz" FileName="GBK2K-~2.GZ|GBK2K-V.pickle.gz" Attributes="0" SourcePath="..\git\CPSC6177-Project-Team2\dist\SmartClassPlanner\_internal\pdfminer\cmap\GBK2K-V.pickle.gz" SelfReg="false"/>
+    <ROW File="GBKpEUCH.pickle.gz" Component_="EUCH.pickle.gz" FileName="GBKP-E~1.GZ|GBKp-EUC-H.pickle.gz" Attributes="0" SourcePath="..\git\CPSC6177-Project-Team2\dist\SmartClassPlanner\_internal\pdfminer\cmap\GBKp-EUC-H.pickle.gz" SelfReg="false"/>
+    <ROW File="GBKpEUCV.pickle.gz" Component_="EUCH.pickle.gz" FileName="GBKP-E~2.GZ|GBKp-EUC-V.pickle.gz" Attributes="0" SourcePath="..\git\CPSC6177-Project-Team2\dist\SmartClassPlanner\_internal\pdfminer\cmap\GBKp-EUC-V.pickle.gz" SelfReg="false"/>
+    <ROW File="GBpcEUCH.pickle.gz" Component_="EUCH.pickle.gz" FileName="GBPC-E~1.GZ|GBpc-EUC-H.pickle.gz" Attributes="0" SourcePath="..\git\CPSC6177-Project-Team2\dist\SmartClassPlanner\_internal\pdfminer\cmap\GBpc-EUC-H.pickle.gz" SelfReg="false"/>
+    <ROW File="GBpcEUCV.pickle.gz" Component_="EUCH.pickle.gz" FileName="GBPC-E~2.GZ|GBpc-EUC-V.pickle.gz" Attributes="0" SourcePath="..\git\CPSC6177-Project-Team2\dist\SmartClassPlanner\_internal\pdfminer\cmap\GBpc-EUC-V.pickle.gz" SelfReg="false"/>
+    <ROW File="GBTEUCH.pickle.gz" Component_="EUCH.pickle.gz" FileName="GBT-EU~1.GZ|GBT-EUC-H.pickle.gz" Attributes="0" SourcePath="..\git\CPSC6177-Project-Team2\dist\SmartClassPlanner\_internal\pdfminer\cmap\GBT-EUC-H.pickle.gz" SelfReg="false"/>
+    <ROW File="GBTEUCV.pickle.gz" Component_="EUCH.pickle.gz" FileName="GBT-EU~2.GZ|GBT-EUC-V.pickle.gz" Attributes="0" SourcePath="..\git\CPSC6177-Project-Team2\dist\SmartClassPlanner\_internal\pdfminer\cmap\GBT-EUC-V.pickle.gz" SelfReg="false"/>
+    <ROW File="GBTH.pickle.gz" Component_="EUCH.pickle.gz" FileName="GBT-HP~1.GZ|GBT-H.pickle.gz" Attributes="0" SourcePath="..\git\CPSC6177-Project-Team2\dist\SmartClassPlanner\_internal\pdfminer\cmap\GBT-H.pickle.gz" SelfReg="false"/>
+    <ROW File="GBTV.pickle.gz" Component_="EUCH.pickle.gz" FileName="GBT-VP~1.GZ|GBT-V.pickle.gz" Attributes="0" SourcePath="..\git\CPSC6177-Project-Team2\dist\SmartClassPlanner\_internal\pdfminer\cmap\GBT-V.pickle.gz" SelfReg="false"/>
+    <ROW File="GBTpcEUCH.pickle.gz" Component_="EUCH.pickle.gz" FileName="GBTPC-~1.GZ|GBTpc-EUC-H.pickle.gz" Attributes="0" SourcePath="..\git\CPSC6177-Project-Team2\dist\SmartClassPlanner\_internal\pdfminer\cmap\GBTpc-EUC-H.pickle.gz" SelfReg="false"/>
+    <ROW File="GBTpcEUCV.pickle.gz" Component_="EUCH.pickle.gz" FileName="GBTPC-~2.GZ|GBTpc-EUC-V.pickle.gz" Attributes="0" SourcePath="..\git\CPSC6177-Project-Team2\dist\SmartClassPlanner\_internal\pdfminer\cmap\GBTpc-EUC-V.pickle.gz" SelfReg="false"/>
+    <ROW File="H.pickle.gz_1" Component_="EUCH.pickle.gz" FileName="HPICKL~1.GZ|H.pickle.gz" Attributes="0" SourcePath="..\git\CPSC6177-Project-Team2\dist\SmartClassPlanner\_internal\pdfminer\cmap\H.pickle.gz" SelfReg="false"/>
+    <ROW File="HankakuH.pickle.gz" Component_="EUCH.pickle.gz" FileName="HANKAK~1.GZ|Hankaku-H.pickle.gz" Attributes="0" SourcePath="..\git\CPSC6177-Project-Team2\dist\SmartClassPlanner\_internal\pdfminer\cmap\Hankaku-H.pickle.gz" SelfReg="false"/>
+    <ROW File="HankakuV.pickle.gz" Component_="EUCH.pickle.gz" FileName="HANKAK~2.GZ|Hankaku-V.pickle.gz" Attributes="0" SourcePath="..\git\CPSC6177-Project-Team2\dist\SmartClassPlanner\_internal\pdfminer\cmap\Hankaku-V.pickle.gz" SelfReg="false"/>
+    <ROW File="HiraganaH.pickle.gz" Component_="EUCH.pickle.gz" FileName="HIRAGA~1.GZ|Hiragana-H.pickle.gz" Attributes="0" SourcePath="..\git\CPSC6177-Project-Team2\dist\SmartClassPlanner\_internal\pdfminer\cmap\Hiragana-H.pickle.gz" SelfReg="false"/>
+    <ROW File="HiraganaV.pickle.gz" Component_="EUCH.pickle.gz" FileName="HIRAGA~2.GZ|Hiragana-V.pickle.gz" Attributes="0" SourcePath="..\git\CPSC6177-Project-Team2\dist\SmartClassPlanner\_internal\pdfminer\cmap\Hiragana-V.pickle.gz" SelfReg="false"/>
+    <ROW File="HKdlaB5H.pickle.gz" Component_="EUCH.pickle.gz" FileName="HKDLA-~1.GZ|HKdla-B5-H.pickle.gz" Attributes="0" SourcePath="..\git\CPSC6177-Project-Team2\dist\SmartClassPlanner\_internal\pdfminer\cmap\HKdla-B5-H.pickle.gz" SelfReg="false"/>
+    <ROW File="HKdlaB5V.pickle.gz" Component_="EUCH.pickle.gz" FileName="HKDLA-~2.GZ|HKdla-B5-V.pickle.gz" Attributes="0" SourcePath="..\git\CPSC6177-Project-Team2\dist\SmartClassPlanner\_internal\pdfminer\cmap\HKdla-B5-V.pickle.gz" SelfReg="false"/>
+    <ROW File="HKdlbB5H.pickle.gz" Component_="EUCH.pickle.gz" FileName="HKDLB-~1.GZ|HKdlb-B5-H.pickle.gz" Attributes="0" SourcePath="..\git\CPSC6177-Project-Team2\dist\SmartClassPlanner\_internal\pdfminer\cmap\HKdlb-B5-H.pickle.gz" SelfReg="false"/>
+    <ROW File="HKdlbB5V.pickle.gz" Component_="EUCH.pickle.gz" FileName="HKDLB-~2.GZ|HKdlb-B5-V.pickle.gz" Attributes="0" SourcePath="..\git\CPSC6177-Project-Team2\dist\SmartClassPlanner\_internal\pdfminer\cmap\HKdlb-B5-V.pickle.gz" SelfReg="false"/>
+    <ROW File="HKgccsB5H.pickle.gz" Component_="EUCH.pickle.gz" FileName="HKGCCS~1.GZ|HKgccs-B5-H.pickle.gz" Attributes="0" SourcePath="..\git\CPSC6177-Project-Team2\dist\SmartClassPlanner\_internal\pdfminer\cmap\HKgccs-B5-H.pickle.gz" SelfReg="false"/>
+    <ROW File="HKgccsB5V.pickle.gz" Component_="EUCH.pickle.gz" FileName="HKGCCS~2.GZ|HKgccs-B5-V.pickle.gz" Attributes="0" SourcePath="..\git\CPSC6177-Project-Team2\dist\SmartClassPlanner\_internal\pdfminer\cmap\HKgccs-B5-V.pickle.gz" SelfReg="false"/>
+    <ROW File="HKm314B5H.pickle.gz" Component_="EUCH.pickle.gz" FileName="HKM314~1.GZ|HKm314-B5-H.pickle.gz" Attributes="0" SourcePath="..\git\CPSC6177-Project-Team2\dist\SmartClassPlanner\_internal\pdfminer\cmap\HKm314-B5-H.pickle.gz" SelfReg="false"/>
+    <ROW File="HKm314B5V.pickle.gz" Component_="EUCH.pickle.gz" FileName="HKM314~2.GZ|HKm314-B5-V.pickle.gz" Attributes="0" SourcePath="..\git\CPSC6177-Project-Team2\dist\SmartClassPlanner\_internal\pdfminer\cmap\HKm314-B5-V.pickle.gz" SelfReg="false"/>
+    <ROW File="HKm471B5H.pickle.gz" Component_="EUCH.pickle.gz" FileName="HKM471~1.GZ|HKm471-B5-H.pickle.gz" Attributes="0" SourcePath="..\git\CPSC6177-Project-Team2\dist\SmartClassPlanner\_internal\pdfminer\cmap\HKm471-B5-H.pickle.gz" SelfReg="false"/>
+    <ROW File="HKm471B5V.pickle.gz" Component_="EUCH.pickle.gz" FileName="HKM471~2.GZ|HKm471-B5-V.pickle.gz" Attributes="0" SourcePath="..\git\CPSC6177-Project-Team2\dist\SmartClassPlanner\_internal\pdfminer\cmap\HKm471-B5-V.pickle.gz" SelfReg="false"/>
+    <ROW File="HKscsB5H.pickle.gz" Component_="EUCH.pickle.gz" FileName="HKSCS-~1.GZ|HKscs-B5-H.pickle.gz" Attributes="0" SourcePath="..\git\CPSC6177-Project-Team2\dist\SmartClassPlanner\_internal\pdfminer\cmap\HKscs-B5-H.pickle.gz" SelfReg="false"/>
+    <ROW File="HKscsB5V.pickle.gz" Component_="EUCH.pickle.gz" FileName="HKSCS-~2.GZ|HKscs-B5-V.pickle.gz" Attributes="0" SourcePath="..\git\CPSC6177-Project-Team2\dist\SmartClassPlanner\_internal\pdfminer\cmap\HKscs-B5-V.pickle.gz" SelfReg="false"/>
+    <ROW File="KatakanaH.pickle.gz" Component_="EUCH.pickle.gz" FileName="KATAKA~1.GZ|Katakana-H.pickle.gz" Attributes="0" SourcePath="..\git\CPSC6177-Project-Team2\dist\SmartClassPlanner\_internal\pdfminer\cmap\Katakana-H.pickle.gz" SelfReg="false"/>
+    <ROW File="KatakanaV.pickle.gz" Component_="EUCH.pickle.gz" FileName="KATAKA~2.GZ|Katakana-V.pickle.gz" Attributes="0" SourcePath="..\git\CPSC6177-Project-Team2\dist\SmartClassPlanner\_internal\pdfminer\cmap\Katakana-V.pickle.gz" SelfReg="false"/>
+    <ROW File="KSCEUCH.pickle.gz" Component_="EUCH.pickle.gz" FileName="KSC-EU~1.GZ|KSC-EUC-H.pickle.gz" Attributes="0" SourcePath="..\git\CPSC6177-Project-Team2\dist\SmartClassPlanner\_internal\pdfminer\cmap\KSC-EUC-H.pickle.gz" SelfReg="false"/>
+    <ROW File="KSCEUCV.pickle.gz" Component_="EUCH.pickle.gz" FileName="KSC-EU~2.GZ|KSC-EUC-V.pickle.gz" Attributes="0" SourcePath="..\git\CPSC6177-Project-Team2\dist\SmartClassPlanner\_internal\pdfminer\cmap\KSC-EUC-V.pickle.gz" SelfReg="false"/>
+    <ROW File="KSCH.pickle.gz" Component_="EUCH.pickle.gz" FileName="KSC-HP~1.GZ|KSC-H.pickle.gz" Attributes="0" SourcePath="..\git\CPSC6177-Project-Team2\dist\SmartClassPlanner\_internal\pdfminer\cmap\KSC-H.pickle.gz" SelfReg="false"/>
+    <ROW File="KSCJohabH.pickle.gz" Component_="EUCH.pickle.gz" FileName="KSC-JO~1.GZ|KSC-Johab-H.pickle.gz" Attributes="0" SourcePath="..\git\CPSC6177-Project-Team2\dist\SmartClassPlanner\_internal\pdfminer\cmap\KSC-Johab-H.pickle.gz" SelfReg="false"/>
+    <ROW File="KSCJohabV.pickle.gz" Component_="EUCH.pickle.gz" FileName="KSC-JO~2.GZ|KSC-Johab-V.pickle.gz" Attributes="0" SourcePath="..\git\CPSC6177-Project-Team2\dist\SmartClassPlanner\_internal\pdfminer\cmap\KSC-Johab-V.pickle.gz" SelfReg="false"/>
+    <ROW File="KSCV.pickle.gz" Component_="EUCH.pickle.gz" FileName="KSC-VP~1.GZ|KSC-V.pickle.gz" Attributes="0" SourcePath="..\git\CPSC6177-Project-Team2\dist\SmartClassPlanner\_internal\pdfminer\cmap\KSC-V.pickle.gz" SelfReg="false"/>
+    <ROW File="KSCmsUHCH.pickle.gz" Component_="EUCH.pickle.gz" FileName="KSCMS-~1.GZ|KSCms-UHC-H.pickle.gz" Attributes="0" SourcePath="..\git\CPSC6177-Project-Team2\dist\SmartClassPlanner\_internal\pdfminer\cmap\KSCms-UHC-H.pickle.gz" SelfReg="false"/>
+    <ROW File="KSCmsUHCHWH.pickle.gz" Component_="EUCH.pickle.gz" FileName="KSCMS-~2.GZ|KSCms-UHC-HW-H.pickle.gz" Attributes="0" SourcePath="..\git\CPSC6177-Project-Team2\dist\SmartClassPlanner\_internal\pdfminer\cmap\KSCms-UHC-HW-H.pickle.gz" SelfReg="false"/>
+    <ROW File="KSCmsUHCHWV.pickle.gz" Component_="EUCH.pickle.gz" FileName="KSCMS-~3.GZ|KSCms-UHC-HW-V.pickle.gz" Attributes="0" SourcePath="..\git\CPSC6177-Project-Team2\dist\SmartClassPlanner\_internal\pdfminer\cmap\KSCms-UHC-HW-V.pickle.gz" SelfReg="false"/>
+    <ROW File="KSCmsUHCV.pickle.gz" Component_="EUCH.pickle.gz" FileName="KSCMS-~4.GZ|KSCms-UHC-V.pickle.gz" Attributes="0" SourcePath="..\git\CPSC6177-Project-Team2\dist\SmartClassPlanner\_internal\pdfminer\cmap\KSCms-UHC-V.pickle.gz" SelfReg="false"/>
+    <ROW File="KSCpcEUCH.pickle.gz" Component_="EUCH.pickle.gz" FileName="KSCPC-~1.GZ|KSCpc-EUC-H.pickle.gz" Attributes="0" SourcePath="..\git\CPSC6177-Project-Team2\dist\SmartClassPlanner\_internal\pdfminer\cmap\KSCpc-EUC-H.pickle.gz" SelfReg="false"/>
+    <ROW File="KSCpcEUCV.pickle.gz" Component_="EUCH.pickle.gz" FileName="KSCPC-~2.GZ|KSCpc-EUC-V.pickle.gz" Attributes="0" SourcePath="..\git\CPSC6177-Project-Team2\dist\SmartClassPlanner\_internal\pdfminer\cmap\KSCpc-EUC-V.pickle.gz" SelfReg="false"/>
+    <ROW File="NWPH.pickle.gz" Component_="EUCH.pickle.gz" FileName="NWP-HP~1.GZ|NWP-H.pickle.gz" Attributes="0" SourcePath="..\git\CPSC6177-Project-Team2\dist\SmartClassPlanner\_internal\pdfminer\cmap\NWP-H.pickle.gz" SelfReg="false"/>
+    <ROW File="NWPV.pickle.gz" Component_="EUCH.pickle.gz" FileName="NWP-VP~1.GZ|NWP-V.pickle.gz" Attributes="0" SourcePath="..\git\CPSC6177-Project-Team2\dist\SmartClassPlanner\_internal\pdfminer\cmap\NWP-V.pickle.gz" SelfReg="false"/>
+    <ROW File="RKSJH.pickle.gz_1" Component_="EUCH.pickle.gz" FileName="RKSJ-H~1.GZ|RKSJ-H.pickle.gz" Attributes="0" SourcePath="..\git\CPSC6177-Project-Team2\dist\SmartClassPlanner\_internal\pdfminer\cmap\RKSJ-H.pickle.gz" SelfReg="false"/>
+    <ROW File="RKSJV.pickle.gz_1" Component_="EUCH.pickle.gz" FileName="RKSJ-V~1.GZ|RKSJ-V.pickle.gz" Attributes="0" SourcePath="..\git\CPSC6177-Project-Team2\dist\SmartClassPlanner\_internal\pdfminer\cmap\RKSJ-V.pickle.gz" SelfReg="false"/>
+    <ROW File="RomanH.pickle.gz" Component_="EUCH.pickle.gz" FileName="ROMAN-~1.GZ|Roman-H.pickle.gz" Attributes="0" SourcePath="..\git\CPSC6177-Project-Team2\dist\SmartClassPlanner\_internal\pdfminer\cmap\Roman-H.pickle.gz" SelfReg="false"/>
+    <ROW File="RomanV.pickle.gz" Component_="EUCH.pickle.gz" FileName="ROMAN-~2.GZ|Roman-V.pickle.gz" Attributes="0" SourcePath="..\git\CPSC6177-Project-Team2\dist\SmartClassPlanner\_internal\pdfminer\cmap\Roman-V.pickle.gz" SelfReg="false"/>
+    <ROW File="tounicodeAdobeCNS1.pickle.gz" Component_="EUCH.pickle.gz" FileName="TO-UNI~1.GZ|to-unicode-Adobe-CNS1.pickle.gz" Attributes="0" SourcePath="..\git\CPSC6177-Project-Team2\dist\SmartClassPlanner\_internal\pdfminer\cmap\to-unicode-Adobe-CNS1.pickle.gz" SelfReg="false"/>
+    <ROW File="tounicodeAdobeGB1.pickle.gz" Component_="EUCH.pickle.gz" FileName="TO-UNI~2.GZ|to-unicode-Adobe-GB1.pickle.gz" Attributes="0" SourcePath="..\git\CPSC6177-Project-Team2\dist\SmartClassPlanner\_internal\pdfminer\cmap\to-unicode-Adobe-GB1.pickle.gz" SelfReg="false"/>
+    <ROW File="tounicodeAdobeJapan1.pickle.gz" Component_="EUCH.pickle.gz" FileName="TO-UNI~3.GZ|to-unicode-Adobe-Japan1.pickle.gz" Attributes="0" SourcePath="..\git\CPSC6177-Project-Team2\dist\SmartClassPlanner\_internal\pdfminer\cmap\to-unicode-Adobe-Japan1.pickle.gz" SelfReg="false"/>
+    <ROW File="tounicodeAdobeKorea1.pickle.gz" Component_="EUCH.pickle.gz" FileName="TO-UNI~4.GZ|to-unicode-Adobe-Korea1.pickle.gz" Attributes="0" SourcePath="..\git\CPSC6177-Project-Team2\dist\SmartClassPlanner\_internal\pdfminer\cmap\to-unicode-Adobe-Korea1.pickle.gz" SelfReg="false"/>
+    <ROW File="UniCNSUCS2H.pickle.gz" Component_="EUCH.pickle.gz" FileName="UNICNS~1.GZ|UniCNS-UCS2-H.pickle.gz" Attributes="0" SourcePath="..\git\CPSC6177-Project-Team2\dist\SmartClassPlanner\_internal\pdfminer\cmap\UniCNS-UCS2-H.pickle.gz" SelfReg="false"/>
+    <ROW File="UniCNSUCS2V.pickle.gz" Component_="EUCH.pickle.gz" FileName="UNICNS~2.GZ|UniCNS-UCS2-V.pickle.gz" Attributes="0" SourcePath="..\git\CPSC6177-Project-Team2\dist\SmartClassPlanner\_internal\pdfminer\cmap\UniCNS-UCS2-V.pickle.gz" SelfReg="false"/>
+    <ROW File="UniCNSUTF16H.pickle.gz" Component_="EUCH.pickle.gz" FileName="UNICNS~3.GZ|UniCNS-UTF16-H.pickle.gz" Attributes="0" SourcePath="..\git\CPSC6177-Project-Team2\dist\SmartClassPlanner\_internal\pdfminer\cmap\UniCNS-UTF16-H.pickle.gz" SelfReg="false"/>
+    <ROW File="UniCNSUTF16V.pickle.gz" Component_="EUCH.pickle.gz" FileName="UNICNS~4.GZ|UniCNS-UTF16-V.pickle.gz" Attributes="0" SourcePath="..\git\CPSC6177-Project-Team2\dist\SmartClassPlanner\_internal\pdfminer\cmap\UniCNS-UTF16-V.pickle.gz" SelfReg="false"/>
+    <ROW File="UniCNSUTF32H.pickle.gz" Component_="EUCH.pickle.gz" FileName="UNICNS~5.GZ|UniCNS-UTF32-H.pickle.gz" Attributes="0" SourcePath="..\git\CPSC6177-Project-Team2\dist\SmartClassPlanner\_internal\pdfminer\cmap\UniCNS-UTF32-H.pickle.gz" SelfReg="false"/>
+    <ROW File="UniCNSUTF32V.pickle.gz" Component_="EUCH.pickle.gz" FileName="UNICNS~6.GZ|UniCNS-UTF32-V.pickle.gz" Attributes="0" SourcePath="..\git\CPSC6177-Project-Team2\dist\SmartClassPlanner\_internal\pdfminer\cmap\UniCNS-UTF32-V.pickle.gz" SelfReg="false"/>
+    <ROW File="UniCNSUTF8H.pickle.gz" Component_="EUCH.pickle.gz" FileName="UNICNS~7.GZ|UniCNS-UTF8-H.pickle.gz" Attributes="0" SourcePath="..\git\CPSC6177-Project-Team2\dist\SmartClassPlanner\_internal\pdfminer\cmap\UniCNS-UTF8-H.pickle.gz" SelfReg="false"/>
+    <ROW File="UniCNSUTF8V.pickle.gz" Component_="EUCH.pickle.gz" FileName="UNICNS~8.GZ|UniCNS-UTF8-V.pickle.gz" Attributes="0" SourcePath="..\git\CPSC6177-Project-Team2\dist\SmartClassPlanner\_internal\pdfminer\cmap\UniCNS-UTF8-V.pickle.gz" SelfReg="false"/>
+    <ROW File="UniGBUCS2H.pickle.gz" Component_="EUCH.pickle.gz" FileName="UNIGB-~1.GZ|UniGB-UCS2-H.pickle.gz" Attributes="0" SourcePath="..\git\CPSC6177-Project-Team2\dist\SmartClassPlanner\_internal\pdfminer\cmap\UniGB-UCS2-H.pickle.gz" SelfReg="false"/>
+    <ROW File="UniGBUCS2V.pickle.gz" Component_="EUCH.pickle.gz" FileName="UNIGB-~2.GZ|UniGB-UCS2-V.pickle.gz" Attributes="0" SourcePath="..\git\CPSC6177-Project-Team2\dist\SmartClassPlanner\_internal\pdfminer\cmap\UniGB-UCS2-V.pickle.gz" SelfReg="false"/>
+    <ROW File="UniGBUTF16H.pickle.gz" Component_="EUCH.pickle.gz" FileName="UNIGB-~3.GZ|UniGB-UTF16-H.pickle.gz" Attributes="0" SourcePath="..\git\CPSC6177-Project-Team2\dist\SmartClassPlanner\_internal\pdfminer\cmap\UniGB-UTF16-H.pickle.gz" SelfReg="false"/>
+    <ROW File="UniGBUTF16V.pickle.gz" Component_="EUCH.pickle.gz" FileName="UNIGB-~4.GZ|UniGB-UTF16-V.pickle.gz" Attributes="0" SourcePath="..\git\CPSC6177-Project-Team2\dist\SmartClassPlanner\_internal\pdfminer\cmap\UniGB-UTF16-V.pickle.gz" SelfReg="false"/>
+    <ROW File="UniGBUTF32H.pickle.gz" Component_="EUCH.pickle.gz" FileName="UNIGB-~5.GZ|UniGB-UTF32-H.pickle.gz" Attributes="0" SourcePath="..\git\CPSC6177-Project-Team2\dist\SmartClassPlanner\_internal\pdfminer\cmap\UniGB-UTF32-H.pickle.gz" SelfReg="false"/>
+    <ROW File="UniGBUTF32V.pickle.gz" Component_="EUCH.pickle.gz" FileName="UNIGB-~6.GZ|UniGB-UTF32-V.pickle.gz" Attributes="0" SourcePath="..\git\CPSC6177-Project-Team2\dist\SmartClassPlanner\_internal\pdfminer\cmap\UniGB-UTF32-V.pickle.gz" SelfReg="false"/>
+    <ROW File="UniGBUTF8H.pickle.gz" Component_="EUCH.pickle.gz" FileName="UNIGB-~7.GZ|UniGB-UTF8-H.pickle.gz" Attributes="0" SourcePath="..\git\CPSC6177-Project-Team2\dist\SmartClassPlanner\_internal\pdfminer\cmap\UniGB-UTF8-H.pickle.gz" SelfReg="false"/>
+    <ROW File="UniGBUTF8V.pickle.gz" Component_="EUCH.pickle.gz" FileName="UNIGB-~8.GZ|UniGB-UTF8-V.pickle.gz" Attributes="0" SourcePath="..\git\CPSC6177-Project-Team2\dist\SmartClassPlanner\_internal\pdfminer\cmap\UniGB-UTF8-V.pickle.gz" SelfReg="false"/>
+    <ROW File="UniJISUCS2H.pickle.gz" Component_="EUCH.pickle.gz" FileName="UNIJIS~1.GZ|UniJIS-UCS2-H.pickle.gz" Attributes="0" SourcePath="..\git\CPSC6177-Project-Team2\dist\SmartClassPlanner\_internal\pdfminer\cmap\UniJIS-UCS2-H.pickle.gz" SelfReg="false"/>
+    <ROW File="UniJISUCS2HWH.pickle.gz" Component_="EUCH.pickle.gz" FileName="UNIJIS~2.GZ|UniJIS-UCS2-HW-H.pickle.gz" Attributes="0" SourcePath="..\git\CPSC6177-Project-Team2\dist\SmartClassPlanner\_internal\pdfminer\cmap\UniJIS-UCS2-HW-H.pickle.gz" SelfReg="false"/>
+    <ROW File="UniJISUCS2HWV.pickle.gz" Component_="EUCH.pickle.gz" FileName="UNIJIS~3.GZ|UniJIS-UCS2-HW-V.pickle.gz" Attributes="0" SourcePath="..\git\CPSC6177-Project-Team2\dist\SmartClassPlanner\_internal\pdfminer\cmap\UniJIS-UCS2-HW-V.pickle.gz" SelfReg="false"/>
+    <ROW File="UniJISUCS2V.pickle.gz" Component_="EUCH.pickle.gz" FileName="UNIJIS~4.GZ|UniJIS-UCS2-V.pickle.gz" Attributes="0" SourcePath="..\git\CPSC6177-Project-Team2\dist\SmartClassPlanner\_internal\pdfminer\cmap\UniJIS-UCS2-V.pickle.gz" SelfReg="false"/>
+    <ROW File="UniJISUTF16H.pickle.gz" Component_="EUCH.pickle.gz" FileName="UNIJIS~5.GZ|UniJIS-UTF16-H.pickle.gz" Attributes="0" SourcePath="..\git\CPSC6177-Project-Team2\dist\SmartClassPlanner\_internal\pdfminer\cmap\UniJIS-UTF16-H.pickle.gz" SelfReg="false"/>
+    <ROW File="UniJISUTF16V.pickle.gz" Component_="EUCH.pickle.gz" FileName="UNIJIS~6.GZ|UniJIS-UTF16-V.pickle.gz" Attributes="0" SourcePath="..\git\CPSC6177-Project-Team2\dist\SmartClassPlanner\_internal\pdfminer\cmap\UniJIS-UTF16-V.pickle.gz" SelfReg="false"/>
+    <ROW File="UniJISUTF32H.pickle.gz" Component_="EUCH.pickle.gz" FileName="UNIJIS~7.GZ|UniJIS-UTF32-H.pickle.gz" Attributes="0" SourcePath="..\git\CPSC6177-Project-Team2\dist\SmartClassPlanner\_internal\pdfminer\cmap\UniJIS-UTF32-H.pickle.gz" SelfReg="false"/>
+    <ROW File="UniJISUTF32V.pickle.gz" Component_="EUCH.pickle.gz" FileName="UNIJIS~8.GZ|UniJIS-UTF32-V.pickle.gz" Attributes="0" SourcePath="..\git\CPSC6177-Project-Team2\dist\SmartClassPlanner\_internal\pdfminer\cmap\UniJIS-UTF32-V.pickle.gz" SelfReg="false"/>
+    <ROW File="UniJISUTF8H.pickle.gz" Component_="EUCH.pickle.gz" FileName="UNIJIS~9.GZ|UniJIS-UTF8-H.pickle.gz" Attributes="0" SourcePath="..\git\CPSC6177-Project-Team2\dist\SmartClassPlanner\_internal\pdfminer\cmap\UniJIS-UTF8-H.pickle.gz" SelfReg="false"/>
+    <ROW File="UniJISUTF8V.pickle.gz" Component_="EUCH.pickle.gz" FileName="UNIJI~10.GZ|UniJIS-UTF8-V.pickle.gz" Attributes="0" SourcePath="..\git\CPSC6177-Project-Team2\dist\SmartClassPlanner\_internal\pdfminer\cmap\UniJIS-UTF8-V.pickle.gz" SelfReg="false"/>
+    <ROW File="UniJIS2004UTF16H.pickle.gz" Component_="EUCH.pickle.gz" FileName="UNIJI~11.GZ|UniJIS2004-UTF16-H.pickle.gz" Attributes="0" SourcePath="..\git\CPSC6177-Project-Team2\dist\SmartClassPlanner\_internal\pdfminer\cmap\UniJIS2004-UTF16-H.pickle.gz" SelfReg="false"/>
+    <ROW File="UniJIS2004UTF16V.pickle.gz" Component_="EUCH.pickle.gz" FileName="UNIJI~12.GZ|UniJIS2004-UTF16-V.pickle.gz" Attributes="0" SourcePath="..\git\CPSC6177-Project-Team2\dist\SmartClassPlanner\_internal\pdfminer\cmap\UniJIS2004-UTF16-V.pickle.gz" SelfReg="false"/>
+    <ROW File="UniJIS2004UTF32H.pickle.gz" Component_="EUCH.pickle.gz" FileName="UNIJI~13.GZ|UniJIS2004-UTF32-H.pickle.gz" Attributes="0" SourcePath="..\git\CPSC6177-Project-Team2\dist\SmartClassPlanner\_internal\pdfminer\cmap\UniJIS2004-UTF32-H.pickle.gz" SelfReg="false"/>
+    <ROW File="UniJIS2004UTF32V.pickle.gz" Component_="EUCH.pickle.gz" FileName="UNIJI~14.GZ|UniJIS2004-UTF32-V.pickle.gz" Attributes="0" SourcePath="..\git\CPSC6177-Project-Team2\dist\SmartClassPlanner\_internal\pdfminer\cmap\UniJIS2004-UTF32-V.pickle.gz" SelfReg="false"/>
+    <ROW File="UniJIS2004UTF8H.pickle.gz" Component_="EUCH.pickle.gz" FileName="UNIJI~15.GZ|UniJIS2004-UTF8-H.pickle.gz" Attributes="0" SourcePath="..\git\CPSC6177-Project-Team2\dist\SmartClassPlanner\_internal\pdfminer\cmap\UniJIS2004-UTF8-H.pickle.gz" SelfReg="false"/>
+    <ROW File="UniJIS2004UTF8V.pickle.gz" Component_="EUCH.pickle.gz" FileName="UNIJI~16.GZ|UniJIS2004-UTF8-V.pickle.gz" Attributes="0" SourcePath="..\git\CPSC6177-Project-Team2\dist\SmartClassPlanner\_internal\pdfminer\cmap\UniJIS2004-UTF8-V.pickle.gz" SelfReg="false"/>
+    <ROW File="UniJISX0213UTF32H.pickle.gz" Component_="EUCH.pickle.gz" FileName="UNIJI~17.GZ|UniJISX0213-UTF32-H.pickle.gz" Attributes="0" SourcePath="..\git\CPSC6177-Project-Team2\dist\SmartClassPlanner\_internal\pdfminer\cmap\UniJISX0213-UTF32-H.pickle.gz" SelfReg="false"/>
+    <ROW File="UniJISX0213UTF32V.pickle.gz" Component_="EUCH.pickle.gz" FileName="UNIJI~18.GZ|UniJISX0213-UTF32-V.pickle.gz" Attributes="0" SourcePath="..\git\CPSC6177-Project-Team2\dist\SmartClassPlanner\_internal\pdfminer\cmap\UniJISX0213-UTF32-V.pickle.gz" SelfReg="false"/>
+    <ROW File="UniJISX02132004UTF32H.pickle.gz" Component_="EUCH.pickle.gz" FileName="UNIJI~19.GZ|UniJISX02132004-UTF32-H.pickle.gz" Attributes="0" SourcePath="..\git\CPSC6177-Project-Team2\dist\SmartClassPlanner\_internal\pdfminer\cmap\UniJISX02132004-UTF32-H.pickle.gz" SelfReg="false"/>
+    <ROW File="UniJISX02132004UTF32V.pickle.gz" Component_="EUCH.pickle.gz" FileName="UNIJI~20.GZ|UniJISX02132004-UTF32-V.pickle.gz" Attributes="0" SourcePath="..\git\CPSC6177-Project-Team2\dist\SmartClassPlanner\_internal\pdfminer\cmap\UniJISX02132004-UTF32-V.pickle.gz" SelfReg="false"/>
+    <ROW File="UniKSUCS2H.pickle.gz" Component_="EUCH.pickle.gz" FileName="UNIKS-~1.GZ|UniKS-UCS2-H.pickle.gz" Attributes="0" SourcePath="..\git\CPSC6177-Project-Team2\dist\SmartClassPlanner\_internal\pdfminer\cmap\UniKS-UCS2-H.pickle.gz" SelfReg="false"/>
+    <ROW File="UniKSUCS2V.pickle.gz" Component_="EUCH.pickle.gz" FileName="UNIKS-~2.GZ|UniKS-UCS2-V.pickle.gz" Attributes="0" SourcePath="..\git\CPSC6177-Project-Team2\dist\SmartClassPlanner\_internal\pdfminer\cmap\UniKS-UCS2-V.pickle.gz" SelfReg="false"/>
+    <ROW File="UniKSUTF16H.pickle.gz" Component_="EUCH.pickle.gz" FileName="UNIKS-~3.GZ|UniKS-UTF16-H.pickle.gz" Attributes="0" SourcePath="..\git\CPSC6177-Project-Team2\dist\SmartClassPlanner\_internal\pdfminer\cmap\UniKS-UTF16-H.pickle.gz" SelfReg="false"/>
+    <ROW File="UniKSUTF16V.pickle.gz" Component_="EUCH.pickle.gz" FileName="UNIKS-~4.GZ|UniKS-UTF16-V.pickle.gz" Attributes="0" SourcePath="..\git\CPSC6177-Project-Team2\dist\SmartClassPlanner\_internal\pdfminer\cmap\UniKS-UTF16-V.pickle.gz" SelfReg="false"/>
+    <ROW File="UniKSUTF32H.pickle.gz" Component_="EUCH.pickle.gz" FileName="UNIKS-~5.GZ|UniKS-UTF32-H.pickle.gz" Attributes="0" SourcePath="..\git\CPSC6177-Project-Team2\dist\SmartClassPlanner\_internal\pdfminer\cmap\UniKS-UTF32-H.pickle.gz" SelfReg="false"/>
+    <ROW File="UniKSUTF32V.pickle.gz" Component_="EUCH.pickle.gz" FileName="UNIKS-~6.GZ|UniKS-UTF32-V.pickle.gz" Attributes="0" SourcePath="..\git\CPSC6177-Project-Team2\dist\SmartClassPlanner\_internal\pdfminer\cmap\UniKS-UTF32-V.pickle.gz" SelfReg="false"/>
+    <ROW File="UniKSUTF8H.pickle.gz" Component_="EUCH.pickle.gz" FileName="UNIKS-~7.GZ|UniKS-UTF8-H.pickle.gz" Attributes="0" SourcePath="..\git\CPSC6177-Project-Team2\dist\SmartClassPlanner\_internal\pdfminer\cmap\UniKS-UTF8-H.pickle.gz" SelfReg="false"/>
+    <ROW File="UniKSUTF8V.pickle.gz" Component_="EUCH.pickle.gz" FileName="UNIKS-~8.GZ|UniKS-UTF8-V.pickle.gz" Attributes="0" SourcePath="..\git\CPSC6177-Project-Team2\dist\SmartClassPlanner\_internal\pdfminer\cmap\UniKS-UTF8-V.pickle.gz" SelfReg="false"/>
+    <ROW File="V.pickle.gz_1" Component_="EUCH.pickle.gz" FileName="VPICKL~1.GZ|V.pickle.gz" Attributes="0" SourcePath="..\git\CPSC6177-Project-Team2\dist\SmartClassPlanner\_internal\pdfminer\cmap\V.pickle.gz" SelfReg="false"/>
+    <ROW File="WPSymbolH.pickle.gz" Component_="EUCH.pickle.gz" FileName="WP-SYM~1.GZ|WP-Symbol-H.pickle.gz" Attributes="0" SourcePath="..\git\CPSC6177-Project-Team2\dist\SmartClassPlanner\_internal\pdfminer\cmap\WP-Symbol-H.pickle.gz" SelfReg="false"/>
+    <ROW File="WPSymbolV.pickle.gz" Component_="EUCH.pickle.gz" FileName="WP-SYM~2.GZ|WP-Symbol-V.pickle.gz" Attributes="0" SourcePath="..\git\CPSC6177-Project-Team2\dist\SmartClassPlanner\_internal\pdfminer\cmap\WP-Symbol-V.pickle.gz" SelfReg="false"/>
+    <ROW File="py.typed_1" Component_="py.typed" FileName="PY~1.TYP|py.typed" Attributes="0" SourcePath="..\git\CPSC6177-Project-Team2\dist\SmartClassPlanner\_internal\pdfminer\py.typed" SelfReg="false"/>
+    <ROW File="pyexpat.pyd" Component_="base_library.zip" FileName="pyexpat.pyd" Attributes="0" SourcePath="..\git\CPSC6177-Project-Team2\dist\SmartClassPlanner\_internal\pyexpat.pyd" SelfReg="false"/>
+    <ROW File="python3.dll" Component_="python3.dll" FileName="python3.dll" Attributes="0" SourcePath="..\git\CPSC6177-Project-Team2\dist\SmartClassPlanner\_internal\python3.dll" SelfReg="false"/>
+    <ROW File="python311.dll" Component_="python311.dll" FileName="PYTHON~1.DLL|python311.dll" Attributes="0" SourcePath="..\git\CPSC6177-Project-Team2\dist\SmartClassPlanner\_internal\python311.dll" SelfReg="false"/>
+    <ROW File="select.pyd" Component_="base_library.zip" FileName="select.pyd" Attributes="0" SourcePath="..\git\CPSC6177-Project-Team2\dist\SmartClassPlanner\_internal\select.pyd" SelfReg="false"/>
+    <ROW File="ucrtbase.dll" Component_="ucrtbase.dll" FileName="ucrtbase.dll" Attributes="0" SourcePath="..\git\CPSC6177-Project-Team2\dist\SmartClassPlanner\_internal\ucrtbase.dll" SelfReg="false"/>
+    <ROW File="unicodedata.pyd" Component_="base_library.zip" FileName="UNICOD~1.PYD|unicodedata.pyd" Attributes="0" SourcePath="..\git\CPSC6177-Project-Team2\dist\SmartClassPlanner\_internal\unicodedata.pyd" SelfReg="false"/>
+    <ROW File="VCRUNTIME140.dll" Component_="VCRUNTIME140.dll" FileName="VCRUNT~1.DLL|VCRUNTIME140.dll" Attributes="0" SourcePath="..\git\CPSC6177-Project-Team2\dist\SmartClassPlanner\_internal\VCRUNTIME140.dll" SelfReg="false"/>
+    <ROW File="_asyncio.pyd" Component_="base_library.zip" FileName="_asyncio.pyd" Attributes="0" SourcePath="..\git\CPSC6177-Project-Team2\dist\SmartClassPlanner\_internal\_asyncio.pyd" SelfReg="false"/>
+    <ROW File="_bz2.pyd" Component_="base_library.zip" FileName="_bz2.pyd" Attributes="0" SourcePath="..\git\CPSC6177-Project-Team2\dist\SmartClassPlanner\_internal\_bz2.pyd" SelfReg="false"/>
+    <ROW File="_cffi_backend.cp311win_amd64.pyd" Component_="base_library.zip" FileName="_CFFI_~1.PYD|_cffi_backend.cp311-win_amd64.pyd" Attributes="0" SourcePath="..\git\CPSC6177-Project-Team2\dist\SmartClassPlanner\_internal\_cffi_backend.cp311-win_amd64.pyd" SelfReg="false"/>
+    <ROW File="_ctypes.pyd" Component_="base_library.zip" FileName="_ctypes.pyd" Attributes="0" SourcePath="..\git\CPSC6177-Project-Team2\dist\SmartClassPlanner\_internal\_ctypes.pyd" SelfReg="false"/>
+    <ROW File="_decimal.pyd" Component_="base_library.zip" FileName="_decimal.pyd" Attributes="0" SourcePath="..\git\CPSC6177-Project-Team2\dist\SmartClassPlanner\_internal\_decimal.pyd" SelfReg="false"/>
+    <ROW File="_hashlib.pyd" Component_="base_library.zip" FileName="_hashlib.pyd" Attributes="0" SourcePath="..\git\CPSC6177-Project-Team2\dist\SmartClassPlanner\_internal\_hashlib.pyd" SelfReg="false"/>
+    <ROW File="_lzma.pyd" Component_="base_library.zip" FileName="_lzma.pyd" Attributes="0" SourcePath="..\git\CPSC6177-Project-Team2\dist\SmartClassPlanner\_internal\_lzma.pyd" SelfReg="false"/>
+    <ROW File="_multiprocessing.pyd" Component_="base_library.zip" FileName="_MULTI~1.PYD|_multiprocessing.pyd" Attributes="0" SourcePath="..\git\CPSC6177-Project-Team2\dist\SmartClassPlanner\_internal\_multiprocessing.pyd" SelfReg="false"/>
+    <ROW File="_overlapped.pyd" Component_="base_library.zip" FileName="_OVERL~1.PYD|_overlapped.pyd" Attributes="0" SourcePath="..\git\CPSC6177-Project-Team2\dist\SmartClassPlanner\_internal\_overlapped.pyd" SelfReg="false"/>
+    <ROW File="_queue.pyd" Component_="base_library.zip" FileName="_queue.pyd" Attributes="0" SourcePath="..\git\CPSC6177-Project-Team2\dist\SmartClassPlanner\_internal\_queue.pyd" SelfReg="false"/>
+    <ROW File="_socket.pyd" Component_="base_library.zip" FileName="_socket.pyd" Attributes="0" SourcePath="..\git\CPSC6177-Project-Team2\dist\SmartClassPlanner\_internal\_socket.pyd" SelfReg="false"/>
+    <ROW File="_ssl.pyd" Component_="base_library.zip" FileName="_ssl.pyd" Attributes="0" SourcePath="..\git\CPSC6177-Project-Team2\dist\SmartClassPlanner\_internal\_ssl.pyd" SelfReg="false"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.BootstrOptComponent">
+    <ROW BootstrOptKey="GlobalOptions" DownloadFolder="[AppDataFolder][|Manufacturer]\[|ProductName]\prerequisites" Options="2"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.BuildComponent">
+    <ROW BuildKey="DefaultBuild" BuildName="DefaultBuild" BuildOrder="1" BuildType="0" Languages="en" InstallationType="4" UseLargeSchema="true"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.DictionaryComponent">
+    <ROW Path="&lt;AI_DICTS&gt;ui.ail"/>
+    <ROW Path="&lt;AI_DICTS&gt;ui_en.ail"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.FragmentComponent">
+    <ROW Fragment="CommonUI.aip" Path="&lt;AI_FRAGS&gt;CommonUI.aip"/>
+    <ROW Fragment="FolderDlg.aip" Path="&lt;AI_THEMES&gt;classic\fragments\FolderDlg.aip"/>
+    <ROW Fragment="MaintenanceTypeDlg.aip" Path="&lt;AI_THEMES&gt;classic\fragments\MaintenanceTypeDlg.aip"/>
+    <ROW Fragment="MaintenanceWelcomeDlg.aip" Path="&lt;AI_THEMES&gt;classic\fragments\MaintenanceWelcomeDlg.aip"/>
+    <ROW Fragment="SequenceDialogs.aip" Path="&lt;AI_THEMES&gt;classic\fragments\SequenceDialogs.aip"/>
+    <ROW Fragment="Sequences.aip" Path="&lt;AI_FRAGS&gt;Sequences.aip"/>
+    <ROW Fragment="StaticUIStrings.aip" Path="&lt;AI_FRAGS&gt;StaticUIStrings.aip"/>
+    <ROW Fragment="Themes.aip" Path="&lt;AI_FRAGS&gt;Themes.aip"/>
+    <ROW Fragment="UI.aip" Path="&lt;AI_THEMES&gt;classic\fragments\UI.aip"/>
+    <ROW Fragment="Validation.aip" Path="&lt;AI_FRAGS&gt;Validation.aip"/>
+    <ROW Fragment="VerifyRemoveDlg.aip" Path="&lt;AI_THEMES&gt;classic\fragments\VerifyRemoveDlg.aip"/>
+    <ROW Fragment="VerifyRepairDlg.aip" Path="&lt;AI_THEMES&gt;classic\fragments\VerifyRepairDlg.aip"/>
+    <ROW Fragment="WelcomeDlg.aip" Path="&lt;AI_THEMES&gt;classic\fragments\WelcomeDlg.aip"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiBinaryComponent">
+    <ROW Name="aicustact.dll" SourcePath="&lt;AI_CUSTACTS&gt;aicustact.dll"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiControlEventComponent">
+    <ROW Dialog_="WelcomeDlg" Control_="Next" Event="NewDialog" Argument="FolderDlg" Condition="AI_INSTALL" Ordering="1"/>
+    <ROW Dialog_="FolderDlg" Control_="Next" Event="NewDialog" Argument="VerifyReadyDlg" Condition="AI_INSTALL" Ordering="201"/>
+    <ROW Dialog_="FolderDlg" Control_="Back" Event="NewDialog" Argument="WelcomeDlg" Condition="AI_INSTALL" Ordering="1"/>
+    <ROW Dialog_="MaintenanceWelcomeDlg" Control_="Next" Event="NewDialog" Argument="MaintenanceTypeDlg" Condition="AI_MAINT" Ordering="99"/>
+    <ROW Dialog_="VerifyReadyDlg" Control_="Install" Event="EndDialog" Argument="Return" Condition="AI_MAINT" Ordering="198"/>
+    <ROW Dialog_="VerifyReadyDlg" Control_="Back" Event="NewDialog" Argument="CustomizeDlg" Condition="AI_MAINT" Ordering="202"/>
+    <ROW Dialog_="VerifyReadyDlg" Control_="Install" Event="EndDialog" Argument="Return" Condition="AI_INSTALL" Ordering="197"/>
+    <ROW Dialog_="VerifyReadyDlg" Control_="Back" Event="NewDialog" Argument="FolderDlg" Condition="AI_INSTALL" Ordering="201"/>
+    <ROW Dialog_="CustomizeDlg" Control_="Next" Event="NewDialog" Argument="VerifyReadyDlg" Condition="AI_MAINT" Ordering="101"/>
+    <ROW Dialog_="CustomizeDlg" Control_="Back" Event="NewDialog" Argument="MaintenanceTypeDlg" Condition="AI_MAINT" Ordering="1"/>
+    <ROW Dialog_="MaintenanceTypeDlg" Control_="ChangeButton" Event="NewDialog" Argument="CustomizeDlg" Condition="AI_MAINT" Ordering="501"/>
+    <ROW Dialog_="MaintenanceTypeDlg" Control_="Back" Event="NewDialog" Argument="MaintenanceWelcomeDlg" Condition="AI_MAINT" Ordering="1"/>
+    <ROW Dialog_="MaintenanceTypeDlg" Control_="RemoveButton" Event="NewDialog" Argument="VerifyRemoveDlg" Condition="AI_MAINT AND InstallMode=&quot;Remove&quot;" Ordering="601"/>
+    <ROW Dialog_="VerifyRemoveDlg" Control_="Back" Event="NewDialog" Argument="MaintenanceTypeDlg" Condition="AI_MAINT AND InstallMode=&quot;Remove&quot;" Ordering="1"/>
+    <ROW Dialog_="MaintenanceTypeDlg" Control_="RepairButton" Event="NewDialog" Argument="VerifyRepairDlg" Condition="AI_MAINT AND InstallMode=&quot;Repair&quot;" Ordering="601"/>
+    <ROW Dialog_="VerifyRepairDlg" Control_="Back" Event="NewDialog" Argument="MaintenanceTypeDlg" Condition="AI_MAINT AND InstallMode=&quot;Repair&quot;" Ordering="1"/>
+    <ROW Dialog_="VerifyRepairDlg" Control_="Repair" Event="EndDialog" Argument="Return" Condition="AI_MAINT AND InstallMode=&quot;Repair&quot;" Ordering="399" Options="1"/>
+    <ROW Dialog_="VerifyRemoveDlg" Control_="Remove" Event="EndDialog" Argument="Return" Condition="AI_MAINT AND InstallMode=&quot;Remove&quot;" Ordering="299" Options="1"/>
+    <ROW Dialog_="PatchWelcomeDlg" Control_="Next" Event="NewDialog" Argument="VerifyReadyDlg" Condition="AI_PATCH" Ordering="201"/>
+    <ROW Dialog_="ResumeDlg" Control_="Install" Event="EndDialog" Argument="Return" Condition="AI_RESUME" Ordering="299"/>
+    <ROW Dialog_="VerifyReadyDlg" Control_="Install" Event="EndDialog" Argument="Return" Condition="AI_PATCH" Ordering="199"/>
+    <ROW Dialog_="VerifyReadyDlg" Control_="Back" Event="NewDialog" Argument="PatchWelcomeDlg" Condition="AI_PATCH" Ordering="203"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiCreateFolderComponent">
+    <ROW Directory_="APPDIR" Component_="APPDIR" ManualDelete="true"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiCustActComponent">
+    <ROW Action="AI_DOWNGRADE" Type="19" Target="4010"/>
+    <ROW Action="AI_DpiContentScale" Type="1" Source="aicustact.dll" Target="DpiContentScale"/>
+    <ROW Action="AI_EnableDebugLog" Type="321" Source="aicustact.dll" Target="EnableDebugLog"/>
+    <ROW Action="AI_InstallModeCheck" Type="1" Source="aicustact.dll" Target="UpdateInstallMode" WithoutSeq="true"/>
+    <ROW Action="AI_PREPARE_UPGRADE" Type="65" Source="aicustact.dll" Target="PrepareUpgrade"/>
+    <ROW Action="AI_PRESERVE_INSTALL_TYPE" Type="65" Source="aicustact.dll" Target="PreserveInstallType"/>
+    <ROW Action="AI_RESTORE_LOCATION" Type="65" Source="aicustact.dll" Target="RestoreLocation"/>
+    <ROW Action="AI_ResolveKnownFolders" Type="1" Source="aicustact.dll" Target="AI_ResolveKnownFolders"/>
+    <ROW Action="AI_SHOW_LOG" Type="65" Source="aicustact.dll" Target="LaunchLogFile" WithoutSeq="true"/>
+    <ROW Action="AI_STORE_LOCATION" Type="51" Source="ARPINSTALLLOCATION" Target="[APPDIR]"/>
+    <ROW Action="SET_APPDIR" Type="307" Source="APPDIR" Target="[ProgramFilesFolder][Manufacturer]\[ProductName]"/>
+    <ROW Action="SET_SHORTCUTDIR" Type="307" Source="SHORTCUTDIR" Target="[ProgramMenuFolder][ProductName]"/>
+    <ROW Action="SET_TARGETDIR_TO_APPDIR" Type="51" Source="TARGETDIR" Target="[APPDIR]"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiEnvComponent">
+    <ROW Environment="Path" Name="=Path" Value="[~];[AppDataFolder]/[ProductName]" Component_="ProductInformation"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiFeatCompsComponent">
+    <ROW Feature_="MainFeature" Component_="APPDIR"/>
+    <ROW Feature_="MainFeature" Component_="ProductInformation"/>
+    <ROW Feature_="MainFeature" Component_="SmartClassPlanner.exe"/>
+    <ROW Feature_="MainFeature" Component_="apimswincoreconsolel110.dll"/>
+    <ROW Feature_="MainFeature" Component_="apimswincoredatetimel110.dll"/>
+    <ROW Feature_="MainFeature" Component_="apimswincoredebugl110.dll"/>
+    <ROW Feature_="MainFeature" Component_="apimswincoreerrorhandlingl110.dll"/>
+    <ROW Feature_="MainFeature" Component_="apimswincorefibersl110.dll"/>
+    <ROW Feature_="MainFeature" Component_="apimswincorefilel110.dll"/>
+    <ROW Feature_="MainFeature" Component_="apimswincorefilel120.dll"/>
+    <ROW Feature_="MainFeature" Component_="apimswincorefilel210.dll"/>
+    <ROW Feature_="MainFeature" Component_="apimswincorehandlel110.dll"/>
+    <ROW Feature_="MainFeature" Component_="apimswincoreheapl110.dll"/>
+    <ROW Feature_="MainFeature" Component_="apimswincoreinterlockedl110.dll"/>
+    <ROW Feature_="MainFeature" Component_="apimswincorelibraryloaderl110.dll"/>
+    <ROW Feature_="MainFeature" Component_="apimswincorelocalizationl120.dll"/>
+    <ROW Feature_="MainFeature" Component_="apimswincorememoryl110.dll"/>
+    <ROW Feature_="MainFeature" Component_="apimswincorenamedpipel110.dll"/>
+    <ROW Feature_="MainFeature" Component_="apimswincoreprocessenvironmentl110.dll"/>
+    <ROW Feature_="MainFeature" Component_="apimswincoreprocessthreadsl110.dll"/>
+    <ROW Feature_="MainFeature" Component_="apimswincoreprocessthreadsl111.dll"/>
+    <ROW Feature_="MainFeature" Component_="apimswincoreprofilel110.dll"/>
+    <ROW Feature_="MainFeature" Component_="apimswincorertlsupportl110.dll"/>
+    <ROW Feature_="MainFeature" Component_="apimswincorestringl110.dll"/>
+    <ROW Feature_="MainFeature" Component_="apimswincoresynchl110.dll"/>
+    <ROW Feature_="MainFeature" Component_="apimswincoresynchl120.dll"/>
+    <ROW Feature_="MainFeature" Component_="apimswincoresysinfol110.dll"/>
+    <ROW Feature_="MainFeature" Component_="apimswincoretimezonel110.dll"/>
+    <ROW Feature_="MainFeature" Component_="apimswincoreutill110.dll"/>
+    <ROW Feature_="MainFeature" Component_="apimswincrtconiol110.dll"/>
+    <ROW Feature_="MainFeature" Component_="apimswincrtconvertl110.dll"/>
+    <ROW Feature_="MainFeature" Component_="apimswincrtenvironmentl110.dll"/>
+    <ROW Feature_="MainFeature" Component_="apimswincrtfilesysteml110.dll"/>
+    <ROW Feature_="MainFeature" Component_="apimswincrtheapl110.dll"/>
+    <ROW Feature_="MainFeature" Component_="apimswincrtlocalel110.dll"/>
+    <ROW Feature_="MainFeature" Component_="apimswincrtmathl110.dll"/>
+    <ROW Feature_="MainFeature" Component_="apimswincrtprocessl110.dll"/>
+    <ROW Feature_="MainFeature" Component_="apimswincrtruntimel110.dll"/>
+    <ROW Feature_="MainFeature" Component_="apimswincrtstdiol110.dll"/>
+    <ROW Feature_="MainFeature" Component_="apimswincrtstringl110.dll"/>
+    <ROW Feature_="MainFeature" Component_="apimswincrttimel110.dll"/>
+    <ROW Feature_="MainFeature" Component_="apimswincrtutilityl110.dll"/>
+    <ROW Feature_="MainFeature" Component_="base_library.zip"/>
+    <ROW Feature_="MainFeature" Component_="cacert.pem"/>
+    <ROW Feature_="MainFeature" Component_="md.cp311win_amd64.pyd"/>
+    <ROW Feature_="MainFeature" Component_="_rust.pyd"/>
+    <ROW Feature_="MainFeature" Component_="INSTALLER"/>
+    <ROW Feature_="MainFeature" Component_="class_schedule.json"/>
+    <ROW Feature_="MainFeature" Component_="libcrypto3.dll"/>
+    <ROW Feature_="MainFeature" Component_="libffi8.dll"/>
+    <ROW Feature_="MainFeature" Component_="libssl3.dll"/>
+    <ROW Feature_="MainFeature" Component_="EUCH.pickle.gz"/>
+    <ROW Feature_="MainFeature" Component_="py.typed"/>
+    <ROW Feature_="MainFeature" Component_="python3.dll"/>
+    <ROW Feature_="MainFeature" Component_="python311.dll"/>
+    <ROW Feature_="MainFeature" Component_="ucrtbase.dll"/>
+    <ROW Feature_="MainFeature" Component_="VCRUNTIME140.dll"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiInstExSeqComponent">
+    <ROW Action="AI_DOWNGRADE" Condition="AI_NEWERPRODUCTFOUND AND (UILevel &lt;&gt; 5)" Sequence="210"/>
+    <ROW Action="AI_RESTORE_LOCATION" Condition="APPDIR=&quot;&quot;" Sequence="749"/>
+    <ROW Action="AI_STORE_LOCATION" Condition="(Not Installed) OR REINSTALL" Sequence="1501"/>
+    <ROW Action="AI_PREPARE_UPGRADE" Condition="AI_UPGRADE=&quot;No&quot; AND (Not Installed)" Sequence="1399"/>
+    <ROW Action="AI_ResolveKnownFolders" Sequence="52"/>
+    <ROW Action="AI_EnableDebugLog" Sequence="51"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiInstallUISequenceComponent">
+    <ROW Action="AI_PRESERVE_INSTALL_TYPE" Sequence="199"/>
+    <ROW Action="AI_RESTORE_LOCATION" Condition="APPDIR=&quot;&quot;" Sequence="749"/>
+    <ROW Action="AI_ResolveKnownFolders" Sequence="53"/>
+    <ROW Action="AI_DpiContentScale" Sequence="52"/>
+    <ROW Action="AI_EnableDebugLog" Sequence="51"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiLaunchConditionsComponent">
+    <ROW Condition="((VersionNT &lt;&gt; 501) AND (VersionNT &lt;&gt; 502))" Description="[ProductName] cannot be installed on [WindowsTypeNT5XDisplay]." DescriptionLocId="AI.LaunchCondition.NoNT5X" IsPredefined="true" Builds="DefaultBuild"/>
+    <ROW Condition="(VersionNT &lt;&gt; 400)" Description="[ProductName] cannot be installed on [WindowsTypeNT40Display]." DescriptionLocId="AI.LaunchCondition.NoNT40" IsPredefined="true" Builds="DefaultBuild"/>
+    <ROW Condition="(VersionNT &lt;&gt; 500)" Description="[ProductName] cannot be installed on [WindowsTypeNT50Display]." DescriptionLocId="AI.LaunchCondition.NoNT50" IsPredefined="true" Builds="DefaultBuild"/>
+    <ROW Condition="VersionNT" Description="[ProductName] cannot be installed on [WindowsType9XDisplay]." DescriptionLocId="AI.LaunchCondition.No9X" IsPredefined="true" Builds="DefaultBuild"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiRegsComponent">
+    <ROW Registry="Manufacturer" Root="-1" Key="Software\[Manufacturer]" Name="\"/>
+    <ROW Registry="Path" Root="-1" Key="Software\[Manufacturer]\[ProductName]" Name="Path" Value="[APPDIR]" Component_="ProductInformation"/>
+    <ROW Registry="ProductName" Root="-1" Key="Software\[Manufacturer]\[ProductName]" Name="\"/>
+    <ROW Registry="Software" Root="-1" Key="Software" Name="\"/>
+    <ROW Registry="Version" Root="-1" Key="Software\[Manufacturer]\[ProductName]" Name="Version" Value="[ProductVersion]" Component_="ProductInformation"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiThemeComponent">
+    <ATTRIBUTE name="UsedTheme" value="classic"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiUpgradeComponent">
+    <ROW UpgradeCode="[|UpgradeCode]" VersionMin="0.0.1" VersionMax="[|ProductVersion]" Attributes="257" ActionProperty="OLDPRODUCTS"/>
+    <ROW UpgradeCode="[|UpgradeCode]" VersionMin="[|ProductVersion]" Attributes="2" ActionProperty="AI_NEWERPRODUCTFOUND"/>
+  </COMPONENT>
+</DOCUMENT>
