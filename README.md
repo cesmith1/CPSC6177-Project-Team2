@@ -16,7 +16,7 @@ and data files in order to create an accurate estimate of which classes a studen
 - Git installed on your local machine to do your commits and pushes from local
 
 > [!IMPORTANT]
-> In order to build or execute the application, python 3.11 or later should be installed on the host machine.
+> In order to build or execute the application, Python 3.11 or later should be installed on the host machine.
 > Package manager *pip* is used to manage dependencies. 
 > *requirements.txt* in project root directory contains all required packages. 
 > Run ```pip install -r requirements.txt``` to install them before running the application. 
